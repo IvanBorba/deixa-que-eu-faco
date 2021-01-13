@@ -1,11 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
+import "./style/style.css";
 import { Link } from "react-router-dom";
-import { Background } from "./styled";
+import {
+  Main,
+  Box,
+  BoxContent,
+  Pelicula,
+  Options,
+  Footer,
+} from "./style/styled";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 
 const Login = () => {
+  const [switchOn, setSwitchOn] = useState(true);
+
+  const handleChange = (e) => {
+    setSwitchOn(!switchOn);
+  };
+
+  console.log("Value Switch: ", switchOn);
+
   return (
     <>
-      <Background></Background>
+      <Main>
+        <aside></aside>
+        <div className="background">
+          <Pelicula>
+            <Options>
+              <Link className="links" to="/">
+                VOLTAR
+              </Link>
+              <Link className="links" to="/">
+                CADASTRE-SE
+              </Link>
+            </Options>
+            <Box>
+              <BoxContent>
+                <h2>LOGIN</h2>
+                <form>
+                  <TextField
+                    required
+                    label="Login"
+                    variant="outlined"
+                    className="input"
+                  />
+                  <TextField
+                    required
+                    label="Password"
+                    variant="outlined"
+                    className="input"
+                  />
+                  <FormControlLabel
+                    className="switch"
+                    control={
+                      <Switch checked={switchOn} onChange={handleChange} />
+                    }
+                    label="Você é nosso Chef?"
+                  />
+                  <button>ENTRAR</button>
+                </form>
+              </BoxContent>
+            </Box>
+            <Footer>
+              DEIXA QUE EU FAÇO
+              <p> &#169; Todos os direitos reservados</p>
+            </Footer>
+          </Pelicula>
+        </div>
+      </Main>
     </>
   );
 };
