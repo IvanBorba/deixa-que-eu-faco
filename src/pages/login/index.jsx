@@ -12,16 +12,30 @@ import {
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-// import axios from "axios";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const Login = () => {
+  const { register, handleSubmit } = useForm();
   const [switchOn, setSwitchOn] = useState(true);
+  const url = "https://api-deixa-que-eu-faco.herokuapp.com/login";
 
   const handleChange = (e) => {
     setSwitchOn(!switchOn);
   };
 
-  console.log("Value Switch: ", switchOn);
+  // console.log("Value Switch: ", switchOn);
+
+  const handleLogin = (data) => {
+    console.log("Data: ", data);
+    axios
+      .post(url, data)
+      .then((res) => {
+        console.log("Token: ", res.data.accessToken);
+        window.localStorage.setItem("authToken", res.data.accessToken);
+      })
+      .catch((err) => console.log("login ou senha incorretos"));
+  };
 
   return (
     <>
@@ -38,15 +52,17 @@ const Login = () => {
               </Link>
             </Options>
             <Box>
+              <img src="img/logo.png" alt="Logo" />
               <BoxContent>
                 <h2>LOGIN</h2>
-                <form onSubmit={""}>
+                <form onSubmit={handleSubmit(handleLogin)}>
                   <TextField
                     required
-                    label="Login"
+                    label="Email"
                     variant="outlined"
                     className="input"
-                    name="login"
+                    name="email"
+                    inputRef={register}
                   />
                   <TextField
                     required
@@ -54,13 +70,16 @@ const Login = () => {
                     variant="outlined"
                     className="input"
                     name="password"
+                    inputRef={register}
                   />
                   <FormControlLabel
                     className="switch"
+                    name="isChef"
                     control={
                       <Switch checked={switchOn} onChange={handleChange} />
                     }
                     label="Você é nosso Chef?"
+                    inputRef={register}
                   />
                   <button type="submit">ENTRAR</button>
                 </form>

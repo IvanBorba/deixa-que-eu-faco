@@ -38,7 +38,7 @@ export const BoxContent = styled.div`
   }
 
   .input {
-    margin: 5px 25px;
+    margin: 8px 25px;
   }
 
   .switch {
@@ -61,7 +61,7 @@ export const BoxContent = styled.div`
     width: 330px;
 
     .input {
-      margin: 5px 50px;
+      margin: 8px 50px;
     }
 
     .switch {
