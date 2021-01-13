@@ -2,8 +2,10 @@ import { CardContainer, StarRate, ButtonProfile } from "./styles";
 // import { useHistory } from "react-router-dom";
 
 const CardChef = ({ currentChef }) => {
+  // const history = useHistory()
   const handleClick = () => {
     console.log(currentChef.id);
+    // history.push("/chef/currentChef.id")
   };
   return (
     <CardContainer>
