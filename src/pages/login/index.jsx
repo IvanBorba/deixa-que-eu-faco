@@ -12,6 +12,7 @@ import {
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+// import axios from "axios";
 
 const Login = () => {
   const [switchOn, setSwitchOn] = useState(true);
@@ -39,18 +40,20 @@ const Login = () => {
             <Box>
               <BoxContent>
                 <h2>LOGIN</h2>
-                <form>
+                <form onSubmit={""}>
                   <TextField
                     required
                     label="Login"
                     variant="outlined"
                     className="input"
+                    name="login"
                   />
                   <TextField
                     required
                     label="Password"
                     variant="outlined"
                     className="input"
+                    name="password"
                   />
                   <FormControlLabel
                     className="switch"
@@ -59,7 +62,7 @@ const Login = () => {
                     }
                     label="Você é nosso Chef?"
                   />
-                  <button>ENTRAR</button>
+                  <button type="submit">ENTRAR</button>
                 </form>
               </BoxContent>
             </Box>
