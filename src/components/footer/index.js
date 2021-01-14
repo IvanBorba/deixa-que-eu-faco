@@ -1,4 +1,5 @@
-import { Div, UpperFooter, LowerFooter, ContactPage } from "./styles";
+import Logo from "../logo";
+import { Div, UpperFooter, LowerFooter, AboutPage } from "./styles";
 
 const Footer = () => {
   return (
@@ -7,13 +8,13 @@ const Footer = () => {
         <img
           src={process.env.PUBLIC_URL + "/logo.png"}
           style={{
-            width: "3em",
             position: "absolute",
             top: "1em",
-            left: "calc(50% - 1.5em)"
+            left: "calc(50% - 1.5em)",
+            width: "3em"
           }}
         />
-        <ContactPage href="#">CONTATO</ContactPage>
+        <AboutPage href="#">SOBRE NÓS</AboutPage>
       </UpperFooter>
       <LowerFooter />
     </Div>

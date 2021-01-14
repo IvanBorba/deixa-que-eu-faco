@@ -24,7 +24,7 @@ export const LowerFooter = styled.footer`
   width: 100%;
 `;
 
-export const ContactPage = styled.a`
+export const AboutPage = styled.a`
   align-self: center;
   color: #9e5642;
   position: absolute;
