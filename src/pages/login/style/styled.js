@@ -21,6 +21,13 @@ export const Box = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: center;
+
+  img {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top: 40px;
+  }
 `;
 
 export const BoxContent = styled.div`

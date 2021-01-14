@@ -13,6 +13,7 @@ import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { useForm } from "react-hook-form";
+import Logo from "../../images/logo/logo.png";
 import axios from "axios";
 
 const Login = () => {
@@ -48,11 +49,11 @@ const Login = () => {
                 VOLTAR
               </Link>
               <Link className="links" to="/">
-                CADASTRE-SE
+                CADASTRE
               </Link>
             </Options>
             <Box>
-              <img src="img/logo.png" alt="Logo" />
+              <img src={Logo} alt="Logo" />
               <BoxContent>
                 <h2>LOGIN</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
