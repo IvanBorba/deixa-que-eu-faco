@@ -20,7 +20,7 @@ export const LowerFooter = styled.footer`
   display: flex;
   flex-direction: row;
   height: 6em;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -31,4 +31,16 @@ export const AboutPage = styled.a`
   right: 2em;
   text-decoration: none;
   top: 2em;
+`;
+
+export const SocialLogo = styled.img`
+  width: 1.5em;
+  margin: 1em;
+`;
+
+export const ContactInfo = styled.address`
+  color: #f5e0cc;
+  font-style: normal;
+  text-align: right;
+  padding-right: 1em;
 `;
