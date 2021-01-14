@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Main, HeaderTemp, Card, Services, FooterTemp } from "./style/style";
+import { Main, Card, Services } from "./style/style";
 
 const ChefProfile = () => {
   const servicos = [
@@ -33,7 +33,6 @@ const ChefProfile = () => {
   return (
     <>
       <Main>
-        <HeaderTemp />
         <Card>
           <p>AVALIAÇÕES: 4.5 / 5.0</p>
           <p>SERVIÇOS REALIZADOS: 6</p>

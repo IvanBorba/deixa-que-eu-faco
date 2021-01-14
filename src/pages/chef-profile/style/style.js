@@ -14,13 +14,6 @@ export const Main = styled.main`
   }
 `;
 
-export const HeaderTemp = styled.div`
-  height: 12vh;
-  width: 100vw;
-  margin-bottom: 70px;
-  background: #d6b8b0;
-`;
-
 export const Card = styled.div`
   background: #f5e0cc;
   padding: 10px;
@@ -45,10 +38,4 @@ export const Services = styled.div`
   width: 250px;
   margin: 20px auto;
   background: #404832;
-`;
-
-export const FooterTemp = styled.div`
-  height: 12vh;
-  width: 100vw;
-  background: #9e5642;
 `;

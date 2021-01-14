@@ -20,15 +20,27 @@ export const LowerFooter = styled.footer`
   display: flex;
   flex-direction: row;
   height: 6em;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 `;
 
-export const ContactPage = styled.a`
+export const AboutPage = styled.a`
   align-self: center;
   color: #9e5642;
   position: absolute;
   right: 2em;
   text-decoration: none;
   top: 2em;
+`;
+
+export const SocialLogo = styled.img`
+  width: 1.5em;
+  margin-left: 2em;
+`;
+
+export const ContactInfo = styled.address`
+  color: #f5e0cc;
+  font-style: normal;
+  text-align: right;
+  padding-right: 2em;
 `;
