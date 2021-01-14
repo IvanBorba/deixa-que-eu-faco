@@ -3,8 +3,7 @@ import Router from "./router";
 
 const App = () => {
   return (
-    <div>
-      <h1>Deixa que eu faço</h1>
+    <div className="App">
       <Router />
     </div>
   );
