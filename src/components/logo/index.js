@@ -1,5 +1,5 @@
-const Logo = ({ width }) => {
-  return <img src={process.env.PUBLIC_URL + "/logo.png"} style={{ width }} />;
+const Logo = () => {
+  return <img src={process.env.PUBLIC_URL + "/logo.png"} />;
 };
 
 export default Logo;
