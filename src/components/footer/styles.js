@@ -35,12 +35,12 @@ export const AboutPage = styled.a`
 
 export const SocialLogo = styled.img`
   width: 1.5em;
-  margin: 1em;
+  margin-left: 2em;
 `;
 
 export const ContactInfo = styled.address`
   color: #f5e0cc;
   font-style: normal;
   text-align: right;
-  padding-right: 1em;
+  padding-right: 2em;
 `;
