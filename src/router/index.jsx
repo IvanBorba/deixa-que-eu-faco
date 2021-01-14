@@ -1,5 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import Login from "../pages/login";
+import ChefProfile from "../pages/chef-profile";
 
 const Router = () => {
   return (
@@ -7,6 +8,9 @@ const Router = () => {
       <Route exact path="/"></Route>
       <Route path="/login">
         <Login />
+      </Route>
+      <Route path="/chef-profile">
+        <ChefProfile />
       </Route>
     </Switch>
   );
