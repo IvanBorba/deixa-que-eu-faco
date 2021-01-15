@@ -18,27 +18,27 @@ const Router = () => {
 
   return (
     <Switch>
-      {!token ? (
-        <>
-          <Route exact path="/">
-            {/* <Home/> */}
-          </Route>
-          <Route path="/register">
-            <RegisterPage />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/chefs">
-            <ChefsList />
-          </Route>
-          <Route path="/view-chef/:id">
-            <ViewChef />
-          </Route>
-        </>
-      ) : (
-        <></>
-      )}
+      {/* {!token ? ( */}
+      <>
+        <Route exact path="/">
+          {/* <Home/> */}
+        </Route>
+        <Route path="/register">
+          <RegisterPage />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/chefs">
+          <ChefsList />
+        </Route>
+        <Route path="/view-chef/:id">
+          <ViewChef />
+        </Route>
+      </>
+      {/* ) : ( */}
+      <></>
+      {/* )} */}
     </Switch>
   );
 };
