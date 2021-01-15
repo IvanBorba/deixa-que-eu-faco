@@ -20,7 +20,7 @@ const Login = () => {
   const [switchOn, setSwitchOn] = useState(true);
   const url = "https://api-deixa-que-eu-faco.herokuapp.com/login";
 
-  const handleChange = (e) => {
+  const handleChange = () => {
     setSwitchOn(!switchOn);
   };
 
@@ -34,13 +34,12 @@ const Login = () => {
         console.log("Token: ", res.data.accessToken);
         window.localStorage.setItem("authToken", res.data.accessToken);
       })
-      .catch((err) => console.log("login ou senha incorretos"));
+      .catch(() => console.log("login ou senha incorretos"));
   };
 
   return (
     <>
       <Main>
-        <aside></aside>
         <div className="background">
           <Pelicula>
             <Options>
