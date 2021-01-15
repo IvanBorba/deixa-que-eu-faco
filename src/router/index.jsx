@@ -1,13 +1,20 @@
+import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import RegisterForm from "../components/forms/chef-register-form";
-import { useHistory } from "react-router-dom";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
+import { getUsersThunk } from "../store/modules/users/thunk";
+import { useSelector, useDispatch } from "react-redux";
 
 const Router = () => {
-  const history = useHistory();
   let token = localStorage.getItem("authToken");
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+
+  useEffect(() => {
+    dispatch(getUsersThunk());
+  }, [dispatch]);
 
   return (
     <Switch>
