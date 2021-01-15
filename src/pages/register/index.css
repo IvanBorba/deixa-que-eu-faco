@@ -27,16 +27,84 @@
         justify-content: space-around;
         transition: 1s;
     }
+        .formStyle {
+            position: relative;
+            top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 1s;
+        }
+        .formStyleChef {
+            position: relative;
+            top: -20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 1s;
+        }
+        .chefExpertiseFalse {
+            background: white;
+            border-radius: 5px;
+            opacity: 0;
+            transition: 1s;
+            position: relative;
+            bottom: -40px;
+            width: 100%;
+        }
+        .chefExpertiseTrue {
+            background: white;
+            border-radius: 5px;
+            opacity: 1;
+            transition: 1s;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .chefExperienceFalse {
+            background: white;
+            border-radius: 5px;
+            opacity: 0;
+            transition: 1s;
+            position: relative;
+            bottom: -100px;
+            width: 100%;
+        }
+        .chefExperienceTrue {
+            background: white;
+            border-radius: 5px;
+            opacity: 1;
+            transition: 1s;
+            position: relative;
+            bottom: -5px;
+            width: 100%;
+        }
+        .buttonsChefFalse {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            transition: 1s;
+            position: relative;
+            bottom: 120px;
+        }
+        .buttonsChefTrue {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            transition: 1s;
+            position: relative;
+            bottom: -10px;
+        }
     .theFormChef {
-        background: rgba(245,224, 204, 0.8);
-        border-radius: 7px;
-        height: 500px;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        transition: 1s;
+    background: rgba(245,224, 204, 0.8);
+    border-radius: 7px;
+    height: 500px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: 1s;
     }
     .registerLogo {
         width: 80px;

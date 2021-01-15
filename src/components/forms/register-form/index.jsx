@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: 8,
         width: "100%",
-
     },
 }));
 
@@ -56,18 +55,21 @@ const ColorButton = withStyles((theme) => ({
 
 
 const RegisterForm = ({ chefRegister, setChefRegister }) => {
-    const classes = useStyles()
+    const classes = useStyles();
+
     const [options, setOption] = useState({
             expertise: '',
             experience: ''
-        })
+    });
+
     const changeEspeciality = (event) => {
         const name = event.target.name;
         setOption({
             ...options,
             [name]: event.target.value,
         });
-    }
+    };
+
     const changeExperienceTime = (event) => {
         const name = event.target.name;
         setOption({
@@ -87,13 +89,12 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(registerSchema),
     });
-    
+
     return (
         <form
             onSubmit={handleSubmit(registerRequisition)}
-            style={!chefRegister ? {position: "relative", top: 50, display: "flex", flexDirection: "column", alignItems: "center", transition: "1s"} : {position: "relative", top: -20, display: "flex", flexDirection: "column", alignItems: "center", transition: "1s"}}
+            className={!chefRegister ? "formStyle" : "formStyleChef"}
         >
-
             <CssTextField
                 className={classes.margin}
                 name="name"
@@ -140,9 +141,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
                 error={!!errors.password}
                 fullWidth
             />
-            <FormControl variant="outlined" className={classes.formControl}
-                         style={!chefRegister ? {background: "white", borderRadius: "5px", opacity: 0, transition: "1s", position: "relative", bottom: -10} : {background: "white", borderRadius: "5px", opacity: 1, transition: "1s", position: "relative", bottom: 0}}
-            >
+            <FormControl variant="outlined" className={!chefRegister ? "chefExpertiseFalse" : "chefExpertiseTrue"} >
                 <InputLabel
                     htmlFor="outlined-age-native-simple"
 
@@ -163,9 +162,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
                     <option value={"Vegano"}>Vegano</option>
                 </Select>
             </FormControl>
-            <FormControl variant="outlined" className={classes.formControl}
-                         style={!chefRegister ? {background: "white", borderRadius: "5px", opacity: 0, transition: "1s", position: "relative", bottom: -100} : {background: "white", borderRadius: "5px", opacity: 1, transition: "1s", position: "relative", bottom: 0}}
-            >
+            <FormControl variant="outlined" className={!chefRegister ? "chefExperienceFalse" : "chefExperienceTrue"}>
                 <InputLabel
                     htmlFor="outlined-age-native-simple"
 
@@ -186,12 +183,12 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
                     <option value={"+8 anos"}>+8 anos</option>
                 </Select>
             </FormControl>
-            <div style={!chefRegister ? {display: "flex", justifyContent: "space-between", width: "100%", transition: "1s", position: "relative", bottom: 130} : {display: "flex", justifyContent: "space-between", width: "100%", transition: "1s", position: "relative", bottom: 0}}>
+            <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
                 <ColorButton type="submit" style={{fontWeight: 700, fontSize: 11}}>cadastrar</ColorButton>
                 <ColorButton style={{fontWeight: 700, fontSize: 11}} onClick={() => setChefRegister(!chefRegister)}>{!chefRegister ? "SOU CHEF" : "SOU CLIENTE"}</ColorButton>
             </div>
         </form>
-    )
-}
+    );
+};
 
 export default RegisterForm;
