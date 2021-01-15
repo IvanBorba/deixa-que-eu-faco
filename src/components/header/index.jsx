@@ -1,18 +1,6 @@
-import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#9e5642",
-    },
-    secondary: {
-      main: "#ce8612",
-    },
-  },
-});
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,33 +41,27 @@ const Header = () => {
             alt="Logo Principal"
             className={classes.logo}
           />
-          <ThemeProvider theme={theme}>
-            {actualWidth > 425 && (
-              <Typography
-                color="primary"
-                variant="h5"
-                className={classes.title}
-              >
-                Deixa que eu faço
-              </Typography>
-            )}
-            <Button
-              color="secondary"
-              component={Link}
-              to="/register"
-              className={classes.link}
-            >
-              Cadastre-se
-            </Button>
-            <Button
-              color="primary"
-              component={Link}
-              to="/login"
-              className={classes.loginButton}
-            >
-              Login
-            </Button>
-          </ThemeProvider>
+          {actualWidth > 425 && (
+            <Typography color="primary" variant="h5" className={classes.title}>
+              Deixa que eu faço
+            </Typography>
+          )}
+          <Button
+            color="secondary"
+            component={Link}
+            to="/register"
+            className={classes.link}
+          >
+            Cadastre-se
+          </Button>
+          <Button
+            color="primary"
+            component={Link}
+            to="/login"
+            className={classes.loginButton}
+          >
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
