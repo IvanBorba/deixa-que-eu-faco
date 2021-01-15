@@ -1,23 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Main, Box, BoxContent, Film, Options, Footer } from "./styled";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
 import { useForm } from "react-hook-form";
 import Logo from "../../images/logo/logo.png";
 import axios from "axios";
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const [switchOn, setSwitchOn] = useState(true);
   const url = "https://api-deixa-que-eu-faco.herokuapp.com/login";
-
-  const handleChange = () => {
-    setSwitchOn(!switchOn);
-  };
-
-  // console.log("Value Switch: ", switchOn);
 
   const handleLogin = (data) => {
     console.log("Data: ", data);
@@ -33,14 +24,13 @@ const Login = () => {
   return (
     <>
       <Main>
-        <aside></aside>
         <div className="background">
           <Film>
             <Options>
               <Link className="links" to="/">
                 VOLTAR
               </Link>
-              <Link className="links" to="/">
+              <Link className="links" to="/register">
                 CADASTRE
               </Link>
             </Options>
