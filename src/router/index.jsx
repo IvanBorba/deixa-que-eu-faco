@@ -6,22 +6,32 @@ import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
 
 const Router = () => {
-  const history = useHistory(); // Só pra testar a página de cadastro
+  const history = useHistory();
+  let token = localStorage.getItem("authToken");
+
   return (
     <Switch>
-      <Route exact path="/">
-        <ChefsList />
-        <button onClick={() => history.push("/register")}>Teste</button>
-      </Route>
-      <Route path="/register">
-        <RegisterForm />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/view-chef/:id">
-        <ViewChef />
-      </Route>
+      {!token ? (
+        <>
+          <Route exact path="/">
+            {/* <Home/> */}
+          </Route>
+          <Route path="/register">
+            <RegisterForm />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/chefs">
+            <ChefsList />
+          </Route>
+          <Route path="/view-chef/:id">
+            <ViewChef />
+          </Route>
+        </>
+      ) : (
+        <></>
+      )}
     </Switch>
   );
 };
