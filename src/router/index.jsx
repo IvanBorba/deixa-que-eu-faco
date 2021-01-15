@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import RegisterForm from "../components/forms/chef-register-form";
+import RegisterPage from "../pages/register";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
@@ -24,7 +24,7 @@ const Router = () => {
             {/* <Home/> */}
           </Route>
           <Route path="/register">
-            <RegisterForm />
+            <RegisterPage />
           </Route>
           <Route path="/login">
             <Login />

@@ -19,6 +19,8 @@ export const Main = styled.main`
       background-image: url(${backgroundFoods});
       height: 100vh;
       width: 67vw;
+      background-position-x: center;
+      background-size: cover;
     }
   }
 `;
@@ -27,7 +29,7 @@ export const Film = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.6);
-
+  
   @media (min-width: 1024px) {
     height: 100vh;
     width: 60vw;
