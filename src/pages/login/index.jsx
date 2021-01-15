@@ -1,29 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Main, Box, BoxContent, Film, Options, Footer } from "./styled";
-import TextField from "@material-ui/core/TextField";
-import { useForm } from "react-hook-form";
 import Logo from "../../images/logo/logo.png";
-import axios from "axios";
+
+import LoginForm from "../../components/forms/login-form";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const url = "https://api-deixa-que-eu-faco.herokuapp.com/login";
-
-  const handleLogin = (data) => {
-    console.log("Data: ", data);
-    axios
-      .post(url, data)
-      .then((res) => {
-        console.log("Token: ", res.data.accessToken);
-        window.localStorage.setItem("authToken", res.data.accessToken);
-      })
-      .catch(() => console.log("login ou senha incorretos"));
-  };
 
   return (
     <>
       <Main>
+        <aside />
         <div className="background">
           <Film>
             <Options>
@@ -38,34 +25,7 @@ const Login = () => {
               <img src={Logo} alt="Logo" />
               <BoxContent>
                 <h2>LOGIN</h2>
-                <form onSubmit={handleSubmit(handleLogin)}>
-                  <TextField
-                    required
-                    label="Email"
-                    variant="outlined"
-                    className="input"
-                    name="email"
-                    inputRef={register}
-                  />
-                  <TextField
-                    required
-                    label="Password"
-                    variant="outlined"
-                    className="input"
-                    name="password"
-                    inputRef={register}
-                  />
-                  {/* <FormControlLabel
-                    className="switch"
-                    name="isChef"
-                    control={
-                      <Switch checked={switchOn} onChange={handleChange} />
-                    }
-                    label="Você é nosso Chef?"
-                    inputRef={register}
-                  /> */}
-                  <button type="submit">ENTRAR</button>
-                </form>
+                <LoginForm />
               </BoxContent>
             </Box>
             <Footer>

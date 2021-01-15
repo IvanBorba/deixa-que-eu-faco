@@ -1,10 +1,25 @@
 import React, {useEffect, useState} from "react";
-import {Button, FormControl, InputLabel, Select, TextField} from "@material-ui/core";
+import {Button, FormControl, InputLabel, Select, TextField, Switch, FormControlLabel} from "@material-ui/core";
 import {makeStyles, withStyles} from "@material-ui/core/styles";
 import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../../helper";
-import { RegisterPost } from "../../../requisitions/register";
+import { RegisterPost } from "../../../requisitions";
+import { useHistory } from "react-router-dom";
+
+const PurpleSwitch = withStyles({
+    switchBase: {
+        color: "#9E5642",
+        '&$checked': {
+            color: "#9E5642",
+        },
+        '&$checked + $track': {
+            backgroundColor: "#9E5642",
+        },
+    },
+    checked: {},
+    track: {},
+})(Switch);
 
 const CssTextField = withStyles({
     root: {
@@ -56,6 +71,7 @@ const ColorButton = withStyles((theme) => ({
 
 const RegisterForm = ({ chefRegister, setChefRegister }) => {
     const classes = useStyles();
+    const history = useHistory();
 
     const [options, setOption] = useState({
             expertise: '',
@@ -84,6 +100,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
 
     const registerRequisition = (data) => {
         RegisterPost(data, chefRegister, options)
+        history.push("/login")
     };
 
     const { register, handleSubmit, errors } = useForm({
@@ -184,8 +201,12 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
                 </Select>
             </FormControl>
             <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
-                <ColorButton type="submit" style={{fontWeight: 700, fontSize: 11}}>cadastrar</ColorButton>
-                <ColorButton style={{fontWeight: 700, fontSize: 11}} onClick={() => setChefRegister(!chefRegister)}>{!chefRegister ? "SOU CHEF" : "SOU CLIENTE"}</ColorButton>
+                <ColorButton type="submit" style={{fontWeight: 700, fontSize: 11}} >cadastrar</ColorButton>
+                <FormControlLabel
+                    style={{color: "#9E5642"}}
+                    control={<PurpleSwitch checked={chefRegister} onChange={() => setChefRegister(!chefRegister)} name="checkedA" />}
+                    label={!chefRegister ? "Sou chefe" : "Sou cliente"}
+                />
             </div>
         </form>
     );
