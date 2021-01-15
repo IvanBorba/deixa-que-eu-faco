@@ -10,9 +10,9 @@ const App = () => {
 
   return (
     <div className="App">
-      {(location.pathname === "/" && <Header />) || (token && <Header />)}
+      {/* {(location.pathname === "/" && <Header />) || (token && <Header />)} */}
       <Router />
-      {(location.pathname === "/" && <Footer />) || (token && <Footer />)}
+      {/* {(location.pathname === "/" && <Footer />) || (token && <Footer />)} */}
     </div>
   );
 };
