@@ -1,4 +1,12 @@
-import { Div, UpperFooter, LowerFooter, ContactPage } from "./styles";
+import Logo from "../logo";
+import {
+  Div,
+  UpperFooter,
+  LowerFooter,
+  AboutPage,
+  SocialLogo,
+  ContactInfo
+} from "./styles";
 
 const Footer = () => {
   return (
@@ -7,15 +15,25 @@ const Footer = () => {
         <img
           src={process.env.PUBLIC_URL + "/logo.png"}
           style={{
-            width: "3em",
             position: "absolute",
             top: "1em",
-            left: "calc(50% - 1.5em)"
+            left: "calc(50% - 1.5em)",
+            width: "3em"
           }}
         />
-        <ContactPage href="#">CONTATO</ContactPage>
+        <AboutPage href="#">SOBRE NÓS</AboutPage>
       </UpperFooter>
-      <LowerFooter />
+      <LowerFooter>
+        <div>
+          <SocialLogo src={process.env.PUBLIC_URL + "/instagram.svg"} />
+          <SocialLogo src={process.env.PUBLIC_URL + "/linkedin.svg"} />
+          <SocialLogo src={process.env.PUBLIC_URL + "/spotify.svg"} />
+        </div>
+        <ContactInfo>
+          <p>(00) 0000-0000</p>
+          <p>contato@deixaqueeufaco.com</p>
+        </ContactInfo>
+      </LowerFooter>
     </Div>
   );
 };

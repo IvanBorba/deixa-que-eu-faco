@@ -1,11 +1,11 @@
-import { CardContainer, StarRate, ButtonProfile } from "./styles";
-// import { useHistory } from "react-router-dom";
+import { CardContainer, ButtonProfile } from "./styles";
+import { useHistory } from "react-router-dom";
+import Rating from "@material-ui/lab/Rating";
 
 const CardChef = ({ currentChef }) => {
-  // const history = useHistory()
+  const history = useHistory();
   const handleClick = () => {
-    console.log(currentChef.id);
-    // history.push("/chef/currentChef.id")
+    history.push(`/view-chef/${currentChef.id}`);
   };
   return (
     <CardContainer>
@@ -27,11 +27,15 @@ const CardChef = ({ currentChef }) => {
         </p>
         <div id="infos-footer" className="infos-chef">
           <div className="rate-chef">
-            <StarRate />
-            <StarRate />
-            <StarRate />
-            <StarRate />
-            <StarRate />
+            <div>
+              <Rating
+                defaultValue={
+                  currentChef.rate.reduce((acc, current) => acc + current) / 4
+                }
+                precision={0.5}
+                readOnly
+              />
+            </div>
           </div>
           <ButtonProfile onClick={handleClick} variant="outlined">
             ver

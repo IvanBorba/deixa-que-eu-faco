@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import StarIcon from "@material-ui/icons/Star";
 import Button from "@material-ui/core/Button";
 
 export const CardContainer = styled.div`
@@ -106,8 +105,4 @@ export const ButtonProfile = styled(Button)`
     height: 30px;
     width: 90px;
   }
-`;
-
-export const StarRate = styled(StarIcon)`
-  color: #ffd500;
 `;
