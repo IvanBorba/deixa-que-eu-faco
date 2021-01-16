@@ -1,8 +1,18 @@
 .App {
     height: 100vh;
 }
+.pageBox {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.desktopImage {
+    display: none;
+}
 .registerBox {
     height: 100%;
+    width: 100%;
     background-image: url("../../images/register/registerImage.jpg");
     background-position-x: center;
     background-size: cover;
@@ -10,6 +20,7 @@
 }
 .registerBoxCheff {
     height: 100%;
+    width: 100%;
     background-image: url("../../images/register/cheff.jpeg");
     background-position-x: center;
     background-size: cover;
@@ -39,6 +50,19 @@
         align-items: center;
         justify-content: space-around;
         transition: 1s;
+        max-width: 332px;
+    }
+    .theFormChef {
+        background: rgba(245,224, 204, 0.8);
+        border-radius: 7px;
+        height: 500px;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transition: 1s;
+        max-width: 332px;
     }
         .formStyle {
             position: relative;
@@ -110,17 +134,6 @@
             position: relative;
             bottom: -10px;
         }
-    .theFormChef {
-    background: rgba(245,224, 204, 0.8);
-    border-radius: 7px;
-    height: 500px;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    transition: 1s;
-    }
     .registerLogo {
         width: 80px;
         height: 80px;
@@ -146,3 +159,28 @@
         bottom: 0;
         width: 100%;
     }
+
+@media (min-width: 1024px) {
+    .registerBox {
+        background-image: none;
+        background-position-x: center;
+        background-size: cover;
+        transition: 1s;
+    }
+    .registerBoxCheff {
+        background-image: none;
+        background-position-x: center;
+        background-size: cover;
+        transition: 1s;
+    }
+    .Film {
+        background: transparent;
+    }
+    .desktopImage {
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        width: 40%;
+        transition: 1s;
+    }
+}
