@@ -4,7 +4,16 @@
 .registerBox {
     height: 100%;
     background-image: url("../../images/register/registerImage.jpg");
-    background-attachment: fixed;
+    background-position-x: center;
+    background-size: cover;
+    transition: 1s;
+}
+.registerBoxCheff {
+    height: 100%;
+    background-image: url("../../images/register/cheff.jpeg");
+    background-position-x: center;
+    background-size: cover;
+    transition: 1s;
 }
     .Film {
         display: flex;
@@ -13,8 +22,6 @@
         justify-content: space-between;
         height: 100%;
         width: 100%;
-        background-attachment: fixed;
-        overflow: hidden;
         background-color: rgba(255, 255, 255, 0.3)
     }
     .topButtons {

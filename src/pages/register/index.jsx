@@ -10,7 +10,7 @@ const RegisterPage = () => {
 
     const history = useHistory();
     return (
-        <div className="registerBox">
+        <div className={!chefRegister ? "registerBox" : "registerBoxCheff"}>
             <div className="Film">
                 <div className="topButtons" >
                     <Button style={{color: "#9E5642"}} onClick={() => history.push("/")}>VOLTAR</Button>
