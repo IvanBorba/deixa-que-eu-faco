@@ -4,8 +4,6 @@ import "./index.css";
 import logo from "../../images/logo/logo.png";
 import RegisterForm from "../../components/forms/register-form";
 import { useHistory } from "react-router-dom";
-import customerImage from "../../images/register/registerImage.jpg";
-import cheffImage from "../../images/register/cheff.jpeg";
 
 const RegisterPage = () => {
     const [chefRegister, setChefRegister] = useState(false);
