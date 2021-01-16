@@ -13,27 +13,51 @@ export const Container = styled.div`
     }
   }
   #hire {
-    text-align: end;
-    width: 90vw;
+    width: 95vw;
     margin: 0 auto;
+    text-align: end;
+  }
+  @media (min-width: 760px) {
+    #hire {
+      width: 90vw;
+    }
   }
 `;
 
 export const BioContainer = styled.div`
-  height: 270px;
-  width: 90vw;
-  margin: 25px auto;
+  height: 230px;
+  width: 95vw;
+  margin: 15px auto;
 
   .title-bio {
-    margin: 25px 0;
+    margin: 15px 0;
+    font-size: 18px;
   }
   .box-text {
     height: 180px;
-    width: 80%;
     background-color: #f5e0cc88;
     border-radius: 7px;
     .text {
-      padding: 25px;
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 760px) {
+    height: 270px;
+    margin: 25px auto;
+    width: 90vw;
+
+    .title-bio {
+      margin: 25px 0;
+      font-size: 30px;
+    }
+    .box-text {
+      height: 200px;
+      .text {
+        padding: 25px;
+        font-size: 18px;
+      }
     }
   }
 `;

@@ -12,9 +12,9 @@ const ViewProfile = ({ currentChef }) => {
           <ChefAvatar src={currentChef.image} alt={currentChef.name} />
         )}
         <div id="infos-chef">
-          <h1>{currentChef.name}</h1>
-          <p>{currentChef.experience} de experiência</p>
-          <p>Especialidade: {currentChef.expertise}</p>
+          <h1 className="name-chef">{currentChef.name}</h1>
+          <p className="about-chef">{currentChef.experience} de experiência</p>
+          <p className="about-chef">Especialidade: {currentChef.expertise}</p>
           <div>
             <Rating
               defaultValue={

@@ -1,20 +1,13 @@
 import ViewProfile from "../../components/view-profile";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Container, BioContainer, ButtonProfile } from "./styles";
-import Footer from "../../components/footer";
 import Header from "../../components/header";
 
-const ViewChef = () => {
-  const { id } = useParams();
-  const [currentChef, setCurrentChef] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get(`https://api-deixa-que-eu-faco.herokuapp.com/users/${id}`)
-      .then((res) => setCurrentChef(res.data));
-  }, [id]);
+const ViewChef = ({ users }) => {
+  const { specific_id } = useParams();
+  const currentChef = users.find(({ id, isChef }) => {
+    return id === Number(specific_id) && isChef;
+  });
   return (
     <>
       <Header />

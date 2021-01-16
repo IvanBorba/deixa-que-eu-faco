@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
   bar: {
     backgroundColor: "#f5e0cc",
+    boxShadow: "none",
   },
   menuButton: {
     marginRight: theme.spacing(2),

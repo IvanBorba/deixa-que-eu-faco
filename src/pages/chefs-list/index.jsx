@@ -1,22 +1,16 @@
 import CardChef from "../../components/card-chef";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import Header from "../../components/header";
 
-const ChefList = () => {
-  const [allChefs, setAllChefs] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://api-deixa-que-eu-faco.herokuapp.com/users")
-      .then((res) => setAllChefs(res.data));
-  }, []);
+const ChefList = ({ users }) => {
   return (
-    <div>
-      {allChefs
+    <>
+      <Header />
+      {users
         .filter(({ isChef }) => isChef)
         .map((currentChef, index) => (
           <CardChef key={index} currentChef={currentChef} />
         ))}
-    </div>
+    </>
   );
 };
 
