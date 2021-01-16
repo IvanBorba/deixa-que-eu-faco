@@ -2,7 +2,7 @@ const usersReducer = (state = [], action) => {
   switch (action.type) {
     case "@ID/getUsers":
       const { users } = action;
-      return [...state, ...users];
+      return [...users];
 
     default:
       return state;
