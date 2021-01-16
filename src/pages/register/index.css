@@ -10,6 +10,9 @@
 .desktopImage {
     display: none;
 }
+.desktopImageChef {
+    display: none;
+}
 .registerBox {
     height: 100%;
     width: 100%;
@@ -177,10 +180,25 @@
         background: transparent;
     }
     .desktopImage {
+        background-image: url("../../images/register/registerImage.jpg");
+        background-position-x: center;
+        background-position-y: center;
+        background-size: cover;
         display: block;
         object-fit: cover;
         object-position: center;
-        width: 40%;
+        width: 70%;
+        transition: 1s;
+    }
+    .desktopImageChef {
+        background-image: url("../../images/register/cheff.jpeg");
+        background-position-x: center;
+        background-position-y: center;
+        background-size: cover;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        width: 70%;
         transition: 1s;
     }
 }

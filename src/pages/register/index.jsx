@@ -13,7 +13,7 @@ const RegisterPage = () => {
     const history = useHistory();
     return (
         <div className="pageBox">
-            <img src={!chefRegister ? customerImage : cheffImage} alt="" className="desktopImage"/>
+            <div className={!chefRegister ? "desktopImage" : "desktopImageChef"}/>
             <div className={!chefRegister ? "registerBox" : "registerBoxCheff"}>
                 <div className="Film">
                     <div className="topButtons" >
