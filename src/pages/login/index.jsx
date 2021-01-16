@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import "./style/style.css";
 import { Link } from "react-router-dom";
-import {
-  Main,
-  Box,
-  BoxContent,
-  Pelicula,
-  Options,
-  Footer,
-} from "./style/styled";
+import { Main, Box, BoxContent, Film, Options, Footer } from "./styled";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
@@ -41,8 +33,9 @@ const Login = () => {
   return (
     <>
       <Main>
+        <aside></aside>
         <div className="background">
-          <Pelicula>
+          <Film>
             <Options>
               <Link className="links" to="/">
                 VOLTAR
@@ -72,7 +65,7 @@ const Login = () => {
                     name="password"
                     inputRef={register}
                   />
-                  <FormControlLabel
+                  {/* <FormControlLabel
                     className="switch"
                     name="isChef"
                     control={
@@ -80,7 +73,7 @@ const Login = () => {
                     }
                     label="Você é nosso Chef?"
                     inputRef={register}
-                  />
+                  /> */}
                   <button type="submit">ENTRAR</button>
                 </form>
               </BoxContent>
@@ -89,7 +82,7 @@ const Login = () => {
               DEIXA QUE EU FAÇO
               <p> &#169; Todos os direitos reservados</p>
             </Footer>
-          </Pelicula>
+          </Film>
         </div>
       </Main>
     </>

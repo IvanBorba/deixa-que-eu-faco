@@ -1,10 +1,29 @@
 import styled from "styled-components";
+import backgroundFoods from "../../images/variascomidas.jpg";
 
 export const Main = styled.main`
   display: flex;
+
+  .background {
+    background-image: url(${backgroundFoods});
+    height: 100vh;
+    width: 100vw;
+  }
+
+  @media (min-width: 1024px) {
+    .background {
+      background: none;
+    }
+
+    aside {
+      background-image: url(${backgroundFoods});
+      height: 100vh;
+      width: 67vw;
+    }
+  }
 `;
 
-export const Pelicula = styled.div`
+export const Film = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.6);
