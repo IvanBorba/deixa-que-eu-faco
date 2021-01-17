@@ -12,7 +12,7 @@ const App = () => {
     <div className="App">
       {(location.pathname === "/" && <Header />) || (token && <Header />)}
       <Router />
-      {(location.pathname === "/" && <Footer />) || (token && <Footer />)}
+      {/* {(location.pathname === "/" && <Footer />) || (token && <Footer />)} */}
     </div>
   );
 };

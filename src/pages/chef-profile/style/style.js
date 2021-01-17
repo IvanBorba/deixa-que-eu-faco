@@ -2,15 +2,26 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   .saldo {
+    text-align: center;
+  }
+
+  .services {
     display: flex;
     flex-flow: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin: 100px auto;
-    height: 200px;
-    width: 250px;
-    background: rgba(245, 224, 204, 0.3);
+  }
+
+  .buttons {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      margin: 0 14vw 10px;
+      padding: 2px;
+      background: none;
+      border: none;
+    }
   }
 `;
 
@@ -31,11 +42,4 @@ export const Card = styled.div`
     border: none;
     color: #9e5642;
   }
-`;
-
-export const Services = styled.div`
-  padding: 10px;
-  width: 250px;
-  margin: 20px auto;
-  background: #404832;
 `;

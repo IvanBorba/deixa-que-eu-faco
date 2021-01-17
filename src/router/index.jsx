@@ -4,6 +4,7 @@ import RegisterPage from "../pages/register";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
+import ChefProfile from "../pages/chef-profile";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -18,10 +19,11 @@ const Router = () => {
 
   return (
     <Switch>
-      {!token ? (
+      {token ? (
         <>
           <Route exact path="/">
             {/* <Home/> */}
+            <ChefProfile />
           </Route>
           <Route path="/register">
             <RegisterPage />
