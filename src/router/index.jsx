@@ -30,10 +30,10 @@ const Router = () => {
             <Login />
           </Route>
           <Route path="/chefs">
-            <ChefsList />
+            <ChefsList users={users} />
           </Route>
-          <Route path="/view-chef/:id">
-            <ViewChef />
+          <Route path="/view-chef/:specific_id">
+            <ViewChef users={users} />
           </Route>
         </>
       ) : (
