@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
+  let actualUser = JSON.parse(localStorage.getItem("userData"));
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
 
@@ -18,6 +19,12 @@ const Router = () => {
 
   return (
     <Switch>
+      <Route path="/chefs">
+        <ChefsList users={users} />
+      </Route>
+      <Route path="/view-chef/:specific_id">
+        <ViewChef users={users} />
+      </Route>
       {!token ? (
         <>
           <Route exact path="/">
@@ -29,15 +36,25 @@ const Router = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/chefs">
-            <ChefsList users={users} />
+        </>
+      ) : actualUser.isChef ? (
+        <>
+          <Route exact path="/chef-home">
+            {/* <ChefHome/> */}
           </Route>
-          <Route path="/view-chef/:specific_id">
-            <ViewChef users={users} />
+          <Route exact path="/chef-settings">
+            {/* <ChefSetting/> */}
           </Route>
         </>
       ) : (
-        <></>
+        <>
+          <Route exact path="/costumer-home">
+            {/* <CostumerHome /> */}
+          </Route>
+          <Route exact path="/costumer-settings">
+            {/* <CostumerSetting/> */}
+          </Route>
+        </>
       )}
     </Switch>
   );
