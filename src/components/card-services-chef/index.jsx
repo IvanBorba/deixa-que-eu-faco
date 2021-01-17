@@ -14,15 +14,45 @@ const CardServicesChef = ({ card }) => {
         </header>
         {card.mart ? (
           <div>
-            <p>Details: {card.details}</p>
-            <footer>
-              {card.street}, {card.number}, {card.district}.
+            <p className="details">
+              <b>Detalhes:</b> {card.details}
+            </p>
+            <footer className="main">
+              <p>
+                {card.street}, {card.number}, {card.district}.
+              </p>
+              {card.status === "waiting" ? (
+                <div className="waiting">
+                  <button>RECUSAR</button>
+                  <button>ACEITAR</button>
+                </div>
+              ) : (
+                card.status === "accepted" && (
+                  <div>
+                    <button>FECHAR</button>
+                  </div>
+                )
+              )}
             </footer>
           </div>
         ) : (
-          <p>
-            {card.street}, {card.number}, {card.district}.
-          </p>
+          <div className="main">
+            <p>
+              {card.street}, {card.number}, {card.district}.
+            </p>
+            {card.status === "waiting" ? (
+              <div className="waiting">
+                <button>RECUSAR</button>
+                <button>ACEITAR</button>
+              </div>
+            ) : (
+              card.status === "accepted" && (
+                <div>
+                  <button>FECHAR</button>
+                </div>
+              )
+            )}
+          </div>
         )}
       </Card>
     </>

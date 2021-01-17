@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Main, Card, Services } from "./style/style";
+import React, { useState } from "react";
+import { Main, Card } from "./style/style";
 import CardServicesChef from "../../components/card-services-chef";
 
 const ChefProfile = () => {
   const [page, setPage] = useState(1);
-  const [option, setOption] = useState(undefined);
+  const [option, setOption] = useState(false);
+  const [listServices, setListServices] = useState([]);
+  const id = localStorage.getItem("userData");
+  console.log("ID: ", JSON.parse(id));
+  // Usar ternário com 'option' na requisição para filtrar status (EX: `${baseUrl}/services?_page=${page}&_limit=2&chefeId=${chefId}${option === undefined ? "finished" : option ? "accepted" : "waiting"}`)
   const services = [
     {
       name: "Filipe",
@@ -64,6 +68,7 @@ const ChefProfile = () => {
   ];
 
   const pages = () => {
+    // No lugar de services.legnth viria o res da API com a lista de objetos de services
     const totalServices = services.length;
     console.log("Total services: ", totalServices);
 
@@ -93,22 +98,26 @@ const ChefProfile = () => {
     }
   };
 
-  const allServices = services.filter((item) => item.status !== "rejected");
-  const handleAll = () => {
+  const servicesFinished = services.filter(
+    (item) => item.status === "finished"
+  );
+  const handleFinished = () => {
     setOption(undefined);
-    console.log(allServices);
+    console.log(servicesFinished);
   };
 
   const servicesWaiting = services.filter((item) => item.status === "waiting");
-  const handlePendencies = () => {
+  const handleWaiting = () => {
     setOption(false);
     console.log(servicesWaiting);
   };
 
-  const servicesOpen = services.filter((item) => item.status === "accepted");
-  const handleOpen = () => {
+  const servicesAccepted = services.filter(
+    (item) => item.status === "accepted"
+  );
+  const handleAccepted = () => {
     setOption(true);
-    console.log(servicesOpen);
+    console.log(servicesAccepted);
   };
 
   console.log("Total Pages: ", pages());
@@ -121,21 +130,21 @@ const ChefProfile = () => {
         <Card>
           <p>AVALIAÇÕES: 4.5 / 5.0</p>
           <p>SERVIÇOS REALIZADOS: 6</p>
-          <button onClick={handleAll}>visualização completa</button>
+          <button onClick={handleFinished}>visualizar</button>
         </Card>
         <Card>
           <p>SERVIÇOS PENDENTES: 2</p>
-          <button onClick={handlePendencies}>visualizar</button>
+          <button onClick={handleWaiting}>visualizar</button>
           <p>SERVIÇOS AGENDADOS: {services.length}</p>
-          <button onClick={handleOpen}>visualizar</button>
+          <button onClick={handleAccepted}>visualizar</button>
         </Card>
         <div className="services">
           {option === undefined
-            ? allServices.map((item, index) => {
+            ? servicesFinished.map((item, index) => {
                 return <CardServicesChef key={index} card={item} />;
               })
             : option
-            ? servicesOpen.map((item, index) => {
+            ? servicesAccepted.map((item, index) => {
                 return <CardServicesChef key={index} card={item} />;
               })
             : servicesWaiting.map((item, index) => {
