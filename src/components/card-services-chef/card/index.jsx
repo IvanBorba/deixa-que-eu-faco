@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "./style";
-import Logo from "../../images/logo/logo.png";
+import Logo from "../../../images/logo/logo.png";
 
 const CardServicesChef = ({ card }) => {
   return (
@@ -8,7 +8,7 @@ const CardServicesChef = ({ card }) => {
       <Card>
         <header>
           <img src={Logo} alt="Logo" />
-          <p>{card.name}</p>
+          <p>{card.clientName}</p>
           <p>{card.date}</p>
           <p>{card.status}</p>
         </header>
@@ -29,7 +29,7 @@ const CardServicesChef = ({ card }) => {
               ) : (
                 card.status === "accepted" && (
                   <div>
-                    <button>FECHAR</button>
+                    <button>FINALIZAR</button>
                   </div>
                 )
               )}
@@ -48,7 +48,7 @@ const CardServicesChef = ({ card }) => {
             ) : (
               card.status === "accepted" && (
                 <div>
-                  <button>FECHAR</button>
+                  <button>FINALIZAR</button>
                 </div>
               )
             )}

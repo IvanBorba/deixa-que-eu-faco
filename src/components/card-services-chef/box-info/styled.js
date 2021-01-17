@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
-  .saldo {
-    text-align: center;
-  }
-`;
-
 export const Card = styled.div`
   background: #f5e0cc;
   padding: 10px;
