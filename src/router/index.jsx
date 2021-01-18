@@ -23,6 +23,9 @@ const Router = () => {
 
   return (
     <Switch>
+      <Route exact path="/">
+        <HomePage />
+      </Route>
       <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
@@ -31,9 +34,6 @@ const Router = () => {
       </Route>
       {!token ? (
         <>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
           <Route path="/register">
             <RegisterPage />
           </Route>
