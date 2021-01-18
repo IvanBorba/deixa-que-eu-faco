@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  bottom: 0;
+  clear: both;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   width: 100vw;
 `;
 
