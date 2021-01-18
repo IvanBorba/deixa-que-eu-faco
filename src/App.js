@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div className="App">
       <Router />
+      {/* {(location.pathname === "/" && <Footer />) || (token && <Footer />)} */}
     </div>
   );
 };

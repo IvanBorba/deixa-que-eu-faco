@@ -21,13 +21,7 @@ const Router = () => {
 
   return (
     <Switch>
-      <Route path="/chefs">
-        <ChefsList users={users} />
-      </Route>
-      <Route path="/view-chef/:specific_id">
-        <ViewChef users={users} />
-      </Route>
-      {!token ? (
+      {token ? (
         <>
           <Route exact path="/">
             <HomePage />
