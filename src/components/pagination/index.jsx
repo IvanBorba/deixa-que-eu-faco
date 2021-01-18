@@ -40,13 +40,11 @@ const Pagination = ({ list, page, setPage }) => {
 
   return (
     <Box>
-      {list.length > 2 && (
-        <div className="buttons">
-          <button onClick={handlePrevious}>ANTERIOR</button>
-          <span>{page}</span>
-          <button onClick={handleNext}>PRÓXIMO</button>
-        </div>
-      )}
+      <div className="buttons">
+        <button onClick={handlePrevious}>ANTERIOR</button>
+        <span>{page}</span>
+        <button onClick={handleNext}>PRÓXIMO</button>
+      </div>
     </Box>
   );
 };

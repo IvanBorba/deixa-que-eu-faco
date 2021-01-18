@@ -15,12 +15,8 @@ const ChefHome = () => {
   const dispatch = useDispatch();
   const services = useSelector((state) => state.chefServices);
 
-  const handleServices = (p, o) => {
-    dispatch(getChefServicesThunk(p, o));
-  };
-
   useEffect(() => {
-    handleServices(page, option);
+    dispatch(getChefServicesThunk(page, option));
   }, [option, page]);
 
   console.log("Services: ", services);

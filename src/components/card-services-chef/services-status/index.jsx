@@ -9,7 +9,7 @@ const Services = ({ list, option }) => {
 
   return (
     <Box>
-      {option === "finished"
+      {/* {option === "finished"
         ? servicesFinished.map((item, index) => {
             return <CardServicesChef key={index} card={item} />;
           })
@@ -20,7 +20,10 @@ const Services = ({ list, option }) => {
         : option === "waiting" &&
           servicesWaiting.map((item, index) => {
             return <CardServicesChef key={index} card={item} />;
-          })}
+          })} */}
+      {list.map((item, index) => {
+        return <CardServicesChef key={index} card={item} />;
+      })}
     </Box>
   );
 };
