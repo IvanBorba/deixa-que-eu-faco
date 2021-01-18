@@ -143,7 +143,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
                 margin="dense"
                 style={{background: "white", borderRadius: "5px"}}
                 inputRef={register}
-                error={!!errors.brith_date}
+                error={!!errors.birth_date}
                 fullWidth
             />
             <CssTextField

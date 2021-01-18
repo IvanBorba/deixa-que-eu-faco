@@ -1,8 +1,14 @@
 import axios from "axios";
 
 const baseUrl = "https://api-deixa-que-eu-faco.herokuapp.com";
+const token = localStorage.getItem("authToken");
+const headers = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
 
-export const LoginRequisition = (data, users) => {
+export const LoginRequisition = (data, users, history) => {
   axios
     .post(`${baseUrl}/login`, data)
     .then((res) => {
@@ -12,7 +18,10 @@ export const LoginRequisition = (data, users) => {
       });
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
-      console.log("login efetuado com sucesso");
+      let historyUser = JSON.parse(localStorage.getItem("userData"));
+      historyUser.isChef
+        ? history.push("/chef-home")
+        : history.push("/costumer-home");
     })
     .catch(() => console.log("login ou senha incorretos"));
 };
@@ -29,4 +38,25 @@ export const RegisterPost = (data, chefRegister, options) => {
   axios
     .post(`${baseUrl}/register`, data)
     .then((res) => console.log("login efetuado com sucesso"));
+};
+
+export const registerService = (data) => {
+  axios
+    .post(`${baseUrl}/services`, data, headers)
+    .then((res) => console.log(res, "Serviço cadastrado com sucesso"))
+    .catch((err) => console.log(err, "Erro no cadastro do produto"));
+};
+
+export const updateService = (data, serviceId) => {
+  axios
+    .patch(`${baseUrl}/services/${serviceId}`, data, headers)
+    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .catch((err) => console.log(err, "Erro na atualização do produto"));
+};
+
+export const deleteService = (serviceId) => {
+  axios
+    .delete(`${baseUrl}/services/${serviceId}`, headers)
+    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .catch((err) => console.log(err, "Erro na atualização do produto"));
 };

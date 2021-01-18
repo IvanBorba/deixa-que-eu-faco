@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 
 export const CardContainer = styled.div`
-  margin: 15px auto;
+  margin: 15px 0;
   height: 80px;
   width: 95vw;
   background-color: #fcf5ee;
