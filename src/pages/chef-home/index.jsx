@@ -3,6 +3,8 @@ import { Main } from "./style/style";
 import BoxInfo from "../../components/card-services-chef/box-info";
 import Services from "../../components/card-services-chef/services-status";
 import Pagination from "../../components/pagination";
+import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const ChefHome = () => {
   const [page, setPage] = useState(1);
@@ -81,12 +83,14 @@ const ChefHome = () => {
 
   return (
     <>
+      <Header />
       <Main>
         <p className="saldo">Saldo: R$100,00</p>
         <BoxInfo list={services} setOption={setOption} />
         <Services list={services} option={option} />
         <Pagination list={services} page={page} setPage={setPage} />
       </Main>
+      <Footer />
     </>
   );
 };
