@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Main, Box, BoxContent, Film, Options, Footer } from "./styled";
 import Logo from "../../images/logo/logo.png";
-
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import { Button } from "@material-ui/core";
 import LoginForm from "../../components/forms/login-form";
 
 const Login = () => {
+  const history = useHistory();
   return (
     <>
       <Main>
@@ -13,22 +16,30 @@ const Login = () => {
         <div className="background">
           <Film>
             <Options>
-              <Link className="links" to="/">
-                VOLTAR
-              </Link>
-              <Link className="links" to="/register">
-                CADASTRE-SE
-              </Link>
+              <Button
+                style={{ color: "#9E5642", textTransform: "uppercase" }}
+                onClick={() => history.push("/")}
+              >
+                {" "}
+                <ArrowBackIcon /> Voltar
+              </Button>
+              <Button
+                style={{ color: "#9E5642", textTransform: "uppercase" }}
+                onClick={() => history.push("/register")}
+              >
+                Cadastre-se &nbsp;
+                <AssignmentIcon />
+              </Button>
             </Options>
             <Box>
               <img src={Logo} alt="Logo" />
               <BoxContent>
-                <h2>LOGIN</h2>
+                <h2 style={{ textTransform: "uppercase" }}>Login</h2>
                 <LoginForm />
               </BoxContent>
             </Box>
-            <Footer>
-              DEIXA QUE EU FAÇO
+            <Footer style={{ textTransform: "uppercase" }}>
+              Deixa que eu faço
               <p> &#169; Todos os direitos reservados</p>
             </Footer>
           </Film>

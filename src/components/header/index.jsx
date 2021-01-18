@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
   loginButton: {
     marginLeft: "2vw",
     marginRight: "2vw",
+    [theme.breakpoints.down(281)]: { marginLeft: 0 },
   },
   title: {
     marginLeft: 0,
