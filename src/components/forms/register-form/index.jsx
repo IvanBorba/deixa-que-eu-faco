@@ -184,8 +184,13 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         >
           <option aria-label="None" value="" />
           <option value={"Churrasco"}>Churrasco</option>
-          <option value={"Sushi"}>Sushi</option>
-          <option value={"Vegano"}>Vegano</option>
+          <option value={"Japonesa"}>Japonesa</option>
+          <option value={"Chinesa"}>Chinesa</option>
+          <option value={"Vegetariano"}>Vegetariano</option>
+          <option value={"Árabe"}>Árabe</option>
+          <option value={"Saudável"}>Saudável</option>
+          <option value={"Vegana"}>Vegana</option>
+          <option value={"Doces"}>Doces</option>
         </Select>
       </FormControl>
       <FormControl
@@ -206,9 +211,10 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
           disabled={!chefRegister}
         >
           <option aria-label="None" value="" />
-          <option value={"0-3 anos"}>0-3 anos</option>
-          <option value={"3-8 anos"}>3-8 anos</option>
-          <option value={"+8 anos"}>+8 anos</option>
+          <option value={" 0 - 2 anos"}>0-3 anos</option>
+          <option value={"2 - 4 anos"}>2-4 anos</option>
+          <option value={"4 - 6 anos"}>4-6 anos</option>
+          <option value={"Mais de 8 anos"}>+8 anos</option>
         </Select>
       </FormControl>
       <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>

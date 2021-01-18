@@ -65,6 +65,12 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [colapsed, setColapsed] = useState(true);
   const history = useHistory();
+  const categories1 = ["Churrasco", "Japonesa", "Chinesa", "Vegetariana"];
+  const categories2 = ["Árabe", "Saudável", "Vegana", "Doces"];
+
+  const handleCategoriesRedirect = (categorie) => {
+    history.push(`/chefs/${categorie}`);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -173,90 +179,42 @@ const Header = () => {
         </Toolbar>
         {user && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Churrasco
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Japonesa
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Chinesa
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Vegetariana
-            </Button>
+            {categories1.map((actual, index) => {
+              return (
+                <Button
+                  key={index}
+                  className={
+                    actualWidth > 425
+                      ? classes.toolbarButton
+                      : classes.toolbarButtonMobile
+                  }
+                  color="secondary"
+                  onClick={() => handleCategoriesRedirect(actual)}
+                >
+                  {actual}
+                </Button>
+              );
+            })}
           </Toolbar>
         )}
         {user && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Árabe
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Saúdavel
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Vegana
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Doces
-            </Button>
+            {categories2.map((actual, index) => {
+              return (
+                <Button
+                  key={index}
+                  className={
+                    actualWidth > 425
+                      ? classes.toolbarButton
+                      : classes.toolbarButtonMobile
+                  }
+                  color="secondary"
+                  onClick={() => handleCategoriesRedirect(actual)}
+                >
+                  {actual}
+                </Button>
+              );
+            })}
           </Toolbar>
         )}
       </AppBar>
