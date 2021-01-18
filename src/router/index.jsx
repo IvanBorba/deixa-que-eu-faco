@@ -22,7 +22,7 @@ const Router = () => {
 
   return (
     <Switch>
-      <Route path="/chefs">
+      <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
       <Route path="/view-chef/:specific_id">
