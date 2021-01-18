@@ -3,6 +3,21 @@ import { Card } from "./style";
 import Logo from "../../../images/logo/logo.png";
 
 const CardServicesChef = ({ card }) => {
+  const handleRemove = () => {
+    // fazer requisição DELETE para deletar serviço da API
+    console.log("Serviço removido");
+    console.log("Card: ", card);
+  };
+
+  const handleDate = () => {
+    // alterar status da API para accepted
+    console.log("Serviço agendado");
+  };
+
+  const handleFinished = () => {
+    // alterar status da API para finished
+    console.log("Serviço finalizado");
+  };
   return (
     <>
       <Card>
@@ -23,13 +38,13 @@ const CardServicesChef = ({ card }) => {
               </p>
               {card.status === "waiting" ? (
                 <div className="waiting">
-                  <button>RECUSAR</button>
-                  <button>ACEITAR</button>
+                  <button onClick={handleRemove}>RECUSAR</button>
+                  <button onClick={handleDate}>ACEITAR</button>
                 </div>
               ) : (
                 card.status === "accepted" && (
                   <div>
-                    <button>FINALIZAR</button>
+                    <button onClick={handleFinished}>FINALIZAR</button>
                   </div>
                 )
               )}
@@ -42,13 +57,13 @@ const CardServicesChef = ({ card }) => {
             </p>
             {card.status === "waiting" ? (
               <div className="waiting">
-                <button>RECUSAR</button>
-                <button>ACEITAR</button>
+                <button onClick={handleRemove}>RECUSAR</button>
+                <button onClick={handleDate}>ACEITAR</button>
               </div>
             ) : (
               card.status === "accepted" && (
                 <div>
-                  <button>FINALIZAR</button>
+                  <button onClick={handleFinished}>FINALIZAR</button>
                 </div>
               )
             )}
