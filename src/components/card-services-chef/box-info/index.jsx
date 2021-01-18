@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "./styled";
 
-const BoxInfo = ({ list, setOption }) => {
+const BoxInfo = ({ list, setOption, option }) => {
   const servicesFinished = list.filter((item) => item.status === "finished");
   const handleFinished = () => {
     setOption("finished");
@@ -23,13 +23,13 @@ const BoxInfo = ({ list, setOption }) => {
     <>
       <Card>
         <p>AVALIAÇÕES: 4.5 / 5.0</p>
-        <p>SERVIÇOS REALIZADOS: 6</p>
+        <p>SERVIÇOS REALIZADOS: {option === "finished" && list.length}</p>
         <button onClick={handleFinished}>visualizar</button>
       </Card>
       <Card>
-        <p>SERVIÇOS PENDENTES: 2</p>
+        <p>SERVIÇOS PENDENTES: {option === "waiting" && list.length}</p>
         <button onClick={handleWaiting}>visualizar</button>
-        <p>SERVIÇOS AGENDADOS: {list.length}</p>
+        <p>SERVIÇOS AGENDADOS: {option === "accepted" && list.length}</p>
         <button onClick={handleAccepted}>visualizar</button>
       </Card>
     </>
