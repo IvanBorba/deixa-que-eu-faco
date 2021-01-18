@@ -29,7 +29,7 @@ export const Film = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.6);
-  
+
   @media (min-width: 1024px) {
     height: 100vh;
     width: 60vw;
@@ -85,7 +85,7 @@ export const BoxContent = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 456px;
+    height: 400px;
     width: 330px;
 
     .input {

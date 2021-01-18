@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: "3em",
-    marginRight: "12vw",
+    marginRight: "2vw",
   },
   loginButton: {
     marginLeft: "2vw",
     marginRight: "2vw",
   },
   title: {
+    marginLeft: 0,
     flexGrow: 1,
     textTransform: "uppercase",
     fontWeight: "bolder",
@@ -45,6 +47,13 @@ const useStyles = makeStyles((theme) => ({
   toolbarButtonMobile: {
     width: "25%",
     fontSize: "11px",
+    [theme.breakpoints.down(281)]: { fontSize: "9px" },
+  },
+  mobileButton: {
+    marginLeft: "16vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "38vw" },
+    [theme.breakpoints.down(426)]: { marginLeft: "26vw" },
+    [theme.breakpoints.down(425)]: { marginLeft: "15vw" },
   },
   categories: {
     borderRadius: 0,
@@ -53,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     width: "25%",
     [theme.breakpoints.down(450)]: { width: "33%" },
     [theme.breakpoints.down(400)]: { width: "40%" },
-    [theme.breakpoints.down(330)]: { width: "55%" },
+    [theme.breakpoints.down(330)]: { width: "55%", fontSize: "11px" },
   },
 }));
 
@@ -64,6 +73,12 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [colapsed, setColapsed] = useState(true);
   const history = useHistory();
+  const categories1 = ["Churrasco", "Japonesa", "Chinesa", "Vegetariana"];
+  const categories2 = ["Árabe", "Saudável", "Vegana", "Doces"];
+
+  const handleCategoriesRedirect = (categorie) => {
+    history.push(`/chefs/${categorie}`);
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -73,6 +88,7 @@ const Header = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
     history.push("/");
+    window.location.reload();
   };
 
   const handleColapse = () => {
@@ -88,7 +104,7 @@ const Header = () => {
             alt="Logo Principal"
             className={classes.logo}
           />
-          {actualWidth > 425 && (
+          {actualWidth > 768 && (
             <Typography color="primary" variant="h5" className={classes.title}>
               Deixa que eu faço
             </Typography>
@@ -110,7 +126,7 @@ const Header = () => {
           )}
           {user && (
             <Button
-              color="secondary"
+              color={colapsed ? "primary" : "secondary"}
               className={classes.categories}
               style={
                 colapsed
@@ -119,10 +135,11 @@ const Header = () => {
               }
               onClick={handleColapse}
             >
-              Categorias <ArrowDropDownIcon />
+              Categorias{" "}
+              {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
-          {user && actualWidth > 425 && (
+          {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
@@ -132,7 +149,7 @@ const Header = () => {
               Minha conta
             </Button>
           )}
-          {user && actualWidth > 425 && (
+          {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
@@ -143,13 +160,14 @@ const Header = () => {
               Logout
             </Button>
           )}
-          {user && actualWidth <= 425 && (
+          {user && actualWidth <= 768 && (
             <>
               <IconButton
                 edge="start"
                 color="primary"
                 aria-label="menu"
                 onClick={handleClick}
+                className={classes.mobileButton}
               >
                 <MenuIcon />
               </IconButton>
@@ -159,6 +177,7 @@ const Header = () => {
                 keepMounted
                 open={Boolean(anchorEl)}
               >
+                <MenuItem onClick={() => setAnchorEl(null)}>Fechar</MenuItem>
                 <MenuItem onClick={() => history.push("/settings")}>
                   Minha conta
                 </MenuItem>
@@ -169,90 +188,42 @@ const Header = () => {
         </Toolbar>
         {user && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Churrasco
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Japonesa
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Chinesa
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Vegetariana
-            </Button>
+            {categories1.map((actual, index) => {
+              return (
+                <Button
+                  key={index}
+                  className={
+                    actualWidth > 425
+                      ? classes.toolbarButton
+                      : classes.toolbarButtonMobile
+                  }
+                  color="secondary"
+                  onClick={() => handleCategoriesRedirect(actual)}
+                >
+                  {actual}
+                </Button>
+              );
+            })}
           </Toolbar>
         )}
         {user && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Árabe
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Saúdavel
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Vegana
-            </Button>
-            <Button
-              className={
-                actualWidth > 425
-                  ? classes.toolbarButton
-                  : classes.toolbarButtonMobile
-              }
-              color="secondary"
-            >
-              Doces
-            </Button>
+            {categories2.map((actual, index) => {
+              return (
+                <Button
+                  key={index}
+                  className={
+                    actualWidth > 425
+                      ? classes.toolbarButton
+                      : classes.toolbarButtonMobile
+                  }
+                  color="secondary"
+                  onClick={() => handleCategoriesRedirect(actual)}
+                >
+                  {actual}
+                </Button>
+              );
+            })}
           </Toolbar>
         )}
       </AppBar>

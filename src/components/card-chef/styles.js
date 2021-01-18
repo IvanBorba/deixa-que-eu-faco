@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
   background-color: #fcf5ee;
   display: flex;
   color: #333;
+  margin-left: 2vw;
 
   #image-box {
     text-align: center;

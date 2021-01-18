@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  bottom: 0;
+  clear: both;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  width: 100vw;
+  position: relative;
 `;
 
 export const UpperFooter = styled.footer`
   background-color: #f5e0cc;
   height: 5em;
-  width: 100%;
 `;
 
 export const LowerFooter = styled.footer`
@@ -21,7 +19,6 @@ export const LowerFooter = styled.footer`
   flex-direction: row;
   height: 6em;
   justify-content: space-between;
-  width: 100%;
 `;
 
 export const AboutPage = styled.a`

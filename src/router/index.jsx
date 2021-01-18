@@ -4,6 +4,8 @@ import RegisterPage from "../pages/register";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
+import FilteredChefList from "../pages/filtered-chefs-list";
+import ChefHome from "../pages/chef-home";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
@@ -21,10 +23,10 @@ const Router = () => {
 
   return (
     <Switch>
-      <Route path="/chefs">
+      <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
-      <Route path="/view-chef/:specific_id">
+      <Route exact path="/view-chef/:specific_id">
         <ViewChef users={users} />
       </Route>
       {!token ? (
@@ -42,11 +44,16 @@ const Router = () => {
       ) : actualUser.isChef ? (
         <>
           <Route exact path="/chef-home">
-            <Header />
-            {/* <ChefHome/> */}
+            <ChefHome />
           </Route>
           <Route exact path="/settings">
             {/* <ChefSetting/> */}
+          </Route>
+          <Route exact path="/chefs">
+            <ChefsList users={users} />
+          </Route>
+          <Route exact path="/chefs/:specific_expertise">
+            <FilteredChefList users={users} />
           </Route>
         </>
       ) : (
@@ -57,6 +64,12 @@ const Router = () => {
           </Route>
           <Route exact path="/settings">
             {/* <CostumerSetting/> */}
+          </Route>
+          <Route exact path="/chefs">
+            <ChefsList users={users} />
+          </Route>
+          <Route exact path="/chefs/:specific_expertise">
+            <FilteredChefList users={users} />
           </Route>
         </>
       )}
