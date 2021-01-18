@@ -1,6 +1,12 @@
 import axios from "axios";
 
 const baseUrl = "https://api-deixa-que-eu-faco.herokuapp.com";
+const token = localStorage.getItem("authToken");
+const headers = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
 
 export const LoginRequisition = (data, users) => {
   axios
@@ -29,4 +35,25 @@ export const RegisterPost = (data, chefRegister, options) => {
   axios
     .post(`${baseUrl}/register`, data)
     .then((res) => console.log("login efetuado com sucesso"));
+};
+
+export const registerService = (data) => {
+  axios
+    .put(`${baseUrl}/services`, data, headers)
+    .then((res) => console.log(res, "Serviço cadastrado com sucesso"))
+    .catch((err) => console.log(err, "Erro no cadastro do produto"));
+};
+
+export const serviceUpdate = (data, serviceId) => {
+  axios
+    .patch(`${baseUrl}/services/${serviceId}`, data, headers)
+    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .catch((err) => console.log(err, "Erro na atualização do produto"));
+};
+
+export const deleteService = (data, serviceId) => {
+  axios
+    .delete(`${baseUrl}/services/${serviceId}`, { params: { data } }, headers)
+    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
