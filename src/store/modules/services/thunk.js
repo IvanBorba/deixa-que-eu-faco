@@ -11,10 +11,10 @@ const headers = {
 };
 
 export const getChefServicesThunk = (page, option) => (dispatch) => {
-  const id = actualUser.id;
+  const { id } = actualUser;
   axios
     .get(
-      `${baseUrl}/services?_page=${page}&_limit=2&chefId=${id}&status=${option}`,
+      `${baseUrl}/services/?_page=${page}&_limit=2&chefId=${id}&status=${option}`,
       headers
     )
     .then((res) => {
