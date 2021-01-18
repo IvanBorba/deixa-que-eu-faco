@@ -37,7 +37,6 @@ const Router = () => {
       ) : actualUser.isChef ? (
         <>
           <Route exact path="/chef-home">
-            <Header />
             <ChefHome />
           </Route>
           <Route exact path="/settings">
