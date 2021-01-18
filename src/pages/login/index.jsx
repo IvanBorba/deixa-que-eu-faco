@@ -6,7 +6,6 @@ import Logo from "../../images/logo/logo.png";
 import LoginForm from "../../components/forms/login-form";
 
 const Login = () => {
-
   return (
     <>
       <Main>
@@ -18,7 +17,7 @@ const Login = () => {
                 VOLTAR
               </Link>
               <Link className="links" to="/register">
-                CADASTRE
+                CADASTRE-SE
               </Link>
             </Options>
             <Box>

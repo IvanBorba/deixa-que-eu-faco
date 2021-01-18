@@ -1,4 +1,5 @@
 import CardChef from "../../components/card-chef";
+import Footer from "../../components/footer";
 import Header from "../../components/header";
 
 const ChefList = ({ users }) => {
@@ -10,6 +11,7 @@ const ChefList = ({ users }) => {
         .map((currentChef, index) => (
           <CardChef key={index} currentChef={currentChef} />
         ))}
+      <Footer />
     </>
   );
 };

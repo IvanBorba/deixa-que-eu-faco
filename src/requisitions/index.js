@@ -8,7 +8,7 @@ const headers = {
   },
 };
 
-export const LoginRequisition = (data, users) => {
+export const LoginRequisition = (data, users, history) => {
   axios
     .post(`${baseUrl}/login`, data)
     .then((res) => {
@@ -18,7 +18,10 @@ export const LoginRequisition = (data, users) => {
       });
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
-      console.log("login efetuado com sucesso");
+      let historyUser = JSON.parse(localStorage.getItem("userData"));
+      historyUser.isChef
+        ? history.push("/chef-home")
+        : history.push("/costumer-home");
     })
     .catch(() => console.log("login ou senha incorretos"));
 };

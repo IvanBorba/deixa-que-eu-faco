@@ -7,6 +7,7 @@ import ChefsList from "../pages/chefs-list";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
+import Header from "../components/header";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -41,18 +42,17 @@ const Router = () => {
       ) : actualUser.isChef ? (
         <>
           <Route exact path="/chef-home">
+            <Header />
             {/* <ChefHome/> */}
           </Route>
           <Route exact path="/chef-settings">
             {/* <ChefSetting/> */}
           </Route>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
         </>
       ) : (
         <>
           <Route exact path="/costumer-home">
+            <Header />
             {/* <CostumerHome /> */}
           </Route>
           <Route exact path="/costumer-settings">
