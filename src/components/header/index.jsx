@@ -159,6 +159,7 @@ const Header = () => {
                 keepMounted
                 open={Boolean(anchorEl)}
               >
+                <MenuItem onClick={() => setAnchorEl(null)}>Fechar</MenuItem>
                 <MenuItem onClick={() => history.push("/settings")}>
                   Minha conta
                 </MenuItem>
