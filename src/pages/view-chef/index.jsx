@@ -2,6 +2,7 @@ import ViewProfile from "../../components/view-profile";
 import { useParams, Link } from "react-router-dom";
 import { Container, BioContainer, ButtonProfile } from "./styles";
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 
 const ViewChef = ({ users }) => {
   const { specific_id } = useParams();
@@ -13,7 +14,7 @@ const ViewChef = ({ users }) => {
       <Header />
       <Container>
         <div id="back">
-          <Link className="links" to="/">
+          <Link className="links" to="/chefs">
             VOLTAR
           </Link>
         </div>
@@ -30,7 +31,7 @@ const ViewChef = ({ users }) => {
           </ButtonProfile>
         </div>
       </Container>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
