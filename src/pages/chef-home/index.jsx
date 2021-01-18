@@ -3,9 +3,8 @@ import { Main } from "./style/style";
 import BoxInfo from "../../components/card-services-chef/box-info";
 import Services from "../../components/card-services-chef/services-status";
 import Pagination from "../../components/pagination";
-import { ChefServicesList } from "../../requisitions";
 
-const ChefProfile = () => {
+const ChefHome = () => {
   const [page, setPage] = useState(1);
   const [option, setOption] = useState("waiting");
   const [listServices, setListServices] = useState([]); // setar na requisão a listagem de serviços solicitada
@@ -77,7 +76,6 @@ const ChefProfile = () => {
     },
   ];
 
-  // ChefServicesList(page, option, setListServices);
   console.log("UserLoged: ", JSON.parse(userLoged));
   console.log("Id: ", id);
 
@@ -93,4 +91,4 @@ const ChefProfile = () => {
   );
 };
 
-export default ChefProfile;
+export default ChefHome;
