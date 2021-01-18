@@ -45,7 +45,7 @@ const Router = () => {
             <Header />
             {/* <ChefHome/> */}
           </Route>
-          <Route exact path="/chef-settings">
+          <Route exact path="/settings">
             {/* <ChefSetting/> */}
           </Route>
         </>
@@ -55,7 +55,7 @@ const Router = () => {
             <Header />
             {/* <CostumerHome /> */}
           </Route>
-          <Route exact path="/costumer-settings">
+          <Route exact path="/settings">
             {/* <CostumerSetting/> */}
           </Route>
         </>
