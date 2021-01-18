@@ -21,7 +21,9 @@ const Footer = () => {
             width: "3em",
           }}
         />
-        <AboutPage href="#">SOBRE NÓS</AboutPage>
+        <AboutPage href="#" style={{ textTransform: "uppercase" }}>
+          Sobre nós
+        </AboutPage>
       </UpperFooter>
       <LowerFooter>
         <div>

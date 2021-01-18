@@ -16,11 +16,11 @@ const ViewChef = ({ users }) => {
     <>
       <Header />
       <Container>
-        <div id="back">
+        {/* <div id="back">
           <Link className="links" to="/chefs">
             VOLTAR
           </Link>
-        </div>
+        </div> */}
         {!!currentChef && <ViewProfile currentChef={currentChef} />}
         <BioContainer>
           <h1 className="title-bio">Sobre o Chef</h1>

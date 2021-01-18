@@ -67,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ColorButton = withStyles((theme) => ({
   root: {
+    marginTop: "2.6vh",
     color: theme.palette.getContrastText("#9E5642"),
     backgroundColor: "#9E5642",
     "&:hover": {
@@ -119,6 +120,12 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
       onSubmit={handleSubmit(registerRequisition)}
       className={!chefRegister ? "formStyle" : "formStyleChef"}
     >
+      <p style={{ fontSize: "x-small", color: "red", alignSelf: "center" }}>
+        {errors.name?.message ||
+          errors.email?.message ||
+          errors.password?.message ||
+          errors.birth_date?.message}
+      </p>
       <CssTextField
         className={classes.margin}
         name="name"
