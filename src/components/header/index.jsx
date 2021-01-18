@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -111,7 +112,7 @@ const Header = () => {
           )}
           {user && (
             <Button
-              color="secondary"
+              color={colapsed ? "primary" : "secondary"}
               className={classes.categories}
               style={
                 colapsed
@@ -120,7 +121,8 @@ const Header = () => {
               }
               onClick={handleColapse}
             >
-              Categorias <ArrowDropDownIcon />
+              Categorias{" "}
+              {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
           {user && actualWidth > 425 && (
