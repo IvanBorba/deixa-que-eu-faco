@@ -25,17 +25,15 @@ const CardServicesChef = ({ card }) => {
           <img src={Logo} alt="Logo" />
           <p>{card.clientName}</p>
           <p>{card.date}</p>
-          <p>{card.status}</p>
+          {/* <p>{card.status}</p> */}
         </header>
-        {card.mart ? (
+        {card.market ? (
           <div>
             <p className="details">
-              <b>Detalhes:</b> {card.details}
+              <b>Detalhes:</b> {card.marketProducts}
             </p>
             <footer className="main">
-              <p>
-                {card.street}, {card.number}, {card.district}.
-              </p>
+              <p>{card.address}.</p>
               {card.status === "waiting" ? (
                 <div className="waiting">
                   <button onClick={handleRemove}>RECUSAR</button>
@@ -52,9 +50,7 @@ const CardServicesChef = ({ card }) => {
           </div>
         ) : (
           <div className="main">
-            <p>
-              {card.street}, {card.number}, {card.district}.
-            </p>
+            <p>{card.address}.</p>
             {card.status === "waiting" ? (
               <div className="waiting">
                 <button onClick={handleRemove}>RECUSAR</button>
