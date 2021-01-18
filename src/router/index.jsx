@@ -6,9 +6,12 @@ import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
+import HomePage from "../pages/home";
+import Header from "../components/header";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
+  let actualUser = JSON.parse(localStorage.getItem("userData"));
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
 
@@ -18,10 +21,16 @@ const Router = () => {
 
   return (
     <Switch>
+      <Route path="/chefs">
+        <ChefsList users={users} />
+      </Route>
+      <Route path="/view-chef/:specific_id">
+        <ViewChef users={users} />
+      </Route>
       {!token ? (
         <>
           <Route exact path="/">
-            {/* <Home/> */}
+            <HomePage />
           </Route>
           <Route path="/register">
             <RegisterPage />
@@ -29,15 +38,27 @@ const Router = () => {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/chefs">
-            <ChefsList users={users} />
+        </>
+      ) : actualUser.isChef ? (
+        <>
+          <Route exact path="/chef-home">
+            <Header />
+            {/* <ChefHome/> */}
           </Route>
-          <Route path="/view-chef/:specific_id">
-            <ViewChef users={users} />
+          <Route exact path="/settings">
+            {/* <ChefSetting/> */}
           </Route>
         </>
       ) : (
-        <></>
+        <>
+          <Route exact path="/costumer-home">
+            <Header />
+            {/* <CostumerHome /> */}
+          </Route>
+          <Route exact path="/settings">
+            {/* <CostumerSetting/> */}
+          </Route>
+        </>
       )}
     </Switch>
   );

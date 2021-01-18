@@ -23,7 +23,7 @@ const CardChef = ({ currentChef }) => {
       <div id="infos-box">
         <h1 className="infos-chef name-chef">{currentChef.name}</h1>
         <p className="infos-chef specialty-chef">
-          Chef {currentChef.expertise}
+          Especialidade: {currentChef.expertise}
         </p>
         <div id="infos-footer" className="infos-chef">
           <div className="rate-chef">
