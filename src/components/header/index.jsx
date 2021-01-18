@@ -24,13 +24,14 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: "3em",
-    marginRight: "12vw",
+    marginRight: "2vw",
   },
   loginButton: {
     marginLeft: "2vw",
     marginRight: "2vw",
   },
   title: {
+    marginLeft: 0,
     flexGrow: 1,
     textTransform: "uppercase",
     fontWeight: "bolder",
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarButtonMobile: {
     width: "25%",
     fontSize: "11px",
+    [theme.breakpoints.down(281)]: { fontSize: "9px" },
   },
   mobileButton: {
     marginLeft: "16vw",
