@@ -15,7 +15,10 @@ export const Container = styled.div`
   #hire {
     width: 95vw;
     margin: 0 auto;
-    text-align: end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3vh;
   }
   @media (min-width: 760px) {
     #hire {
