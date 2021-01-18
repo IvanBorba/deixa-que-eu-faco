@@ -1,95 +1,37 @@
-import React, { useState } from "react";
-import "./style/style.css";
+import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Main,
-  Box,
-  BoxContent,
-  Pelicula,
-  Options,
-  Footer,
-} from "./style/styled";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import { Main, Box, BoxContent, Film, Options, Footer } from "./styled";
+import Logo from "../../images/logo/logo.png";
+
+import LoginForm from "../../components/forms/login-form";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const [switchOn, setSwitchOn] = useState(true);
-  const url = "https://api-deixa-que-eu-faco.herokuapp.com/login";
-
-  const handleChange = (e) => {
-    setSwitchOn(!switchOn);
-  };
-
-  // console.log("Value Switch: ", switchOn);
-
-  const handleLogin = (data) => {
-    console.log("Data: ", data);
-    axios
-      .post(url, data)
-      .then((res) => {
-        console.log("Token: ", res.data.accessToken);
-        window.localStorage.setItem("authToken", res.data.accessToken);
-      })
-      .catch((err) => console.log("login ou senha incorretos"));
-  };
-
   return (
     <>
       <Main>
-        <aside></aside>
+        <aside />
         <div className="background">
-          <Pelicula>
+          <Film>
             <Options>
               <Link className="links" to="/">
                 VOLTAR
               </Link>
-              <Link className="links" to="/">
+              <Link className="links" to="/register">
                 CADASTRE-SE
               </Link>
             </Options>
             <Box>
-              <img src="img/logo.png" alt="Logo" />
+              <img src={Logo} alt="Logo" />
               <BoxContent>
                 <h2>LOGIN</h2>
-                <form onSubmit={handleSubmit(handleLogin)}>
-                  <TextField
-                    required
-                    label="Email"
-                    variant="outlined"
-                    className="input"
-                    name="email"
-                    inputRef={register}
-                  />
-                  <TextField
-                    required
-                    label="Password"
-                    variant="outlined"
-                    className="input"
-                    name="password"
-                    inputRef={register}
-                  />
-                  <FormControlLabel
-                    className="switch"
-                    name="isChef"
-                    control={
-                      <Switch checked={switchOn} onChange={handleChange} />
-                    }
-                    label="Você é nosso Chef?"
-                    inputRef={register}
-                  />
-                  <button type="submit">ENTRAR</button>
-                </form>
+                <LoginForm />
               </BoxContent>
             </Box>
             <Footer>
               DEIXA QUE EU FAÇO
               <p> &#169; Todos os direitos reservados</p>
             </Footer>
-          </Pelicula>
+          </Film>
         </div>
       </Main>
     </>

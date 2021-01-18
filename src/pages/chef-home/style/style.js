@@ -2,15 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   .saldo {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    margin: 100px auto;
-    height: 200px;
-    width: 250px;
-    background: rgba(245, 224, 204, 0.3);
   }
 `;
 
@@ -31,11 +23,4 @@ export const Card = styled.div`
     border: none;
     color: #9e5642;
   }
-`;
-
-export const Services = styled.div`
-  padding: 10px;
-  width: 250px;
-  margin: 20px auto;
-  background: #404832;
 `;

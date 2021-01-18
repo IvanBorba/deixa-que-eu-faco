@@ -1,10 +1,31 @@
 import styled from "styled-components";
+import backgroundFoods from "../../images/variascomidas.jpg";
 
 export const Main = styled.main`
   display: flex;
+
+  .background {
+    background-image: url(${backgroundFoods});
+    height: 100vh;
+    width: 100vw;
+  }
+
+  @media (min-width: 1024px) {
+    .background {
+      background: none;
+    }
+
+    aside {
+      background-image: url(${backgroundFoods});
+      height: 100vh;
+      width: 67vw;
+      background-position-x: center;
+      background-size: cover;
+    }
+  }
 `;
 
-export const Pelicula = styled.div`
+export const Film = styled.div`
   height: 100vh;
   width: 100vw;
   background: rgba(255, 255, 255, 0.6);
@@ -21,6 +42,13 @@ export const Box = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: center;
+
+  img {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top: 40px;
+  }
 `;
 
 export const BoxContent = styled.div`
@@ -57,7 +85,7 @@ export const BoxContent = styled.div`
   }
 
   @media (min-width: 1024px) {
-    height: 456px;
+    height: 400px;
     width: 330px;
 
     .input {
