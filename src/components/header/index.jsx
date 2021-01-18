@@ -47,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
     width: "25%",
     fontSize: "11px",
   },
+  mobileButton: {
+    marginLeft: "16vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "38vw" },
+    [theme.breakpoints.down(426)]: { marginLeft: "26vw" },
+    [theme.breakpoints.down(425)]: { marginLeft: "15vw" },
+  },
   categories: {
     borderRadius: 0,
     height: "10vh",
@@ -54,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     width: "25%",
     [theme.breakpoints.down(450)]: { width: "33%" },
     [theme.breakpoints.down(400)]: { width: "40%" },
-    [theme.breakpoints.down(330)]: { width: "55%" },
+    [theme.breakpoints.down(330)]: { width: "55%", fontSize: "11px" },
   },
 }));
 
@@ -96,7 +102,7 @@ const Header = () => {
             alt="Logo Principal"
             className={classes.logo}
           />
-          {actualWidth > 425 && (
+          {actualWidth > 768 && (
             <Typography color="primary" variant="h5" className={classes.title}>
               Deixa que eu faço
             </Typography>
@@ -131,7 +137,7 @@ const Header = () => {
               {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
-          {user && actualWidth > 425 && (
+          {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
@@ -141,7 +147,7 @@ const Header = () => {
               Minha conta
             </Button>
           )}
-          {user && actualWidth > 425 && (
+          {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
@@ -152,13 +158,14 @@ const Header = () => {
               Logout
             </Button>
           )}
-          {user && actualWidth <= 425 && (
+          {user && actualWidth <= 768 && (
             <>
               <IconButton
                 edge="start"
                 color="primary"
                 aria-label="menu"
                 onClick={handleClick}
+                className={classes.mobileButton}
               >
                 <MenuIcon />
               </IconButton>
