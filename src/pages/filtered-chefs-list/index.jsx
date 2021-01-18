@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import Carousel from "../../components/carousel";
 import { Button } from "@material-ui/core";
 import { useParams, useHistory } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const FilteredChefList = ({ users }) => {
   console.log(users);
@@ -22,10 +23,10 @@ const FilteredChefList = ({ users }) => {
       {filteredList.map((currentChef, index) => (
         <CardChef key={index} currentChef={currentChef} />
       ))}
-      <Footer />
       <Button color="primary" onClick={() => history.push("/chefs")}>
-        Voltar para todos
+        <ArrowBackIcon color="primary" /> Voltar
       </Button>
+      <Footer />
     </>
   );
 };
