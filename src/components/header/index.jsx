@@ -73,6 +73,7 @@ const Header = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
     history.push("/");
+    window.location.reload();
   };
 
   const handleColapse = () => {

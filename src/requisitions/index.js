@@ -22,6 +22,7 @@ export const LoginRequisition = (data, users, history) => {
       historyUser.isChef
         ? history.push("/chef-home")
         : history.push("/costumer-home");
+      window.location.reload();
     })
     .catch(() => console.log("login ou senha incorretos"));
 };
