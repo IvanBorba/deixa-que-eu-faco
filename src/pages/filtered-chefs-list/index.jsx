@@ -23,7 +23,11 @@ const FilteredChefList = ({ users }) => {
       {filteredList.map((currentChef, index) => (
         <CardChef key={index} currentChef={currentChef} />
       ))}
-      <Button color="primary" onClick={() => history.push("/chefs")}>
+      <Button
+        color="primary"
+        onClick={() => history.push("/chefs")}
+        style={{ marginBottom: "3vh" }}
+      >
         <ArrowBackIcon color="primary" /> Voltar
       </Button>
       <Footer />
