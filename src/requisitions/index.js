@@ -39,21 +39,21 @@ export const RegisterPost = (data, chefRegister, options) => {
 
 export const registerService = (data) => {
   axios
-    .put(`${baseUrl}/services`, data, headers)
+    .post(`${baseUrl}/services`, data, headers)
     .then((res) => console.log(res, "Serviço cadastrado com sucesso"))
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
-export const serviceUpdate = (data, serviceId) => {
+export const updateService = (data, serviceId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
     .then((res) => console.log(res, "Serviço atualizado com sucesso"))
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 
-export const deleteService = (data, serviceId) => {
+export const deleteService = (serviceId) => {
   axios
-    .delete(`${baseUrl}/services/${serviceId}`, { params: { data } }, headers)
+    .delete(`${baseUrl}/services/${serviceId}`, headers)
     .then((res) => console.log(res, "Serviço atualizado com sucesso"))
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };

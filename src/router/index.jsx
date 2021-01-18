@@ -6,6 +6,7 @@ import ViewChef from "../pages/view-chef";
 import ChefsList from "../pages/chefs-list";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
+import HomePage from "../pages/home";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -28,7 +29,7 @@ const Router = () => {
       {!token ? (
         <>
           <Route exact path="/">
-            {/* <Home/> */}
+            <HomePage />
           </Route>
           <Route path="/register">
             <RegisterPage />
@@ -44,6 +45,9 @@ const Router = () => {
           </Route>
           <Route exact path="/chef-settings">
             {/* <ChefSetting/> */}
+          </Route>
+          <Route exact path="/">
+            <HomePage />
           </Route>
         </>
       ) : (
