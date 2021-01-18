@@ -54,7 +54,6 @@ const Carousel = () => {
       axis="x"
       index={activeStep}
       onChangeIndex={handleStepChange}
-      style={{ width: "100vw" }}
     >
       {tutorialSteps.map((step, index) => (
         <div key={step.label}>
@@ -62,7 +61,7 @@ const Carousel = () => {
             <img
               src={step.imgPath}
               alt={step.label}
-              style={{ width: "100vw", height: "250px", objectFit: "cover" }}
+              style={{ width: "100%", height: "250px", objectFit: "cover" }}
             />
           ) : null}
         </div>
