@@ -25,7 +25,7 @@ export const getChefServicesThunk = (page, option) => (dispatch) => {
 
 export const getCostumerServicesThunk = () => (dispatch) => {
   const id = actualUser.id;
-  axios.get(`${baseUrl}/services/&clientId=${id}`, headers).then((res) => {
+  axios.get(`${baseUrl}/services/?clientId=${id}`, headers).then((res) => {
     console.log(res);
     dispatch(getCostumerServices(res.data));
   });

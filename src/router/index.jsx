@@ -48,6 +48,9 @@ const Router = () => {
           <Route exact path="/settings">
             {/* <ChefSetting/> */}
           </Route>
+          <Route exact path="/chefs/:specific_expertise">
+            <ChefsList users={users} />
+          </Route>
         </>
       ) : (
         <>
@@ -57,6 +60,9 @@ const Router = () => {
           </Route>
           <Route exact path="/settings">
             {/* <CostumerSetting/> */}
+          </Route>
+          <Route exact path="/chefs">
+            <ChefsList users={users} />
           </Route>
         </>
       )}
