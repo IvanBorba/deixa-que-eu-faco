@@ -10,17 +10,12 @@ const headers = {
   },
 };
 
-export const getChefServicesThunk = (page, option) => (dispatch) => {
+export const getChefServicesThunk = () => (dispatch) => {
   const { id } = actualUser;
-  axios
-    .get(
-      `${baseUrl}/services/?_page=${page}&_limit=2&chefId=${id}&status=${option}`,
-      headers
-    )
-    .then((res) => {
-      console.log(res);
-      dispatch(getChefServices(res.data));
-    });
+  axios.get(`${baseUrl}/services?chefId=${id}`, headers).then((res) => {
+    console.log(res);
+    dispatch(getChefServices(res.data));
+  });
 };
 
 export const getCostumerServicesThunk = () => (dispatch) => {
