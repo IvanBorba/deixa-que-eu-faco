@@ -29,3 +29,17 @@ export const loginSchema = yup.object().shape({
     .string("O formato da senha é inválido")
     .min(6, "A Senha deve ter pelo menos 6 caracteres"),
 });
+
+export const newServiceSchema = yup.object().shape({
+  street: yup
+    .string("Formato de rua inválido")
+    .required("Por Favor, informe sua rua"),
+  city: yup
+    .string("Formato de cidade inválido")
+    .required("Por Favor, informe sua cidade"),
+  state: yup
+    .string("Formato de estado inválido")
+    .required("Por Favor, informe seu estado"),
+  ingredients: yup.string("Formato dos ingredientes inválido"),
+  date: yup.string("Formato da data inválido"),
+});

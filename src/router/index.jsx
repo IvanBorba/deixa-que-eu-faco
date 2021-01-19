@@ -58,6 +58,9 @@ const Router = () => {
         </>
       ) : (
         <>
+          <Route exact path="/new-service/:chefId">
+            {/* <NewService /> */}
+          </Route>
           <Route exact path="/costumer-home">
             <Header />
             {/* <CostumerHome /> */}
