@@ -51,12 +51,19 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "11px",
     [theme.breakpoints.down(281)]: { fontSize: "9px" },
   },
-  mobileButton: {
+  mobileChefButton: {
     marginLeft: "40vw",
     [theme.breakpoints.down(769)]: { marginLeft: "78vw" },
     [theme.breakpoints.down(500)]: { marginLeft: "70vw" },
     [theme.breakpoints.down(400)]: { marginLeft: "65vw" },
     [theme.breakpoints.down(350)]: { marginLeft: "60vw" },
+  },
+  mobileCustomerButton: {
+    marginLeft: "40vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "50vw" },
+    [theme.breakpoints.down(500)]: { marginLeft: "35vw" },
+    [theme.breakpoints.down(400)]: { marginLeft: "30vw" },
+    [theme.breakpoints.down(350)]: { marginLeft: "25vw" },
   },
   categories: {
     borderRadius: 0,
@@ -182,7 +189,11 @@ const Header = () => {
                 color="primary"
                 aria-label="menu"
                 onClick={handleClick}
-                className={classes.mobileButton}
+                className={
+                  user.isChef
+                    ? classes.mobileChefButton
+                    : classes.mobileCustomerButton
+                }
               >
                 <MenuIcon />
               </IconButton>
