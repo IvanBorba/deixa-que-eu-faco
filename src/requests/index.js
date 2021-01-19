@@ -20,8 +20,8 @@ export const LoginRequisition = (data, users, history) => {
       localStorage.setItem("userData", JSON.stringify(actual[0]));
       let historyUser = JSON.parse(localStorage.getItem("userData"));
       historyUser.isChef
-        ? history.push("/chef-home")
-        : history.push("/costumer-home");
+        ? history.push("/home-chef")
+        : history.push("/home-customer");
       window.location.reload();
     })
     .catch(() => console.log("login ou senha incorretos"));

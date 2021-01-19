@@ -71,6 +71,7 @@ const Header = () => {
   const classes = useStyles();
   const actualWidth = window.innerWidth;
   let user = JSON.parse(localStorage.getItem("userData"));
+  let isChef = user?.isChef;
   const [anchorEl, setAnchorEl] = useState(null);
   const [colapsed, setColapsed] = useState(true);
   const history = useHistory();
@@ -96,6 +97,14 @@ const Header = () => {
     setColapsed(!colapsed);
   };
 
+  const handleLogoClick = () => {
+    !user
+      ? history.push("/")
+      : user.isChef
+      ? history.push("/home-chef")
+      : history.push("/home-customer");
+  };
+
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.bar}>
@@ -104,6 +113,8 @@ const Header = () => {
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="Logo Principal"
             className={classes.logo}
+            onClick={handleLogoClick}
+            style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
             <Typography color="primary" variant="h5" className={classes.title}>
@@ -125,7 +136,7 @@ const Header = () => {
               Login
             </Button>
           )}
-          {user && (
+          {user && !isChef && (
             <Button
               color={colapsed ? "primary" : "secondary"}
               className={classes.categories}

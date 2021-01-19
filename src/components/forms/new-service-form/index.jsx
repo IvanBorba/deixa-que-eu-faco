@@ -11,7 +11,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { newServiceSchema } from "../../../helper";
-import registerService from "../../../requests";
+import { registerService } from "../../../requests";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -20,21 +20,9 @@ const NewServiceForm = ({ chef }) => {
   const [guests, setGuests] = useState("");
   const [ingredients, setIngredients] = useState(false);
   const actualUser = JSON.parse(localStorage.getItem("userData"));
-
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(newServiceSchema),
   });
-
-  // "clientId": 12,
-  // "clientName": "Gabriel Araujo",
-  // "chefId": 4,
-  // "price": 150,
-  // "date": "Jan 31, 2021",
-  // "address": "Vinte e Cinco de Julho, 432. Salvador - Bahia",
-  // "market": true,
-  // "marketProducts": "5 latas de leite condensado e granulado.",
-  // "guests": "Menos de 10",
-  // "status": "waiting",
 
   const handleRegister = (data) => {
     data.address = `${data.street} ${data.city} - ${data.state}`;
@@ -48,21 +36,27 @@ const NewServiceForm = ({ chef }) => {
     data.guests = guests;
 
     if (guests === "Menos de 10") {
-      data.price = chef.value * 10;
+      data.price = chef.price * 10;
     } else if (guests === "De 10 a 50") {
-      data.price = chef.value * 25;
+      data.price = chef.price * 25;
     } else if (guests === "Mais de 50") {
-      data.price = chef.value * 50;
+      data.price = chef.price * 50;
     }
 
     data.market = ingredients;
-    data.marketProducts = data.ingredients;
+    if (ingredients) {
+      data.marketProducts = data.ingredients;
+    }
     delete data.ingredients;
 
     data.status = "waiting";
 
-    // registerService(data);
-    console.log(data);
+    registerService(data);
+  };
+
+  const handleIngredientNeed = (e) => {
+    e.preventDefault();
+    setIngredients(!ingredients);
   };
 
   const handleGuests = (e) => {
@@ -74,7 +68,7 @@ const NewServiceForm = ({ chef }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "30vw",
+        width: "20vw",
         margin: "0 auto",
       }}
     >
@@ -129,13 +123,9 @@ const NewServiceForm = ({ chef }) => {
           </Select>
         </FormControl>
         <Typography>Precisa levar ingredientes?</Typography>
-        <button onClick={(e) => setIngredients(e.target.value)} value={true}>
-          Sim
-        </button>
-        <button onClick={(e) => setIngredients(e.target.value)} value={false}>
-          Não
-        </button>
-        {ingredients && (
+        {!ingredients && <button onClick={handleIngredientNeed}>Sim</button>}
+        {ingredients && <button onClick={handleIngredientNeed}>Não</button>}
+        {ingredients === true && (
           <TextField
             className={classes.input}
             variant="outlined"
