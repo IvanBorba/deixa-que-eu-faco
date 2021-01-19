@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import RegisterPage from "../pages/register";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
+import HomeCustomer from "../pages/home-customer";
 import ChefsList from "../pages/chefs-list";
 import FilteredChefList from "../pages/filtered-chefs-list";
 import ChefHome from "../pages/chef-home";
@@ -23,6 +24,9 @@ const Router = () => {
 
   return (
     <Switch>
+      <Route exact path="/">
+        <HomePage />
+      </Route>
       <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
@@ -31,9 +35,6 @@ const Router = () => {
       </Route>
       {!token ? (
         <>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
           <Route path="/register">
             <RegisterPage />
           </Route>
@@ -55,13 +56,12 @@ const Router = () => {
           <Route exact path="/chefs/:specific_expertise">
             <FilteredChefList users={users} />
           </Route>
+          <Route exact path="/home-customer">
+            <HomeCustomer bests={users} />
+          </Route>
         </>
       ) : (
         <>
-          <Route exact path="/costumer-home">
-            <Header />
-            {/* <CostumerHome /> */}
-          </Route>
           <Route exact path="/settings">
             {/* <CostumerSetting/> */}
           </Route>
