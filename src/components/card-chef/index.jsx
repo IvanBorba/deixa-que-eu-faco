@@ -2,13 +2,13 @@ import { CardContainer, ButtonProfile } from "./styles";
 import { useHistory } from "react-router-dom";
 import Rating from "@material-ui/lab/Rating";
 
-const CardChef = ({ currentChef }) => {
+const CardChef = ({ currentChef, isCenter = false }) => {
   const history = useHistory();
   const handleClick = () => {
     history.push(`/view-chef/${currentChef.id}`);
   };
   return (
-    <CardContainer>
+    <CardContainer center={isCenter}>
       <div id="image-box">
         {!currentChef.image ? (
           currentChef.name[0]
@@ -28,13 +28,7 @@ const CardChef = ({ currentChef }) => {
         <div id="infos-footer" className="infos-chef">
           <div className="rate-chef">
             <div>
-              <Rating
-                defaultValue={
-                  currentChef.rate.reduce((acc, current) => acc + current) / 4
-                }
-                precision={0.5}
-                readOnly
-              />
+              <Rating defaultValue={20 / 4} precision={0.5} readOnly />
             </div>
           </div>
           <ButtonProfile onClick={handleClick} variant="outlined">

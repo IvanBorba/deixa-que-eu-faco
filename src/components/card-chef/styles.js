@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "@material-ui/core/Button";
 
 export const CardContainer = styled.div`
@@ -8,7 +8,11 @@ export const CardContainer = styled.div`
   background-color: #fcf5ee;
   display: flex;
   color: #333;
-  margin-left: 2vw;
+  ${(props) =>
+    props.center &&
+    css`
+      margin: 15px auto;
+    `};
 
   #image-box {
     text-align: center;
@@ -61,6 +65,11 @@ export const CardContainer = styled.div`
   @media (min-width: 760px) {
     height: 150px;
     width: 440px;
+    ${(props) =>
+      props.center &&
+      css`
+        margin: 15px 0;
+      `};
     #image-box {
       font-size: 60px;
       line-height: 150px;
