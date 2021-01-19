@@ -13,6 +13,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,10 +52,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(281)]: { fontSize: "9px" },
   },
   mobileButton: {
-    marginLeft: "16vw",
-    [theme.breakpoints.down(769)]: { marginLeft: "38vw" },
-    [theme.breakpoints.down(426)]: { marginLeft: "26vw" },
-    [theme.breakpoints.down(425)]: { marginLeft: "15vw" },
+    marginLeft: "40vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "78vw" },
+    [theme.breakpoints.down(500)]: { marginLeft: "70vw" },
+    [theme.breakpoints.down(400)]: { marginLeft: "65vw" },
+    [theme.breakpoints.down(350)]: { marginLeft: "60vw" },
   },
   categories: {
     borderRadius: 0,
@@ -64,6 +66,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(450)]: { width: "33%" },
     [theme.breakpoints.down(400)]: { width: "40%" },
     [theme.breakpoints.down(330)]: { width: "55%", fontSize: "11px" },
+  },
+  mobileMenu: {
+    [theme.breakpoints.up(500)]: { maxWidth: "20vw" },
+  },
+  closeIcon: {
+    [theme.breakpoints.up(500)]: { margin: 0 },
+  },
+  mobileLogoff: {
+    [theme.breakpoints.up(500)]: { marginLeft: "0" },
   },
 }));
 
@@ -97,14 +108,6 @@ const Header = () => {
     setColapsed(!colapsed);
   };
 
-  const handleLogoClick = () => {
-    !user
-      ? history.push("/")
-      : user.isChef
-      ? history.push("/home-chef")
-      : history.push("/home-customer");
-  };
-
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.bar}>
@@ -113,7 +116,7 @@ const Header = () => {
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="Logo Principal"
             className={classes.logo}
-            onClick={handleLogoClick}
+            onClick={() => history.push("/")}
             style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
@@ -188,12 +191,23 @@ const Header = () => {
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}
+                className={classes.mobileMenu}
               >
-                <MenuItem onClick={() => setAnchorEl(null)}>Fechar</MenuItem>
-                <MenuItem onClick={() => history.push("/settings")}>
+                <MenuItem onClick={() => setAnchorEl(null)}>
+                  <CloseIcon
+                    className={classes.closeIcon}
+                    style={{ color: "#9e5642" }}
+                  />
+                </MenuItem>
+                <MenuItem
+                  onClick={() => history.push("/settings")}
+                  style={{ color: "#9e5642" }}
+                >
                   Minha conta
                 </MenuItem>
-                <MenuItem onClick={logout}>Logoff</MenuItem>
+                <MenuItem onClick={logout} style={{ color: "#9e5642" }}>
+                  <p>Logoff</p>
+                </MenuItem>
               </Menu>
             </>
           )}

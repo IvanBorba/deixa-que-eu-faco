@@ -25,7 +25,7 @@ const NewServiceForm = ({ chef }) => {
   });
 
   const handleRegister = (data) => {
-    data.address = `${data.street} ${data.city} - ${data.state}`;
+    data.address = `${data.street}, ${data.city} - ${data.state}`;
     delete data.street;
     delete data.city;
     delete data.state;
