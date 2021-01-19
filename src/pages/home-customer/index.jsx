@@ -24,7 +24,7 @@ const HomeCustomer = ({ bests }) => {
             ))}
         </div>
       </Container>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

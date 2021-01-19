@@ -36,8 +36,13 @@ const ViewChef = ({ users }) => {
           >
             <ArrowBackIcon color="primary" /> Voltar
           </Button>
-          <ButtonProfile variant="outlined" size="large">
-            CONTRATAR
+          <ButtonProfile
+            variant="outlined"
+            size="large"
+            style={{ textTransform: "uppercase" }}
+            onClick={() => history.push(`/new-service/${currentChef.id}`)}
+          >
+            Contratar
           </ButtonProfile>
         </div>
       </Container>
