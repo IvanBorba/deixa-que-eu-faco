@@ -35,10 +35,10 @@ export const RegisterPost = (data, chefRegister, options) => {
   } else {
     data.isChef = chefRegister;
   }
-
+  console.log(data)
   axios
     .post(`${baseUrl}/register`, data)
-    .then((res) => console.log("login efetuado com sucesso"));
+    .then((res) => console.log(res));
 };
 
 export const registerService = (data) => {
