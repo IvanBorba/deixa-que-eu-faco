@@ -2,26 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Main } from "./style/style";
 import BoxInfo from "../../components/card-services-chef/box-info";
 import Services from "../../components/card-services-chef/services-status";
-import Pagination from "../../components/pagination";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import { useSelector, useDispatch } from "react-redux";
 import { getChefServicesThunk } from "../../store/modules/services/thunk";
 
 const ChefHome = () => {
-  const [page, setPage] = useState(1);
   const [option, setOption] = useState("waiting");
-
   const dispatch = useDispatch();
   const services = useSelector((state) => state.chefServices);
 
-  const handleServices = (p, o) => {
-    dispatch(getChefServicesThunk(p, o));
-  };
-
   useEffect(() => {
-    handleServices(page, option);
-  }, [option, page]);
+    dispatch(getChefServicesThunk());
+  }, []);
 
   console.log("Services: ", services);
 
@@ -32,7 +25,6 @@ const ChefHome = () => {
         <p className="saldo">Saldo: R$100,00</p>
         <BoxInfo list={services} setOption={setOption} option={option} />
         <Services list={services} option={option} />
-        <Pagination list={services} page={page} setPage={setPage} />
       </Main>
       <Footer />
     </>

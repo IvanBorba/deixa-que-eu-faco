@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "./style";
 import Logo from "../../../images/logo/logo.png";
+import { updateService } from "../../../requests";
 
 const CardServicesChef = ({ card }) => {
   const handleRemove = () => {
@@ -12,11 +13,17 @@ const CardServicesChef = ({ card }) => {
   const handleDate = () => {
     // alterar status da API para accepted
     console.log("Serviço agendado");
+    console.log("Card: ", card);
+    const accepted = { status: "accepted" };
+    updateService(accepted, card.id);
   };
 
   const handleFinished = () => {
     // alterar status da API para finished
     console.log("Serviço finalizado");
+    console.log("Card: ", card);
+    const accepted = { status: "finished" };
+    updateService(accepted, card.id);
   };
   return (
     <>
