@@ -26,11 +26,25 @@ const HomeCustomer = ({ bests }) => {
         <div style={{ display: "flex" }}>
           <Switch onChange={handleTopFive} />
           {showTopFive ? (
-            <p style={{ fontSize: "13px", color: "#9E5642" }}>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#9E5642",
+                textTransform: "uppercase",
+              }}
+            >
               Top cinco chefs
             </p>
           ) : (
-            <p style={{ fontSize: "13px", color: "#9E5642" }}>Top três chefs</p>
+            <p
+              style={{
+                fontSize: "13px",
+                color: "#9E5642",
+                textTransform: "uppercase",
+              }}
+            >
+              Top três chefs
+            </p>
           )}
         </div>
         <div id="best-chefs">
