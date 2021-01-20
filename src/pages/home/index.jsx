@@ -9,7 +9,7 @@ const HomePage = () => {
       <Header />
       <Carousel />
       <h1>
-        Aproveite mais seus momentos de lazer, deixe que nossos chef’s cuide da
+        Aproveite mais seus momentos de lazer, deixe que nossos chef’s cuidem da
         cozinha
       </h1>
       <Container>

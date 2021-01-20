@@ -18,10 +18,6 @@ export const LoginRequisition = (data, users, history) => {
       });
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
-      let historyUser = JSON.parse(localStorage.getItem("userData"));
-      // historyUser.isChef
-      //   ? history.push("/home-chef")
-      //   : history.push("/home-customer");
       history.push("/");
       window.location.reload();
     })
@@ -42,10 +38,10 @@ export const RegisterPost = (data, chefRegister, options) => {
     .then((res) => console.log("login efetuado com sucesso"));
 };
 
-export const registerService = (data) => {
+export const registerService = (data, history) => {
   axios
     .post(`${baseUrl}/services`, data, headers)
-    .then((res) => console.log(res, "Serviço cadastrado com sucesso"))
+    .then((res) => history.push("/"))
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
