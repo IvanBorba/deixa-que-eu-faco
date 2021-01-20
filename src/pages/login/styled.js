@@ -108,15 +108,14 @@ export const Options = styled.div`
   background: rgba(255, 255, 255, 0.5);
 
   .button {
-    color: #323232;
+    color: #7c4636;
     text-transform: uppercase;
-    font-weight: 1000;
   }
 `;
 
 export const Footer = styled.footer`
   text-align: center;
-  color: #323232;
+  color: #7c4636;
   font-weight: 700;
   transform: translateY(-10px);
   text-transform: uppercase;
