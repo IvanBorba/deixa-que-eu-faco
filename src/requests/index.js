@@ -13,7 +13,9 @@ export const LoginRequisition = (data, users, history) => {
     .post(`${baseUrl}/login`, data)
     .then((res) => {
       const actualData = JSON.parse(res.config.data);
-      const actual = users.filter(actual => actual.email === actualData.email);
+      const actual = users.filter(
+        (actual) => actual.email === actualData.email
+      );
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
       let historyUser = JSON.parse(localStorage.getItem("userData"));
@@ -33,10 +35,8 @@ export const RegisterPost = (data, chefRegister, options) => {
   } else {
     data.isChef = chefRegister;
   }
-  console.log(data)
-  axios
-    .post(`${baseUrl}/register`, data)
-    .then((res) => console.log(res));
+  console.log(data);
+  axios.post(`${baseUrl}/register`, data).then((res) => console.log(res));
 };
 
 export const registerService = (data, setSuccess) => {

@@ -10,7 +10,7 @@ const HomeCustomerOptions = () => {
           to="/chefs"
           style={{ textTransform: "uppercase" }}
         >
-          Ver todos
+          Ver todos os chefs
         </Link>
       </Ball>
       <Ball secondary>
@@ -28,7 +28,7 @@ const HomeCustomerOptions = () => {
           to="/settings"
           style={{ textTransform: "uppercase" }}
         >
-          Editar meu perfil
+          Editar perfil
         </Link>
       </Ball>
     </Container>

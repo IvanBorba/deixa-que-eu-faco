@@ -19,7 +19,7 @@ const Router = () => {
   let token = localStorage.getItem("authToken");
   let actualUser = JSON.parse(localStorage.getItem("userData"));
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  const users = JSON.parse(localStorage.getItem("users"));
 
   useEffect(() => {
     dispatch(getUsersThunk());
@@ -51,7 +51,6 @@ const Router = () => {
             <ChefHome />
           </Route>
           <Route exact path="/settings">
-            <Header />
             <SettingsPage />
           </Route>
         </>
