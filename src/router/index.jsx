@@ -51,8 +51,8 @@ const Router = () => {
             <ChefHome />
           </Route>
           <Route exact path="/settings">
-              <Header />
-             <SettingsPage />
+            <Header />
+            <SettingsPage />
           </Route>
         </>
       ) : (
@@ -70,8 +70,7 @@ const Router = () => {
             <NewService />
           </Route>
           <Route exact path="/settings">
-            <Header />
-              <SettingsPage />
+            <SettingsPage />
           </Route>
           <Route exact path="/chefs">
             <ChefsList users={users} />

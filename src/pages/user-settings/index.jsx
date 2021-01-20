@@ -1,4 +1,9 @@
-import { SettingsAvatar, SettingsDatas, LoginSettings, SaveConfigs } from "../../components/forms/settings-form";
+import {
+  SettingsAvatar,
+  SettingsDatas,
+  LoginSettings,
+  SaveConfigs,
+} from "../../components/forms/settings-form";
 import "./index.css";
 
 const SettingsPage = () => {
@@ -24,4 +29,4 @@ const SettingsPage = () => {
     )
 }
 
-export default SettingsPage
+export default SettingsPage;

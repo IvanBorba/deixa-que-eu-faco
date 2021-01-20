@@ -161,11 +161,21 @@ const Header = () => {
               {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
+          {user && isChef && actualWidth > 768 && (
+            <Button
+              color="primary"
+              component={Link}
+              to={"/settings"}
+              className={classes.loginButton}
+            >
+              Atualizar perfil
+            </Button>
+          )}
           {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
-              to="/settings"
+              to={user.isChef ? "/home-chef" : "/home-customer"}
               className={classes.loginButton}
             >
               Minha conta
@@ -211,10 +221,20 @@ const Header = () => {
                   />
                 </MenuItem>
                 <MenuItem
-                  onClick={() => history.push("/settings")}
+                  onClick={() =>
+                    user.isChef
+                      ? history.push("/home-chef")
+                      : history.push("/home-customer")
+                  }
                   style={{ color: "#9e5642" }}
                 >
                   Minha conta
+                </MenuItem>
+                <MenuItem
+                  onClick={() => history.push("/settings")}
+                  style={{ color: "#9e5642" }}
+                >
+                  Atualizar perfil
                 </MenuItem>
                 <MenuItem onClick={logout} style={{ color: "#9e5642" }}>
                   <p>Logoff</p>
