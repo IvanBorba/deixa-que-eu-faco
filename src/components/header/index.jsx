@@ -165,7 +165,7 @@ const Header = () => {
             <Button
               color="primary"
               component={Link}
-              to="/settings"
+              to={user.isChef ? "/home-chef" : "/home-customer"}
               className={classes.loginButton}
             >
               Minha conta
@@ -211,7 +211,11 @@ const Header = () => {
                   />
                 </MenuItem>
                 <MenuItem
-                  onClick={() => history.push("/settings")}
+                  onClick={() =>
+                    user.isChef
+                      ? history.push("/home-chef")
+                      : history.push("/home-customer")
+                  }
                   style={{ color: "#9e5642" }}
                 >
                   Minha conta
