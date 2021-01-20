@@ -8,7 +8,7 @@ const HomePage = () => {
     <Main>
       <Header />
       <Carousel />
-      <h1>
+      <h1 style={{ fontWeight: "200" }}>
         Aproveite mais seus momentos de lazer, deixe que nossos chef’s cuidem da
         cozinha
       </h1>
@@ -20,8 +20,16 @@ const HomePage = () => {
           />
         </div>
         <div className="mission">
-          <h2>Missão</h2>
-          <p>
+          <h2
+            style={{
+              fontWeight: "300",
+              fontSize: "22px",
+              textTransform: "uppercase",
+            }}
+          >
+            Missão
+          </h2>
+          <p style={{ marginBottom: "6vh" }}>
             Nossa missão é proporcionar para os clientes, melhores experiências
             culinárias e que possam aproveitar melhor seu tempo com a família e
             amigos

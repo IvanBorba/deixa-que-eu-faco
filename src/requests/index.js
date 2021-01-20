@@ -18,7 +18,10 @@ export const LoginRequisition = (data, users, history) => {
       });
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
-      history.push("/");
+      let historyUser = JSON.parse(localStorage.getItem("userData"));
+      historyUser.isChef
+        ? history.push("/home-chef")
+        : history.push("/home-customer");
       window.location.reload();
     })
     .catch(() => console.log("login ou senha incorretos"));
@@ -38,23 +41,23 @@ export const RegisterPost = (data, chefRegister, options) => {
     .then((res) => console.log("login efetuado com sucesso"));
 };
 
-export const registerService = (data, history) => {
+export const registerService = (data, setSuccess) => {
   axios
     .post(`${baseUrl}/services`, data, headers)
-    .then((res) => history.push("/"))
+    .then((res) => setSuccess(true))
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
 export const updateService = (data, serviceId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 
 export const deleteService = (serviceId) => {
   axios
     .delete(`${baseUrl}/services/${serviceId}`, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
