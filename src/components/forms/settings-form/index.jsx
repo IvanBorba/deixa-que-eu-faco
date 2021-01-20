@@ -59,25 +59,21 @@ const CssTextArea = withStyles({
 })(TextField);
 
 export const SettingsAvatar = ({ profilePhoto }) => {
-  const firstLetter = JSON.parse(localStorage.getItem("userData")).name[0];
-  return (
-    <div className="avatarBox">
-      <div className="theAvatar">
-        {profilePhoto ? (
-          <img alt="profilePhoto" src={profilePhoto} />
-        ) : (
-          firstLetter
-        )}
-      </div>
-      <h3 style={{ fontWeight: "lighter" }}>ALTERAR AVATAR</h3>
-      <CssTextField
-        name="name"
-        label="CHOSE FILE..."
-        variant="outlined"
-        margin="dense"
-      />
-    </div>
-  );
+    const firstLetter = JSON.parse(localStorage.getItem("userData")).name[0]
+    return (
+        <div className="avatarBox">
+            <div className="theAvatar">
+                {profilePhoto ?<img  alt="profilePhoto" src={profilePhoto} /> : firstLetter }
+            </div>
+            <h3 style={{fontWeight: "lighter"}}>ALTERAR AVATAR</h3>
+            <CssTextField
+                name="name"
+                label="CHOSE FILE..."
+                variant="outlined"
+                margin="dense"
+            />
+        </div>
+    );
 };
 
 export const SettingsDatas = () => {
