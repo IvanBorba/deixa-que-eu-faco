@@ -20,7 +20,8 @@ const FilteredChefList = ({ users }) => {
       <Header />
       <Carousel />
       <Expertise>
-        CHEFS {<ArrowRight />} {specific_expertise.toUpperCase()}
+        CHEFS {<ArrowRight />} CULINÁRIA {<ArrowRight />}{" "}
+        {specific_expertise.toUpperCase()}
       </Expertise>
       <Container>
         {filteredList.map((currentChef, index) => (
