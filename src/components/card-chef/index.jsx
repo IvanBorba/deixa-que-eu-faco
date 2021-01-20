@@ -28,7 +28,14 @@ const CardChef = ({ currentChef, isCenter = false }) => {
         <div id="infos-footer" className="infos-chef">
           <div className="rate-chef">
             <div>
-              <Rating defaultValue={20 / 4} precision={0.5} readOnly />
+              <Rating
+                defaultValue={currentChef.rate.reduce(
+                  (acc, number) =>
+                    (acc + number) / (currentChef.rate.length * 2)
+                )}
+                precision={0.5}
+                readOnly
+              />
             </div>
           </div>
           <ButtonProfile onClick={handleClick} variant="outlined">
