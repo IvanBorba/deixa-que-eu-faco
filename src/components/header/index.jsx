@@ -107,6 +107,7 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
+    localStorage.removeItem("users");
     history.push("/");
     window.location.reload();
   };
