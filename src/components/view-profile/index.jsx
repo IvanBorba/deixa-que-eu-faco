@@ -2,7 +2,6 @@ import { Container, Film, ChefAvatar } from "./styles";
 import Rating from "@material-ui/lab/Rating";
 
 const ViewProfile = ({ currentChef }) => {
-  console.log(currentChef);
   return (
     <Container>
       <Film>
@@ -18,11 +17,12 @@ const ViewProfile = ({ currentChef }) => {
           <div>
             <Rating
               defaultValue={
-                currentChef.rate.reduce((acc, current) => acc + current) / 4
+                currentChef.rate?.reduce((acc, current) => acc + current) / 4
               }
               precision={0.5}
               readOnly
             />
+            {!currentChef.rate && <p>* Ainda não avaliado</p>}
           </div>
         </div>
       </Film>

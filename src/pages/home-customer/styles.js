@@ -17,6 +17,7 @@ export const Container = styled.div`
     text-align: center;
     margin: 10px 0;
     font-size: 16px;
+    color: #9e5642;
   }
 
   @media (min-width: 320px) {
@@ -30,7 +31,7 @@ export const Container = styled.div`
       }
     }
     .title-best-chefs {
-      font-size: 22px;
+      font-size: 19px;
     }
   }
 
@@ -47,13 +48,14 @@ export const Container = styled.div`
     }
     .title-best-chefs {
       text-align: start;
-      margin: 15px 30px;
+      margin: 15px;
       font-size: 30px;
     }
     #best-chefs {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;
+      margin-bottom: 5vh;
     }
   }
 `;

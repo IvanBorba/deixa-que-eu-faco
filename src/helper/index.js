@@ -37,9 +37,6 @@ export const newServiceSchema = yup.object().shape({
   city: yup
     .string("Formato de cidade inválido")
     .required("Por Favor, informe sua cidade"),
-  state: yup
-    .string("Formato de estado inválido")
-    .required("Por Favor, informe seu estado"),
   ingredients: yup.string("Formato dos ingredientes inválido"),
   date: yup.string("Formato da data inválido"),
 });

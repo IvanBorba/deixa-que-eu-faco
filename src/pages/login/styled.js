@@ -42,7 +42,6 @@ export const Box = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: center;
-
   img {
     width: 90px;
     height: 90px;
@@ -59,7 +58,7 @@ export const BoxContent = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: center;
-
+  border-radius: 10px;
   h2 {
     color: #9e5642;
     font-weight: 400;
@@ -117,7 +116,7 @@ export const Footer = styled.footer`
   text-align: center;
   color: #9e5642;
   font-weight: 700;
-
+  transform: translateY(-10px);
   p {
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-weight: 300;

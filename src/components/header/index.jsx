@@ -13,6 +13,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,11 +51,19 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "11px",
     [theme.breakpoints.down(281)]: { fontSize: "9px" },
   },
-  mobileButton: {
-    marginLeft: "16vw",
-    [theme.breakpoints.down(769)]: { marginLeft: "38vw" },
-    [theme.breakpoints.down(426)]: { marginLeft: "26vw" },
-    [theme.breakpoints.down(425)]: { marginLeft: "15vw" },
+  mobileChefButton: {
+    marginLeft: "40vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "78vw" },
+    [theme.breakpoints.down(500)]: { marginLeft: "70vw" },
+    [theme.breakpoints.down(400)]: { marginLeft: "65vw" },
+    [theme.breakpoints.down(350)]: { marginLeft: "60vw" },
+  },
+  mobileCustomerButton: {
+    marginLeft: "40vw",
+    [theme.breakpoints.down(769)]: { marginLeft: "50vw" },
+    [theme.breakpoints.down(500)]: { marginLeft: "35vw" },
+    [theme.breakpoints.down(400)]: { marginLeft: "30vw" },
+    [theme.breakpoints.down(350)]: { marginLeft: "25vw" },
   },
   categories: {
     borderRadius: 0,
@@ -64,6 +73,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(450)]: { width: "33%" },
     [theme.breakpoints.down(400)]: { width: "40%" },
     [theme.breakpoints.down(330)]: { width: "55%", fontSize: "11px" },
+  },
+  mobileMenu: {
+    [theme.breakpoints.up(500)]: { maxWidth: "20vw" },
+  },
+  closeIcon: {
+    [theme.breakpoints.up(500)]: { margin: 0 },
+  },
+  mobileLogoff: {
+    [theme.breakpoints.up(500)]: { marginLeft: "0" },
   },
 }));
 
@@ -89,20 +107,13 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
+    localStorage.removeItem("users");
     history.push("/");
     window.location.reload();
   };
 
   const handleColapse = () => {
     setColapsed(!colapsed);
-  };
-
-  const handleLogoClick = () => {
-    !user
-      ? history.push("/")
-      : user.isChef
-      ? history.push("/home-chef")
-      : history.push("/home-customer");
   };
 
   return (
@@ -113,13 +124,28 @@ const Header = () => {
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="Logo Principal"
             className={classes.logo}
-            onClick={handleLogoClick}
+            onClick={() => history.push("/")}
             style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
             <Typography color="primary" variant="h5" className={classes.title}>
               Deixa que eu faço
             </Typography>
+          )}
+          {!user && (
+            <Button
+              color={colapsed ? "primary" : "secondary"}
+              className={classes.categories}
+              style={
+                colapsed
+                  ? { backgroundColor: "#D6B8B0" }
+                  : { backgroundColor: "#F5E0CC" }
+              }
+              onClick={handleColapse}
+            >
+              Categorias{" "}
+              {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+            </Button>
           )}
           {!user && (
             <Button color="secondary" component={Link} to="/register">
@@ -151,14 +177,24 @@ const Header = () => {
               {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
+          {user && isChef && actualWidth > 768 && (
+            <Button
+              color="primary"
+              component={Link}
+              to={"/settings"}
+              className={classes.loginButton}
+            >
+              Atualizar perfil
+            </Button>
+          )}
           {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
-              to="/settings"
+              to={user.isChef ? "/home-chef" : "/home-customer"}
               className={classes.loginButton}
             >
-              Minha conta
+              Menu
             </Button>
           )}
           {user && actualWidth > 768 && (
@@ -179,7 +215,11 @@ const Header = () => {
                 color="primary"
                 aria-label="menu"
                 onClick={handleClick}
-                className={classes.mobileButton}
+                className={
+                  user.isChef
+                    ? classes.mobileChefButton
+                    : classes.mobileCustomerButton
+                }
               >
                 <MenuIcon />
               </IconButton>
@@ -188,17 +228,38 @@ const Header = () => {
                 anchorEl={anchorEl}
                 keepMounted
                 open={Boolean(anchorEl)}
+                className={classes.mobileMenu}
               >
-                <MenuItem onClick={() => setAnchorEl(null)}>Fechar</MenuItem>
-                <MenuItem onClick={() => history.push("/settings")}>
-                  Minha conta
+                <MenuItem onClick={() => setAnchorEl(null)}>
+                  <CloseIcon
+                    className={classes.closeIcon}
+                    style={{ color: "#9e5642" }}
+                  />
                 </MenuItem>
-                <MenuItem onClick={logout}>Logoff</MenuItem>
+                <MenuItem
+                  onClick={() =>
+                    user.isChef
+                      ? history.push("/home-chef")
+                      : history.push("/home-customer")
+                  }
+                  style={{ color: "#9e5642" }}
+                >
+                  Menu
+                </MenuItem>
+                <MenuItem
+                  onClick={() => history.push("/settings")}
+                  style={{ color: "#9e5642" }}
+                >
+                  Atualizar perfil
+                </MenuItem>
+                <MenuItem onClick={logout} style={{ color: "#9e5642" }}>
+                  <p>Logoff</p>
+                </MenuItem>
               </Menu>
             </>
           )}
         </Toolbar>
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories1.map((actual, index) => {
               return (
@@ -218,7 +279,7 @@ const Header = () => {
             })}
           </Toolbar>
         )}
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories2.map((actual, index) => {
               return (

@@ -38,6 +38,9 @@ export const Ball = styled.div`
     display: block;
     color: #fff;
     text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
   }
 
   @media (min-width: 320px) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "./styled";
+import { Main, Card } from "./styled";
 
 const BoxInfo = ({ list, setOption }) => {
   const servicesFinished = list.filter((item) => item.status === "finished");
@@ -20,7 +20,7 @@ const BoxInfo = ({ list, setOption }) => {
     console.log("SERVICES ACCEPTED: ", servicesAccepted);
   };
   return (
-    <>
+    <Main>
       <Card>
         <p>AVALIAÇÕES: 4.5 / 5.0</p>
         <p>SERVIÇOS REALIZADOS: {servicesFinished.length}</p>
@@ -32,7 +32,7 @@ const BoxInfo = ({ list, setOption }) => {
         <p>SERVIÇOS AGENDADOS: {servicesAccepted.length}</p>
         <button onClick={handleAccepted}>visualizar</button>
       </Card>
-    </>
+    </Main>
   );
 };
 

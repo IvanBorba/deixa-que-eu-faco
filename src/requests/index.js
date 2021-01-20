@@ -11,13 +11,11 @@ const headers = {
 export const LoginRequisition = (data, users, history) => {
   axios
     .post(`${baseUrl}/login`, data)
-    .then((res) => {
-      const actualData = JSON.parse(res.config.data);
-      const actual = users.filter((actual) => {
-        return actual.email === actualData.email;
-      });
+    .then(async (res) => {
+      let actual = await axios.get(`${baseUrl}/users?email=${data.email}`);
       localStorage.setItem("authToken", res.data.accessToken);
-      localStorage.setItem("userData", JSON.stringify(actual[0]));
+      localStorage.setItem("userData", JSON.stringify(actual.data[0]));
+      console.log(actual.data);
       let historyUser = JSON.parse(localStorage.getItem("userData"));
       historyUser.isChef
         ? history.push("/home-chef")
@@ -35,29 +33,27 @@ export const RegisterPost = (data, chefRegister, options) => {
   } else {
     data.isChef = chefRegister;
   }
-
-  axios
-    .post(`${baseUrl}/register`, data)
-    .then((res) => console.log("login efetuado com sucesso"));
+  console.log(data);
+  axios.post(`${baseUrl}/register`, data).then((res) => console.log(res));
 };
 
-export const registerService = (data) => {
+export const registerService = (data, setSuccess) => {
   axios
     .post(`${baseUrl}/services`, data, headers)
-    .then((res) => console.log(res, "Serviço cadastrado com sucesso"))
+    .then((res) => setSuccess(true))
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
 export const updateService = (data, serviceId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 
 export const deleteService = (serviceId) => {
   axios
     .delete(`${baseUrl}/services/${serviceId}`, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };

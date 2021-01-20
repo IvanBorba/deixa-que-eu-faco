@@ -218,7 +218,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
           disabled={!chefRegister}
         >
           <option aria-label="None" value="" />
-          <option value={" 0 - 2 anos"}>0-3 anos</option>
+          <option value={" 0 - 2 anos"}>0-2 anos</option>
           <option value={"2 - 4 anos"}>2-4 anos</option>
           <option value={"4 - 6 anos"}>4-6 anos</option>
           <option value={"Mais de 8 anos"}>+8 anos</option>

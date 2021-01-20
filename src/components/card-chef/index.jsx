@@ -4,6 +4,8 @@ import Rating from "@material-ui/lab/Rating";
 
 const CardChef = ({ currentChef, isCenter = false }) => {
   const history = useHistory();
+  const name = currentChef.name.split(" ");
+
   const handleClick = () => {
     history.push(`/view-chef/${currentChef.id}`);
   };
@@ -21,14 +23,25 @@ const CardChef = ({ currentChef, isCenter = false }) => {
         )}
       </div>
       <div id="infos-box">
-        <h1 className="infos-chef name-chef">{currentChef.name}</h1>
+        <h1 className="infos-chef name-chef">
+          {name[0].length > 8 || name[1].length > 8 || name.length > 2
+            ? name[0]
+            : currentChef.name}
+        </h1>
         <p className="infos-chef specialty-chef">
           Especialidade: {currentChef.expertise}
         </p>
         <div id="infos-footer" className="infos-chef">
           <div className="rate-chef">
             <div>
-              <Rating defaultValue={20 / 4} precision={0.5} readOnly />
+              <Rating
+                defaultValue={
+                  currentChef.rate?.reduce((acc, number) => acc + number) /
+                  (currentChef.rate?.length * 2)
+                }
+                precision={0.5}
+                readOnly
+              />
             </div>
           </div>
           <ButtonProfile onClick={handleClick} variant="outlined">
