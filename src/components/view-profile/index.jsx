@@ -2,7 +2,6 @@ import { Container, Film, ChefAvatar } from "./styles";
 import Rating from "@material-ui/lab/Rating";
 
 const ViewProfile = ({ currentChef }) => {
-  console.log(currentChef);
   return (
     <Container>
       <Film>

@@ -59,6 +59,7 @@ export const BoxContent = styled.div`
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
 
   h2 {
     color: #9e5642;
