@@ -87,7 +87,7 @@ const NewServiceForm = ({ chef }) => {
   const classes = useStyles();
   const history = useHistory();
   const [guests, setGuests] = useState("");
-  const [state, setState] = useState("");
+  const [regionalState, setRegionalState] = useState("");
   const [errorFeedback, setErrorFeedback] = useState("");
   const [ingredients, setIngredients] = useState(false);
   const actualUser = JSON.parse(localStorage.getItem("userData"));
@@ -96,14 +96,24 @@ const NewServiceForm = ({ chef }) => {
   });
 
   const handleRegister = (data) => {
-    data.address = `${data.street}, ${data.city} - ${state}`;
+    if (regionalState === "") {
+      setErrorFeedback("Informe o Estado");
+      return;
+    }
+    data.address = `${data.street}, ${data.city} - ${regionalState}`;
     delete data.street;
     delete data.city;
-    delete data.state;
+    console.log(regionalState);
+    data.state = regionalState;
 
     data.clientId = actualUser.id;
     data.clientName = actualUser.name;
     data.chefId = chef.id;
+
+    if (guests === "") {
+      setErrorFeedback("Informe o número de convidados");
+      return;
+    }
     data.guests = guests;
 
     if (guests === "Menos de 10") {
@@ -112,9 +122,6 @@ const NewServiceForm = ({ chef }) => {
       data.price = chef.price * 25;
     } else if (guests === "Mais de 50") {
       data.price = chef.price * 50;
-    } else {
-      setErrorFeedback("Informe o número de convidados.");
-      return;
     }
 
     data.market = ingredients;
@@ -132,8 +139,8 @@ const NewServiceForm = ({ chef }) => {
     delete data.ingredients;
 
     data.status = "waiting";
-
-    registerService(data, history);
+    console.log(data);
+    // registerService(data, history);
   };
 
   const handleIngredientNeed = (e) => {
@@ -142,11 +149,16 @@ const NewServiceForm = ({ chef }) => {
   };
 
   const handleGuests = (e) => {
+    e.preventDefault();
     setGuests(e.target.value);
+    console.log(guests);
   };
 
-  const handleState = (e) => {
-    setState(e.target.value);
+  const handleRegionalState = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setRegionalState(e.target.value);
+    console.log(regionalState);
   };
 
   return (
@@ -177,11 +189,12 @@ const NewServiceForm = ({ chef }) => {
         <Select
           className={classes.input}
           label="Estado"
-          onChange={handleState}
-          value={state}
+          onChange={handleRegionalState}
+          value={regionalState}
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
         >
+          <MenuItem value={""}>Selecione o Estado</MenuItem>
           <MenuItem value={"AC"}>Acre</MenuItem>
           <MenuItem value={"AL"}>Alagoas</MenuItem>
           <MenuItem value={"AP"}>Amapá</MenuItem>
