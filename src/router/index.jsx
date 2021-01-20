@@ -26,15 +26,6 @@ const Router = () => {
 
   return (
     <Switch>
-      <Route exact path="/">
-        {!token ? (
-          <HomePage />
-        ) : actualUser.isChef ? (
-          <ChefHome />
-        ) : (
-          <HomeCustomer bests={users} />
-        )}
-      </Route>
       <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
@@ -43,6 +34,9 @@ const Router = () => {
       </Route>
       {!token ? (
         <>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
           <Route path="/register">
             <RegisterPage />
           </Route>
@@ -52,6 +46,9 @@ const Router = () => {
         </>
       ) : actualUser.isChef ? (
         <>
+          <Route exact path="/home-chef">
+            <ChefHome />
+          </Route>
           <Route exact path="/settings">
             {/* <ChefSetting/> */}
             <Header />
@@ -59,6 +56,12 @@ const Router = () => {
         </>
       ) : (
         <>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route exact path="/home-customer">
+            <HomeCustomer bests={users} />
+          </Route>
           <Route exact path="/active-services">
             <ActiveServices />
           </Route>

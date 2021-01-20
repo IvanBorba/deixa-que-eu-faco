@@ -6,6 +6,7 @@ import Footer from "../../components/footer";
 
 const HomeCustomer = ({ bests }) => {
   let user = JSON.parse(localStorage.getItem("userData"));
+  console.log(bests);
   return (
     <>
       <Header />
