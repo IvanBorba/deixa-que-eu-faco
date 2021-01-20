@@ -8,6 +8,13 @@ const headers = {
   },
 };
 
+const updateProfile = (data, id) => {
+  axios
+    .patch(`${baseUrl}/users/${id}`, data)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err, "Erro na atualização do perfil"));
+};
+
 export const LoginRequisition = (data, users, history) => {
   axios
     .post(`${baseUrl}/login`, data)
@@ -44,10 +51,14 @@ export const registerService = (data, setSuccess) => {
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
-export const updateService = (data, serviceId) => {
+export const updateService = (data, serviceId, userData, chefId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
-    .then((res) => window.location.reload())
+    .then((res) => {
+      console.log(res);
+      // updateProfile(userData, chefId);
+      window.location.reload();
+    })
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 

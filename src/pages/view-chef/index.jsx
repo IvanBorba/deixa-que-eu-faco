@@ -1,5 +1,5 @@
 import ViewProfile from "../../components/view-profile";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, BioContainer, ButtonProfile } from "./styles";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
