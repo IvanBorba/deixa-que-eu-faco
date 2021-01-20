@@ -3,3 +3,12 @@
     flex-direction: column;
     align-items: center;
 }
+    .subHeader {
+        width: 100vw;
+        padding: 5px 0 5px 0;
+        border-bottom: 1px solid #9E5642;
+    }
+        .subHeader h4 {
+            color: #9E5642;
+            padding: 10px;
+        }

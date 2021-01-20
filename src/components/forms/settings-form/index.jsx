@@ -105,70 +105,73 @@ export const SettingsDatas = () => {
                     fullWidth
                     placeholder={userData.birth_date}
                 />
-                <h5 style={{marginTop: 10}}>EDITE SUA ESPECIALIDADE:</h5>
-                <FormControl
-                    variant="outlined"
-                    fullWidth
-                    style={{marginTop: 20, marginBottom: 20}}
-                >
-                    <InputLabel htmlFor="outlined-age-native-simple">
-                        Especialidade
-                    </InputLabel>
-                    <Select
-                        native
-                        value={options.expertise}
-                        onChange={changeEspeciality}
-                        label="Especialidade"
-                        inputProps={{
-                            name: "expertise",
-                        }}
-
+                {userData.isChef &&
+                <>
+                    <h5 style={{marginTop: 10}}>EDITE SUA ESPECIALIDADE:</h5>
+                    <FormControl
+                        variant="outlined"
+                        fullWidth
+                        style={{marginTop: 20, marginBottom: 20}}
                     >
-                        <option aria-label="None" value="" />
-                        <option value={"Churrasco"}>Churrasco</option>
-                        <option value={"Japonesa"}>Japonesa</option>
-                        <option value={"Chinesa"}>Chinesa</option>
-                        <option value={"Vegetariano"}>Vegetariano</option>
-                        <option value={"Árabe"}>Árabe</option>
-                        <option value={"Saudável"}>Saudável</option>
-                        <option value={"Vegana"}>Vegana</option>
-                        <option value={"Doces"}>Doces</option>
-                    </Select>
-                </FormControl>
-                <h5>EDITE SEU TEMPO DE EXPERIÊNCIA:</h5>
-                <FormControl
-                    variant="outlined"
-                    fullWidth
-                    style={{marginTop: 20, marginBottom: 20}}
-                >
-                    <InputLabel htmlFor="outlined-age-native-simple">
-                        Experiência
-                    </InputLabel>
-                    <Select
-                        native
-                        value={options.experience}
-                        onChange={changeEspeciality}
-                        label="Experiência"
-                        inputProps={{
-                            name: "experience",
-                        }}
+                        <InputLabel htmlFor="outlined-age-native-simple">
+                            Especialidade
+                        </InputLabel>
+                        <Select
+                            native
+                            value={options.expertise}
+                            onChange={changeEspeciality}
+                            label="Especialidade"
+                            inputProps={{
+                                name: "expertise",
+                            }}
 
+                        >
+                            <option aria-label="None" value="" />
+                            <option value={"Churrasco"}>Churrasco</option>
+                            <option value={"Japonesa"}>Japonesa</option>
+                            <option value={"Chinesa"}>Chinesa</option>
+                            <option value={"Vegetariano"}>Vegetariano</option>
+                            <option value={"Árabe"}>Árabe</option>
+                            <option value={"Saudável"}>Saudável</option>
+                            <option value={"Vegana"}>Vegana</option>
+                            <option value={"Doces"}>Doces</option>
+                        </Select>
+                    </FormControl>
+                    <h5>EDITE SEU TEMPO DE EXPERIÊNCIA:</h5>
+                    <FormControl
+                        variant="outlined"
+                        fullWidth
+                        style={{marginTop: 20, marginBottom: 20}}
                     >
-                        <option aria-label="None" value="" />
-                        <option value={" 0 - 2 anos"}>0-3 anos</option>
-                        <option value={"2 - 4 anos"}>2-4 anos</option>
-                        <option value={"4 - 6 anos"}>4-6 anos</option>
-                        <option value={"Mais de 8 anos"}>+8 anos</option>
-                    </Select>
-                </FormControl>
-                <h5>BIOGRAFIA:</h5>
-                <CssTextArea
-                    variant="outlined"
-                    multiline
-                    fullWidth
-                    rows={6}
-                    style={{marginTop: 20}}
-                />
+                        <InputLabel htmlFor="outlined-age-native-simple">
+                            Experiência
+                        </InputLabel>
+                        <Select
+                            native
+                            value={options.experience}
+                            onChange={changeEspeciality}
+                            label="Experiência"
+                            inputProps={{
+                                name: "experience",
+                            }}
+
+                        >
+                            <option aria-label="None" value="" />
+                            <option value={" 0 - 2 anos"}>0-3 anos</option>
+                            <option value={"2 - 4 anos"}>2-4 anos</option>
+                            <option value={"4 - 6 anos"}>4-6 anos</option>
+                            <option value={"Mais de 8 anos"}>+8 anos</option>
+                        </Select>
+                    </FormControl>
+                    <h5>BIOGRAFIA:</h5>
+                    <CssTextArea
+                        variant="outlined"
+                        multiline
+                        fullWidth
+                        rows={6}
+                        style={{marginTop: 20}}
+                    />
+                </>}
             </div>
         </div>
 
