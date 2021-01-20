@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
 import Header from "../components/header";
+import SettingsPage from "../pages/user-settings";
 import ActiveServices from "../pages/customer-active-services";
 
 const Router = () => {
@@ -50,8 +51,8 @@ const Router = () => {
             <ChefHome />
           </Route>
           <Route exact path="/settings">
-            {/* <ChefSetting/> */}
             <Header />
+            <SettingsPage />
           </Route>
         </>
       ) : (
@@ -69,8 +70,7 @@ const Router = () => {
             <NewService />
           </Route>
           <Route exact path="/settings">
-            <Header />
-            {/* <CostumerSetting/> */}
+            <SettingsPage />
           </Route>
           <Route exact path="/chefs">
             <ChefsList users={users} />
