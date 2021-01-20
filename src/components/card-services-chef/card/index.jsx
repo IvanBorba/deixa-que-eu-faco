@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Container } from "./style";
 import Logo from "../../../images/logo/logo.png";
-import { updateService } from "../../../requests";
+import { updateService, deleteService } from "../../../requests";
 
 const CardServicesChef = ({ card }) => {
   const handleRemove = () => {
     // fazer requisição DELETE para deletar serviço da API
     console.log("Serviço removido");
     console.log("Card: ", card);
+    deleteService(card.id);
   };
 
   const handleDate = () => {
@@ -25,6 +26,9 @@ const CardServicesChef = ({ card }) => {
     const accepted = { status: "finished" };
     updateService(accepted, card.id);
   };
+
+  console.log("CARD: ", card);
+
   return (
     <>
       <Card>
@@ -37,6 +41,12 @@ const CardServicesChef = ({ card }) => {
           <Container>
             <p className="details">
               <b>Detalhes:</b> {card.marketProducts}
+            </p>
+            <p className="details">
+              <b>Pessoas:</b> {card.guests}
+            </p>
+            <p className="details">
+              <b>Preço:</b> {card.price}
             </p>
             <footer className="main">
               <p className="footer">{card.address}.</p>
@@ -56,6 +66,12 @@ const CardServicesChef = ({ card }) => {
           </Container>
         ) : (
           <Container className="main">
+            <p className="details">
+              <b>Pessoas:</b> {card.guests}
+            </p>
+            <p className="details">
+              <b>Preço:</b> {card.price}
+            </p>
             <p className="footer">{card.address}.</p>
             {card.status === "waiting" ? (
               <div className="waiting">

@@ -2,6 +2,7 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import Carousel from "../../components/carousel";
 import { Main, Container } from "./styled";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -34,6 +35,9 @@ const HomePage = () => {
             culinárias e que possam aproveitar melhor seu tempo com a família e
             amigos
           </p>
+          <Link className="button" to="/chefs">
+            VER CHEFS
+          </Link>
         </div>
       </Container>
       <Footer />

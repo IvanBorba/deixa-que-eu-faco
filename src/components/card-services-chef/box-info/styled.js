@@ -29,5 +29,6 @@ export const Card = styled.div`
     background: none;
     border: none;
     color: #9e5642;
+    cursor: pointer;
   }
 `;
