@@ -133,6 +133,21 @@ const Header = () => {
             </Typography>
           )}
           {!user && (
+            <Button
+              color={colapsed ? "primary" : "secondary"}
+              className={classes.categories}
+              style={
+                colapsed
+                  ? { backgroundColor: "#D6B8B0" }
+                  : { backgroundColor: "#F5E0CC" }
+              }
+              onClick={handleColapse}
+            >
+              Categorias{" "}
+              {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+            </Button>
+          )}
+          {!user && (
             <Button color="secondary" component={Link} to="/register">
               Cadastre-se
             </Button>
@@ -179,7 +194,7 @@ const Header = () => {
               to={user.isChef ? "/home-chef" : "/home-customer"}
               className={classes.loginButton}
             >
-              Minha conta
+              Menu
             </Button>
           )}
           {user && actualWidth > 768 && (
@@ -229,7 +244,7 @@ const Header = () => {
                   }
                   style={{ color: "#9e5642" }}
                 >
-                  Minha conta
+                  Menu
                 </MenuItem>
                 <MenuItem
                   onClick={() => history.push("/settings")}
@@ -244,7 +259,7 @@ const Header = () => {
             </>
           )}
         </Toolbar>
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories1.map((actual, index) => {
               return (
@@ -264,7 +279,7 @@ const Header = () => {
             })}
           </Toolbar>
         )}
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories2.map((actual, index) => {
               return (

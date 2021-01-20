@@ -32,6 +32,9 @@ const Router = () => {
       <Route exact path="/view-chef/:specific_id">
         <ViewChef users={users} />
       </Route>
+      <Route exact path="/chefs/:specific_expertise">
+        <FilteredChefList users={users} />
+      </Route>
       {!token ? (
         <>
           <Route exact path="/">
