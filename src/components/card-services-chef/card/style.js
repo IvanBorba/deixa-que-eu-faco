@@ -119,6 +119,11 @@ export const Card = styled.div`
 
 export const Container = styled.div`
   padding: 10px;
+  color: #9e5642;
+
+  b {
+    color: #323232;
+  }
 
   @media (min-width: 1440px) {
     padding: 15px;

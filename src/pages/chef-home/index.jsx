@@ -28,13 +28,14 @@ const ChefHome = () => {
             * Complete seu perfil para ter mais visibilidade
           </p>
         )}
+        <h1 className="user">Olá Chef {user.name}!</h1>
         <h2 className="saldo">
           Saldo: <span>R$100,00</span>
         </h2>
         <BoxInfo list={services} setOption={setOption} option={option} />
         <Services list={services} option={option} />
+        <Footer />
       </Main>
-      <Footer />
     </>
   );
 };

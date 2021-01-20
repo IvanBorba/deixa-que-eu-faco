@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, Container } from "./style";
 import Logo from "../../../images/logo/logo.png";
-import { updateService } from "../../../requests";
+import { updateService, deleteService } from "../../../requests";
 
 const CardServicesChef = ({ card }) => {
   const handleRemove = () => {
     // fazer requisição DELETE para deletar serviço da API
     console.log("Serviço removido");
     console.log("Card: ", card);
+    deleteService(card.id);
   };
 
   const handleDate = () => {
