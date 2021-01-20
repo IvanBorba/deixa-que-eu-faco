@@ -29,10 +29,10 @@ const CardChef = ({ currentChef, isCenter = false }) => {
           <div className="rate-chef">
             <div>
               <Rating
-                defaultValue={currentChef.rate.reduce(
-                  (acc, number) =>
-                    (acc + number) / (currentChef.rate.length * 2)
-                )}
+                defaultValue={
+                  currentChef.rate.reduce((acc, number) => acc + number) /
+                  (currentChef.rate.length * 2)
+                }
                 precision={0.5}
                 readOnly
               />
