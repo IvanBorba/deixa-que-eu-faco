@@ -11,6 +11,7 @@ const ChefHome = () => {
   const [option, setOption] = useState("waiting");
   const dispatch = useDispatch();
   const services = useSelector((state) => state.chefServices);
+  const user = JSON.parse(localStorage.getItem("userData"));
 
   useEffect(() => {
     dispatch(getChefServicesThunk());
@@ -22,6 +23,11 @@ const ChefHome = () => {
     <>
       <Header />
       <Main>
+        {!user.bio && (
+          <p style={{ color: "red", marginLeft: "2vw", fontSize: "small" }}>
+            * Complete seu perfil para ter mais visibilidade
+          </p>
+        )}
         <h2 className="saldo">
           Saldo: <span>R$100,00</span>
         </h2>

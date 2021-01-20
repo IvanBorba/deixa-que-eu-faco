@@ -13,7 +13,6 @@ const headers = {
 export const getChefServicesThunk = () => (dispatch) => {
   const { id } = actualUser;
   axios.get(`${baseUrl}/services?chefId=${id}`, headers).then((res) => {
-    console.log(res);
     dispatch(getChefServices(res.data));
   });
 };
@@ -21,7 +20,6 @@ export const getChefServicesThunk = () => (dispatch) => {
 export const getCostumerServicesThunk = () => (dispatch) => {
   const id = actualUser.id;
   axios.get(`${baseUrl}/services/?clientId=${id}`, headers).then((res) => {
-    console.log(res);
     dispatch(getCostumerServices(res.data));
   });
 };

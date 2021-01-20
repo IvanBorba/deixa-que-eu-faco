@@ -8,7 +8,7 @@ const HomePage = () => {
     <Main>
       <Header />
       <Carousel />
-      <h1 style={{ fontWeight: "200" }}>
+      <h1 style={{ fontSize: "34px", marginTop: "3vh", marginBottom: "3vh" }}>
         Aproveite mais seus momentos de lazer, deixe que nossos chef’s cuidem da
         cozinha
       </h1>
