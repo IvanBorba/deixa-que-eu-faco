@@ -11,6 +11,8 @@ import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
+import Header from "../components/header";
+import SettingsPage from "../pages/user-settings";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -25,7 +27,13 @@ const Router = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <HomePage />
+        {!token ? (
+          <HomePage />
+        ) : actualUser.isChef ? (
+          <ChefHome />
+        ) : (
+          <HomeCustomer bests={users} />
+        )}
       </Route>
       <Route exact path="/chefs">
         <ChefsList users={users} />
@@ -44,11 +52,9 @@ const Router = () => {
         </>
       ) : actualUser.isChef ? (
         <>
-          <Route exact path="/home-chef">
-            <ChefHome />
-          </Route>
           <Route exact path="/settings">
-            {/* <ChefSetting/> */}
+             <SettingsPage />
+            <Header />
           </Route>
         </>
       ) : (
@@ -60,7 +66,8 @@ const Router = () => {
             <NewService />
           </Route>
           <Route exact path="/settings">
-            {/* <CostumerSetting/> */}
+            <Header />
+              <SettingsPage />
           </Route>
           <Route exact path="/chefs">
             <ChefsList users={users} />

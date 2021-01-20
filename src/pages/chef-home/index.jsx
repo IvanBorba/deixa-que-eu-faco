@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Main } from "./style/style";
+import { Main } from "./style";
 import BoxInfo from "../../components/card-services-chef/box-info";
 import Services from "../../components/card-services-chef/services-status";
 import Header from "../../components/header";
@@ -22,7 +22,9 @@ const ChefHome = () => {
     <>
       <Header />
       <Main>
-        <p className="saldo">Saldo: R$100,00</p>
+        <h2 className="saldo">
+          Saldo: <span>R$100,00</span>
+        </h2>
         <BoxInfo list={services} setOption={setOption} option={option} />
         <Services list={services} option={option} />
       </Main>
