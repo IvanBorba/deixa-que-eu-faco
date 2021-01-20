@@ -104,19 +104,23 @@ export const BoxContent = styled.div`
 export const Options = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
 
-  .links {
-    text-decoration: none;
-    color: #9e5642;
-    padding: 10px;
+  .button {
+    color: #323232;
+    text-transform: uppercase;
+    font-weight: 1000;
   }
 `;
 
 export const Footer = styled.footer`
   text-align: center;
-  color: #9e5642;
+  color: #323232;
   font-weight: 700;
   transform: translateY(-10px);
+  text-transform: uppercase;
+
   p {
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-weight: 300;

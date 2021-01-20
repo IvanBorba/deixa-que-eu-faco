@@ -16,15 +16,12 @@ const Login = () => {
         <div className="background">
           <Film>
             <Options>
-              <Button
-                style={{ color: "#9E5642", textTransform: "uppercase" }}
-                onClick={() => history.push("/")}
-              >
+              <Button className="button" onClick={() => history.push("/")}>
                 {" "}
                 <ArrowBackIcon /> Voltar
               </Button>
               <Button
-                style={{ color: "#9E5642", textTransform: "uppercase" }}
+                className="button"
                 onClick={() => history.push("/register")}
               >
                 Cadastre-se &nbsp;
@@ -32,13 +29,13 @@ const Login = () => {
               </Button>
             </Options>
             <Box>
-              <img src={Logo} alt="Logo"/>
+              <img src={Logo} alt="Logo" />
               <BoxContent>
                 <h2 style={{ textTransform: "uppercase" }}>Login</h2>
                 <LoginForm />
               </BoxContent>
             </Box>
-            <Footer style={{ textTransform: "uppercase" }}>
+            <Footer>
               Deixa que eu faço
               <p> &#169; Todos os direitos reservados</p>
             </Footer>
