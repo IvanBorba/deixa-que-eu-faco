@@ -1,204 +1,206 @@
 .App {
-    height: 100vh;
+  height: 100vh;
 }
 .pageBox {
-    height: 100vh;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
 }
 .desktopImage {
-    display: none;
+  display: none;
 }
 .desktopImageChef {
-    display: none;
+  display: none;
 }
 .registerBox {
-    height: 100%;
-    width: 100%;
-    background-image: url("../../images/register/registerImage.jpg");
-    background-position-x: center;
-    background-size: cover;
-    transition: 1s;
+  height: 100%;
+  width: 100%;
+  background-image: url("../../images/register/registerImage.jpg");
+  background-position-x: center;
+  background-size: cover;
+  transition: 1s;
 }
 .registerBoxCheff {
-    height: 100%;
-    width: 100%;
-    background-image: url("../../images/register/cheff.jpeg");
+  height: 100%;
+  width: 100%;
+  background-image: url("../../images/register/cheff.jpeg");
+  background-position-x: center;
+  background-size: cover;
+  transition: 1s;
+}
+.Film {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.topButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.theForm {
+  background: rgba(245, 224, 204, 0.8);
+  border-radius: 7px;
+  height: 400px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: 1s;
+  max-width: 332px;
+}
+.theFormChef {
+  background: rgba(245, 224, 204, 0.8);
+  border-radius: 7px;
+  height: 500px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: 1s;
+  max-width: 332px;
+}
+.formStyle {
+  position: relative;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
+  width: 90%;
+}
+.formStyleChef {
+  position: relative;
+  top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
+  width: 90%;
+}
+.chefExpertiseFalse {
+  background: white;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 1s;
+  position: relative;
+  bottom: -40px;
+  width: 100%;
+}
+.chefExpertiseTrue {
+  background: white;
+  border-radius: 5px;
+  opacity: 1;
+  transition: 1s;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.chefExperienceFalse {
+  background: white;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 1s;
+  position: relative;
+  bottom: -80px;
+  width: 100%;
+}
+.chefExperienceTrue {
+  background: white;
+  border-radius: 5px;
+  opacity: 1;
+  transition: 1s;
+  position: relative;
+  bottom: -5px;
+  width: 100%;
+}
+.buttonsChefFalse {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transition: 1s;
+  position: relative;
+  bottom: 120px;
+}
+.buttonsChefTrue {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transition: 1s;
+  position: relative;
+  bottom: -10px;
+}
+.registerLogo {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 10px;
+  transition: 1s;
+}
+.registerLogoChef {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: -40px;
+  transform: rotate(180deg);
+  transition: 1s;
+}
+.registerFooter {
+  color: #f7e6d6;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .registerBox {
+    background-image: none;
     background-position-x: center;
     background-size: cover;
     transition: 1s;
-}
-    .Film {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.3)
-    }
-    .topButtons {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-    .theForm {
-        background: rgba(245,224, 204, 0.8);
-        border-radius: 7px;
-        height: 400px;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        transition: 1s;
-        max-width: 332px;
-    }
-    .theFormChef {
-        background: rgba(245,224, 204, 0.8);
-        border-radius: 7px;
-        height: 500px;
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        transition: 1s;
-        max-width: 332px;
-    }
-        .formStyle {
-            position: relative;
-            top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: 1s;
-            width: 90%;
-        }
-        .formStyleChef {
-            position: relative;
-            top: -20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: 1s;
-            width: 90%;
-        }
-        .chefExpertiseFalse {
-            background: white;
-            border-radius: 5px;
-            opacity: 0;
-            transition: 1s;
-            position: relative;
-            bottom: -40px;
-            width: 100%;
-        }
-        .chefExpertiseTrue {
-            background: white;
-            border-radius: 5px;
-            opacity: 1;
-            transition: 1s;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .chefExperienceFalse {
-            background: white;
-            border-radius: 5px;
-            opacity: 0;
-            transition: 1s;
-            position: relative;
-            bottom: -80px;
-            width: 100%;
-        }
-        .chefExperienceTrue {
-            background: white;
-            border-radius: 5px;
-            opacity: 1;
-            transition: 1s;
-            position: relative;
-            bottom: -5px;
-            width: 100%;
-        }
-        .buttonsChefFalse {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            transition: 1s;
-            position: relative;
-            bottom: 120px;
-        }
-        .buttonsChefTrue {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            transition: 1s;
-            position: relative;
-            bottom: -10px;
-        }
-    .registerLogo {
-        width: 80px;
-        height: 80px;
-        position: relative;
-        top: 10px;
-        transition: 1s;
-
-    }
-    .registerLogoChef {
-        width: 80px;
-        height: 80px;
-        position: relative;
-        top: -40px;
-        transform: rotate(180deg);
-        transition: 1s;
-
-    }
-    .registerFooter {
-        color: #9E5642;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        bottom: 0;
-        width: 100%;
-    }
-
-@media (min-width: 1024px) {
-    .registerBox {
-        background-image: none;
-        background-position-x: center;
-        background-size: cover;
-        transition: 1s;
-    }
-    .registerBoxCheff {
-        background-image: none;
-        background-position-x: center;
-        background-size: cover;
-        transition: 1s;
-    }
-    .Film {
-        background: transparent;
-    }
-    .desktopImage {
-        background-image: url("../../images/register/registerImage.jpg");
-        background-position-x: center;
-        background-position-y: center;
-        background-size: cover;
-        display: block;
-        object-fit: cover;
-        object-position: center;
-        width: 70%;
-        transition: 1s;
-    }
-    .desktopImageChef {
-        background-image: url("../../images/register/cheff.jpeg");
-        background-position-x: center;
-        background-position-y: center;
-        background-size: cover;
-        display: block;
-        object-fit: cover;
-        object-position: center;
-        width: 70%;
-        transition: 1s;
-    }
+  }
+  .registerBoxCheff {
+    background-image: none;
+    background-position-x: center;
+    background-size: cover;
+    transition: 1s;
+  }
+  .Film {
+    background: transparent;
+  }
+  .desktopImage {
+    background-image: url("../../images/register/registerImage.jpg");
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 70%;
+    transition: 1s;
+  }
+  .desktopImageChef {
+    background-image: url("../../images/register/cheff.jpeg");
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 70%;
+    transition: 1s;
+  }
 }
