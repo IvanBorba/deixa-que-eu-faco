@@ -24,7 +24,9 @@ const CardChef = ({ currentChef, isCenter = false }) => {
       </div>
       <div id="infos-box">
         <h1 className="infos-chef name-chef">
-          {name[0].length > 8 ? name[0] : currentChef.name}
+          {name[0].length > 8 || name[1].length > 8 || name.length > 2
+            ? name[0]
+            : currentChef.name}
         </h1>
         <p className="infos-chef specialty-chef">
           Especialidade: {currentChef.expertise}
