@@ -47,7 +47,7 @@ export const Container = styled.div`
     }
     .title-best-chefs {
       text-align: start;
-      margin: 15px 30px;
+      margin: 15px;
       font-size: 30px;
     }
     #best-chefs {

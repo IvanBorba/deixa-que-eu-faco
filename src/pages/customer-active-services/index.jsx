@@ -10,14 +10,16 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
+    height: "70vh",
   },
   title: {
     alignSelf: "center",
-    width: "40vw",
     color: "#9e5642",
     fontWeight: "200",
     textTransform: "uppercase",
-    marginTop: "5vh",
+    margin: "0 auto",
+    marginTop: "11vh",
+    marginBottom: "15vh",
   },
 }));
 
