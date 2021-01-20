@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   background: rgba(251, 242, 234, 0.7);
+  height: 100vh;
 
   .user {
     text-align: center;
