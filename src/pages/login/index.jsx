@@ -32,7 +32,7 @@ const Login = () => {
               </Button>
             </Options>
             <Box>
-              <img src={Logo} alt="Logo" />
+              <img src={Logo} alt="Logo"/>
               <BoxContent>
                 <h2 style={{ textTransform: "uppercase" }}>Login</h2>
                 <LoginForm />
