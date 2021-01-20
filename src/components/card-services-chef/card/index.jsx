@@ -1,6 +1,7 @@
 import React from "react";
-import { Card } from "./style";
+import { Card, Container } from "./style";
 import Logo from "../../../images/logo/logo.png";
+import { updateService } from "../../../requests";
 
 const CardServicesChef = ({ card }) => {
   const handleRemove = () => {
@@ -12,45 +13,50 @@ const CardServicesChef = ({ card }) => {
   const handleDate = () => {
     // alterar status da API para accepted
     console.log("Serviço agendado");
+    console.log("Card: ", card);
+    const accepted = { status: "accepted" };
+    updateService(accepted, card.id);
   };
 
   const handleFinished = () => {
     // alterar status da API para finished
     console.log("Serviço finalizado");
+    console.log("Card: ", card);
+    const accepted = { status: "finished" };
+    updateService(accepted, card.id);
   };
   return (
     <>
       <Card>
         <header>
           <img src={Logo} alt="Logo" />
-          <p>{card.clientName}</p>
-          <p>{card.date}</p>
-          {/* <p>{card.status}</p> */}
+          <p className="header">{card.clientName}</p>
+          <p className="header">{card.date}</p>
         </header>
         {card.market ? (
-          <div>
+          <Container>
             <p className="details">
               <b>Detalhes:</b> {card.marketProducts}
             </p>
             <footer className="main">
-              <p>{card.address}.</p>
+              <p className="footer">{card.address}.</p>
               {card.status === "waiting" ? (
-                <div className="waiting">
+                <div className="buttons">
                   <button onClick={handleRemove}>RECUSAR</button>
                   <button onClick={handleDate}>ACEITAR</button>
                 </div>
               ) : (
                 card.status === "accepted" && (
-                  <div>
+                  <div className="buttons">
                     <button onClick={handleFinished}>FINALIZAR</button>
                   </div>
                 )
               )}
             </footer>
-          </div>
+          </Container>
         ) : (
-          <div className="main">
-            <p>{card.address}.</p>
+          <Container className="main">
+            <p className="footer">{card.address}.</p>
             {card.status === "waiting" ? (
               <div className="waiting">
                 <button onClick={handleRemove}>RECUSAR</button>
@@ -58,12 +64,12 @@ const CardServicesChef = ({ card }) => {
               </div>
             ) : (
               card.status === "accepted" && (
-                <div>
+                <div className="buttons">
                   <button onClick={handleFinished}>FINALIZAR</button>
                 </div>
               )
             )}
-          </div>
+          </Container>
         )}
       </Card>
     </>
