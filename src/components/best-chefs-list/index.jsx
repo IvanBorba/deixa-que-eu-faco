@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import CardChef from "../card-chef";
 import { getUsersThunk } from "../../store/modules/users/thunk";
