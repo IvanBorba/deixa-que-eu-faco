@@ -58,6 +58,7 @@ const LoginForm = () => {
         name="email"
         inputRef={register}
         error={!!errors.email}
+        margin="dense"
       />
       <TextField
         required
@@ -68,6 +69,7 @@ const LoginForm = () => {
         type="password"
         inputRef={register}
         error={!!errors.password}
+        margin="dense"
       />
       <p style={{ fontSize: "x-small", color: "red", alignSelf: "center" }}>
         {errors.email?.message || errors.password?.message}

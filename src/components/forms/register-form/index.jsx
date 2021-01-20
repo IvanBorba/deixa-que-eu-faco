@@ -188,6 +188,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
             name: "expertise",
           }}
           disabled={!chefRegister}
+          margin="dense"
         >
           <option aria-label="None" value="" />
           <option value={"Churrasco"}>Churrasco</option>
@@ -216,6 +217,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
             name: "experience",
           }}
           disabled={!chefRegister}
+          margin="dense"
         >
           <option aria-label="None" value="" />
           <option value={" 0 - 2 anos"}>0-2 anos</option>
@@ -225,7 +227,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         </Select>
       </FormControl>
       <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
-        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11 }}>
+        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11, margin: 0 }}>
           cadastrar
         </ColorButton>
         <FormControlLabel
