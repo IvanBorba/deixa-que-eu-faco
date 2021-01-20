@@ -8,10 +8,9 @@ import ChefsList from "../pages/chefs-list";
 import FilteredChefList from "../pages/filtered-chefs-list";
 import ChefHome from "../pages/chef-home";
 import { getUsersThunk } from "../store/modules/users/thunk";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
-import Header from "../components/header";
 import SettingsPage from "../pages/user-settings";
 import ActiveServices from "../pages/customer-active-services";
 
