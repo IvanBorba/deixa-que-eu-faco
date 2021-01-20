@@ -133,7 +133,7 @@ const NewServiceForm = ({ chef }) => {
 
   const handleClose = () => {
     setSuccess(false);
-    history.push("/");
+    history.push("/home-customer");
   };
 
   const handleRegister = (data) => {
