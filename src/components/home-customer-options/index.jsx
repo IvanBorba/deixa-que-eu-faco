@@ -25,10 +25,10 @@ const HomeCustomerOptions = () => {
       <Ball>
         <Link
           className="links"
-          to="/chefs"
+          to="/settings"
           style={{ textTransform: "uppercase" }}
         >
-          Contratar de novo
+          Editar meu perfil
         </Link>
       </Ball>
     </Container>
