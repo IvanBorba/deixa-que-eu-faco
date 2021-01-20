@@ -26,6 +26,9 @@ const CardServicesChef = ({ card }) => {
     const accepted = { status: "finished" };
     updateService(accepted, card.id);
   };
+
+  console.log("CARD: ", card);
+
   return (
     <>
       <Card>
@@ -38,6 +41,12 @@ const CardServicesChef = ({ card }) => {
           <Container>
             <p className="details">
               <b>Detalhes:</b> {card.marketProducts}
+            </p>
+            <p className="details">
+              <b>Pessoas:</b> {card.guests}
+            </p>
+            <p className="details">
+              <b>Preço:</b> {card.price}
             </p>
             <footer className="main">
               <p className="footer">{card.address}.</p>
@@ -57,6 +66,12 @@ const CardServicesChef = ({ card }) => {
           </Container>
         ) : (
           <Container className="main">
+            <p className="details">
+              <b>Pessoas:</b> {card.guests}
+            </p>
+            <p className="details">
+              <b>Preço:</b> {card.price}
+            </p>
             <p className="footer">{card.address}.</p>
             {card.status === "waiting" ? (
               <div className="waiting">

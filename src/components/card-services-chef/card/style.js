@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   max-width: 240px;
-  min-height: 150px;
+  min-height: 200px;
   margin: 10px;
   border: 1px solid #9e5642;
   background: #f5e0cc;
@@ -39,6 +39,7 @@ export const Card = styled.div`
 
   .details {
     font-size: 13px;
+    margin: 7px;
   }
 
   .main {
