@@ -3,13 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import RegisterPage from "../pages/register";
 import Login from "../pages/login";
 import ViewChef from "../pages/view-chef";
+import HomeCustomer from "../pages/home-customer";
 import ChefsList from "../pages/chefs-list";
 import FilteredChefList from "../pages/filtered-chefs-list";
 import ChefHome from "../pages/chef-home";
 import { getUsersThunk } from "../store/modules/users/thunk";
 import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
-import Header from "../components/header";
+import NewService from "../pages/new-service";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -43,24 +44,20 @@ const Router = () => {
         </>
       ) : actualUser.isChef ? (
         <>
-          <Route exact path="/chef-home">
+          <Route exact path="/home-chef">
             <ChefHome />
           </Route>
           <Route exact path="/settings">
             {/* <ChefSetting/> */}
           </Route>
-          <Route exact path="/chefs">
-            <ChefsList users={users} />
-          </Route>
-          <Route exact path="/chefs/:specific_expertise">
-            <FilteredChefList users={users} />
-          </Route>
         </>
       ) : (
         <>
-          <Route exact path="/costumer-home">
-            <Header />
-            {/* <CostumerHome /> */}
+          <Route exact path="/home-customer">
+              <HomeCustomer bests={users} />
+          </Route>
+          <Route exact path="/new-service/:chefId">
+            <NewService />
           </Route>
           <Route exact path="/settings">
             {/* <CostumerSetting/> */}

@@ -13,15 +13,13 @@ export const LoginRequisition = (data, users, history) => {
     .post(`${baseUrl}/login`, data)
     .then((res) => {
       const actualData = JSON.parse(res.config.data);
-      const actual = users.filter((actual) => {
-        return actual.email === actualData.email;
-      });
+      const actual = users.filter(actual => actual.email === actualData.email);
       localStorage.setItem("authToken", res.data.accessToken);
       localStorage.setItem("userData", JSON.stringify(actual[0]));
       let historyUser = JSON.parse(localStorage.getItem("userData"));
       historyUser.isChef
-        ? history.push("/chef-home")
-        : history.push("/costumer-home");
+        ? history.push("/home-chef")
+        : history.push("/home-customer");
       window.location.reload();
     })
     .catch(() => console.log("login ou senha incorretos"));
