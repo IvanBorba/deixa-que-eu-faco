@@ -6,7 +6,8 @@ export const Main = styled.main`
   .saldo {
     text-align: center;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     font-weight: 200;
 
     span {

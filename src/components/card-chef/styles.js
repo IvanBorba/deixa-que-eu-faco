@@ -34,7 +34,7 @@ export const CardContainer = styled.div`
       padding: 0;
     }
     .name-chef {
-      font-size: 18px;
+      font-size: 16px;
     }
     .specialty-chef {
       font-size: 14px;

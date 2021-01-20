@@ -17,11 +17,12 @@ const ViewProfile = ({ currentChef }) => {
           <div>
             <Rating
               defaultValue={
-                currentChef.rate.reduce((acc, current) => acc + current) / 4
+                currentChef.rate?.reduce((acc, current) => acc + current) / 4
               }
               precision={0.5}
               readOnly
             />
+            {!currentChef.rate && <p>* Ainda não avaliado</p>}
           </div>
         </div>
       </Film>
