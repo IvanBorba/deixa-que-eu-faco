@@ -38,23 +38,23 @@ export const RegisterPost = (data, chefRegister, options) => {
     .then((res) => console.log("login efetuado com sucesso"));
 };
 
-export const registerService = (data, history) => {
+export const registerService = (data, setSuccess) => {
   axios
     .post(`${baseUrl}/services`, data, headers)
-    .then((res) => history.push("/"))
+    .then((res) => setSuccess(true))
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
 export const updateService = (data, serviceId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 
 export const deleteService = (serviceId) => {
   axios
     .delete(`${baseUrl}/services/${serviceId}`, headers)
-    .then((res) => console.log(res, "Serviço atualizado com sucesso"))
+    .then((res) => window.location.reload())
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };

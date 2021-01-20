@@ -16,17 +16,30 @@ const useStyles = makeStyles((theme) => ({
     height: "15vh",
     justifyContent: "center",
     paddingTop: "15vh",
+    [theme.breakpoints.down(769)]: {
+      flexDirection: "column",
+    },
   },
   title: {
     textTransform: "uppercase",
     color: "#9E5642",
     marginRight: "3vw",
     fontWeight: "200",
+    [theme.breakpoints.down(769)]: {
+      alignSelf: "center",
+    },
   },
   hatLogo: {
     width: "5.2vw",
     height: "5.2vw",
     marginRight: "3vw",
+    [theme.breakpoints.down(769)]: {
+      alignSelf: "center",
+      width: "15vw",
+      height: "15vw",
+      marginRight: "0",
+      marginBottom: "12vh",
+    },
   },
   main: {
     display: "flex",

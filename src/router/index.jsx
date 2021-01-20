@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
 import Header from "../components/header";
+import ActiveServices from "../pages/customer-active-services";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -58,6 +59,9 @@ const Router = () => {
         </>
       ) : (
         <>
+          <Route exact path="/active-services">
+            <ActiveServices />
+          </Route>
           <Route exact path="/new-service/:chefId">
             <NewService />
           </Route>
