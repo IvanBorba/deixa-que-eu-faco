@@ -52,3 +52,20 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         align-items: center;
     }
+.ConfigsBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 40px 0 40px 0;
+}
+    .ConfigsBox h2 {
+        text-align: center;
+        margin: 10px 0 10px 0;
+    }
+    .ButtonsConfigs {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 80%;
+    }

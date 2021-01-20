@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import { withStyles } from "@material-ui/core/styles";
-import {FormControl, InputLabel, Select, TextField} from "@material-ui/core";
+import { withStyles, createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { green, brown } from '@material-ui/core/colors';
+import {FormControl, InputLabel, Select, TextField, Button} from "@material-ui/core";
 import "./index.css";
+
 
 const CssTextField = withStyles({
     root: {
@@ -207,6 +209,27 @@ export const LoginSettings = () => {
                     margin="dense"
                     fullWidth
                 />
+            </div>
+        </div>
+    )
+}
+
+const theme = createMuiTheme({
+    palette: {
+        primary: green,
+        secondary: brown,
+    },
+});
+
+export const SaveConfigs = () => {
+    return (
+        <div className="ConfigsBox">
+            <h2>DESEJA SALVAR AS ALTERAÇÕES ?</h2>
+            <div className="ButtonsConfigs">
+                <ThemeProvider theme={theme} >
+                    <Button variant="outlined" color="primary">SIM</Button>
+                    <Button variant="outlined" color="secondary">NÃO</Button>
+                </ThemeProvider>
             </div>
         </div>
     )

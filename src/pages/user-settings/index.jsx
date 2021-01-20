@@ -1,4 +1,4 @@
-import { SettingsAvatar, SettingsDatas, LoginSettings } from "../../components/forms/settings-form";
+import { SettingsAvatar, SettingsDatas, LoginSettings, SaveConfigs } from "../../components/forms/settings-form";
 import "./index.css";
 
 const SettingsPage = () => {
@@ -15,6 +15,9 @@ const SettingsPage = () => {
             </div>
             <div>
                 <LoginSettings />
+            </div>
+            <div>
+                <SaveConfigs />
             </div>
         </div>
     )
