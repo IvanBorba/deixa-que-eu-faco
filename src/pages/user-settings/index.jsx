@@ -2,13 +2,10 @@ import { SettingsAvatar, SettingsDatas, LoginSettings, SaveConfigs } from "../..
 import "./index.css";
 
 const SettingsPage = () => {
-    const userData = JSON.parse(localStorage.getItem("userData")) // jogar pro form
-    console.log(userData)
-
     return (
         <div className="settingsPage">
             <div>
-                <SettingsAvatar firstLetter={userData.name[0]}/>
+                <SettingsAvatar/>
             </div>
             <div>
                 <SettingsDatas />

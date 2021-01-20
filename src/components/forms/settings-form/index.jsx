@@ -49,7 +49,9 @@ const CssTextArea = withStyles({
     },
 })(TextField);
 
-export const SettingsAvatar = ({ firstLetter, profilePhoto }) => {
+const firstLetter = JSON.parse(localStorage.getItem("userData")).name[0]
+
+export const SettingsAvatar = ({ profilePhoto }) => {
     return (
         <div className="avatarBox">
             <div className="theAvatar">
@@ -67,11 +69,10 @@ export const SettingsAvatar = ({ firstLetter, profilePhoto }) => {
 };
 
 export const SettingsDatas = () => {
-    const isChef = JSON.parse(localStorage.getItem("userData")).isChef
-    console.log(isChef)
+    const userData = JSON.parse(localStorage.getItem("userData"))
     const [options, setOption] = useState({
-        expertise: "",
-        experience: "",
+        expertise: userData.expertise,
+        experience: userData.experience,
     });
 
     const changeEspeciality = (event) => {
@@ -92,14 +93,7 @@ export const SettingsDatas = () => {
                     variant="outlined"
                     margin="dense"
                     fullWidth
-                />
-                <h5>EDITE SEU TEMPO DE EXPERIÊNCIA:</h5>
-                <CssTextField
-                    name="name"
-                    label=""
-                    variant="outlined"
-                    margin="dense"
-                    fullWidth
+                    placeholder={userData.name}
                 />
                 <h5>EDITE SUA DATA DE NASCIMENTO:</h5>
                 <CssTextField
@@ -109,6 +103,7 @@ export const SettingsDatas = () => {
                     margin="dense"
                     type="date"
                     fullWidth
+                    placeholder={userData.birth_date}
                 />
                 <h5 style={{marginTop: 10}}>EDITE SUA ESPECIALIDADE:</h5>
                 <FormControl

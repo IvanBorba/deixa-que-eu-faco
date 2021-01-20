@@ -53,8 +53,8 @@ const Router = () => {
       ) : actualUser.isChef ? (
         <>
           <Route exact path="/settings">
+              <Header />
              <SettingsPage />
-            <Header />
           </Route>
         </>
       ) : (
