@@ -49,9 +49,8 @@ const CssTextArea = withStyles({
     },
 })(TextField);
 
-const firstLetter = JSON.parse(localStorage.getItem("userData")).name[0]
-
 export const SettingsAvatar = ({ profilePhoto }) => {
+    const firstLetter = JSON.parse(localStorage.getItem("userData")).name[0]
     return (
         <div className="avatarBox">
             <div className="theAvatar">

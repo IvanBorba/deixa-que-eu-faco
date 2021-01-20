@@ -5,6 +5,7 @@ import Carousel from "../../components/carousel";
 import { Button } from "@material-ui/core";
 import { useParams, useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Container, Expertise, ArrowRight } from "./styles";
 
 const FilteredChefList = ({ users }) => {
   const { specific_expertise } = useParams();
@@ -18,9 +19,15 @@ const FilteredChefList = ({ users }) => {
     <>
       <Header />
       <Carousel />
-      {filteredList.map((currentChef, index) => (
-        <CardChef key={index} currentChef={currentChef} />
-      ))}
+      <Expertise>
+        CHEFS {<ArrowRight />} CULINÁRIA {<ArrowRight />}{" "}
+        {specific_expertise.toUpperCase()}
+      </Expertise>
+      <Container>
+        {filteredList.map((currentChef, index) => (
+          <CardChef key={index} currentChef={currentChef} />
+        ))}
+      </Container>
       <Button
         color="primary"
         onClick={() => history.push("/chefs")}

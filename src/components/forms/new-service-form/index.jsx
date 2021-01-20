@@ -10,10 +10,16 @@ import {
   Typography,
   MenuItem,
   Button,
+  Snackbar,
 } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
 import { newServiceSchema } from "../../../helper";
 import { registerService } from "../../../requests";
 import { useHistory } from "react-router-dom";
+
+const Alert = (props) => {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+};
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -23,10 +29,21 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     width: "30vw",
-    height: "8vh",
-    marginBottom: "3vh",
+    marginBottom: "1.5vh",
     borderColor: "#9E5642",
     backgroundColor: "white",
+    [theme.breakpoints.down(769)]: {
+      width: "70vw",
+    },
+  },
+  ingredientsInput: {
+    width: "30vw",
+    marginBottom: "1.5vh",
+    borderColor: "#9E5642",
+    backgroundColor: "white",
+    [theme.breakpoints.down(769)]: {
+      width: "70vw",
+    },
   },
   ingredientSubTitle: {
     textTransform: "uppercase",
@@ -47,6 +64,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#049d13",
       color: " #ffffff",
     },
+
+    [theme.breakpoints.down(769)]: {
+      width: "40vw",
+    },
   },
   ingredientRedButton: {
     width: "10vw",
@@ -60,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
     "& :hover": {
       backgroundColor: "red",
       color: " #ffffff",
+    },
+
+    [theme.breakpoints.down(769)]: {
+      width: "40vw",
     },
   },
   price: {
@@ -76,9 +101,18 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "65vw",
     padding: 0,
 
-    "& :hover": {
-      backgroundColor: "#049d13",
-      color: " #ffffff",
+    [theme.breakpoints.down(769)]: {
+      width: "55vw",
+      height: "10vh",
+      margin: "0",
+      marginBottom: "7vh",
+    },
+
+    [theme.breakpoints.up(769)]: {
+      "& :hover": {
+        backgroundColor: "#049d13",
+        color: " #ffffff",
+      },
     },
   },
 }));
@@ -90,10 +124,17 @@ const NewServiceForm = ({ chef }) => {
   const [regionalState, setRegionalState] = useState("");
   const [errorFeedback, setErrorFeedback] = useState("");
   const [ingredients, setIngredients] = useState(false);
+  const [success, setSuccess] = useState(false);
   const actualUser = JSON.parse(localStorage.getItem("userData"));
+
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(newServiceSchema),
   });
+
+  const handleClose = () => {
+    setSuccess(false);
+    history.push("/");
+  };
 
   const handleRegister = (data) => {
     if (regionalState === "") {
@@ -140,7 +181,12 @@ const NewServiceForm = ({ chef }) => {
 
     data.status = "waiting";
     console.log(data);
-    // registerService(data, history);
+    registerService(data, setSuccess);
+    if (success) {
+      setTimeout(() => {
+        history.push("/");
+      }, 3000);
+    }
   };
 
   const handleIngredientNeed = (e) => {
@@ -169,7 +215,6 @@ const NewServiceForm = ({ chef }) => {
         label="Rua/avenida e número"
         name="street"
         inputRef={register}
-        error={!!errors.street}
       />
       <TextField
         className={classes.input}
@@ -177,7 +222,6 @@ const NewServiceForm = ({ chef }) => {
         label="Cidade"
         name="city"
         inputRef={register}
-        error={!!errors.city}
       />
       <FormControl variant="outlined">
         <InputLabel
@@ -266,12 +310,11 @@ const NewServiceForm = ({ chef }) => {
       )}
       {ingredients === true && (
         <TextField
-          className={classes.input}
+          className={classes.ingredientsInput}
           variant="outlined"
           label="Lista de ingredientes"
           name="ingredients"
           inputRef={register}
-          error={!!errors.ingredients}
         />
       )}
       <TextField
@@ -284,7 +327,6 @@ const NewServiceForm = ({ chef }) => {
           shrink: true,
         }}
         inputRef={register}
-        error={!!errors.ingredients}
       />
       <p style={{ color: "red", alignSelf: "center" }}>
         {errors.street?.message ||
@@ -307,6 +349,11 @@ const NewServiceForm = ({ chef }) => {
       <Button type="submit" className={classes.button}>
         Contratar
       </Button>
+      <Snackbar open={success} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          Pedido enviado com sucesso
+        </Alert>
+      </Snackbar>
     </form>
   );
 };

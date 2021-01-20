@@ -1,8 +1,8 @@
 import { SettingsAvatar, SettingsDatas, LoginSettings, SaveConfigs } from "../../components/forms/settings-form";
 import "./index.css";
-const isChef = JSON.parse(localStorage.getItem("userData")).isChef
 
 const SettingsPage = () => {
+    const isChef = JSON.parse(localStorage.getItem("userData")).isChef
     return (
         <div className="settingsPage">
             <div className="subHeader">

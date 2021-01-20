@@ -13,6 +13,7 @@ import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
 import Header from "../components/header";
 import SettingsPage from "../pages/user-settings";
+import ActiveServices from "../pages/customer-active-services";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -26,15 +27,6 @@ const Router = () => {
 
   return (
     <Switch>
-      <Route exact path="/">
-        {!token ? (
-          <HomePage />
-        ) : actualUser.isChef ? (
-          <ChefHome />
-        ) : (
-          <HomeCustomer bests={users} />
-        )}
-      </Route>
       <Route exact path="/chefs">
         <ChefsList users={users} />
       </Route>
@@ -43,6 +35,9 @@ const Router = () => {
       </Route>
       {!token ? (
         <>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
           <Route path="/register">
             <RegisterPage />
           </Route>
@@ -52,6 +47,9 @@ const Router = () => {
         </>
       ) : actualUser.isChef ? (
         <>
+          <Route exact path="/home-chef">
+            <ChefHome />
+          </Route>
           <Route exact path="/settings">
               <Header />
              <SettingsPage />
@@ -59,8 +57,14 @@ const Router = () => {
         </>
       ) : (
         <>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
           <Route exact path="/home-customer">
-              <HomeCustomer bests={users} />
+            <HomeCustomer bests={users} />
+          </Route>
+          <Route exact path="/active-services">
+            <ActiveServices />
           </Route>
           <Route exact path="/new-service/:chefId">
             <NewService />
