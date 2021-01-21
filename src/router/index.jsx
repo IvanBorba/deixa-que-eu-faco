@@ -13,6 +13,8 @@ import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
 import SettingsPage from "../pages/user-settings";
 import ActiveServices from "../pages/customer-active-services";
+import RestrictedAcess from "../pages/restricted-acess";
+import NotFound from "../pages/not-found";
 
 const Router = () => {
   let token = localStorage.getItem("authToken");
@@ -45,6 +47,12 @@ const Router = () => {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/restricted-acess">
+            <RestrictedAcess />
+          </Route>
+          <Route path="/not-found">
+            <NotFound />
           </Route>
         </>
       ) : actualUser.isChef ? (
