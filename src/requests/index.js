@@ -36,7 +36,7 @@ export const RegisterPost = (data, chefRegister, options, history) => {
   data.isChef = chefRegister;
   console.log(data);
 
-  api.post(`/register`, data).then((res) => console.log(res));
+  api.post(`/register`, data).then((res) => history.push("/login"));
 };
 
 export const registerService = (data, setSuccess) => {
