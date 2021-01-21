@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     letterSpacing: "-1px",
     color: "#9E5642",
+    [theme.breakpoints.down(426)]: {
+      fontSize: "12px",
+    },
   },
   ingredientGreenButton: {
     width: "10vw",
@@ -211,19 +214,17 @@ const NewServiceForm = ({ chef }) => {
     <form onSubmit={handleSubmit(handleRegister)} className={classes.form}>
       <TextField
         className={classes.input}
-        variant="outlined"
         label="Rua/avenida e número"
         name="street"
         inputRef={register}
       />
       <TextField
         className={classes.input}
-        variant="outlined"
         label="Cidade"
         name="city"
         inputRef={register}
       />
-      <FormControl variant="outlined">
+      <FormControl variant="filled">
         <InputLabel
           htmlFor="outlined-age-native-simple"
           id="demo-simple-select-outlined-label"
@@ -268,7 +269,7 @@ const NewServiceForm = ({ chef }) => {
           <MenuItem value={"TO"}>Tocantins</MenuItem>
         </Select>
       </FormControl>
-      <FormControl variant="outlined">
+      <FormControl variant="filled">
         <InputLabel
           htmlFor="outlined-age-native-simple"
           id="demo-simple-select-outlined-label2"
@@ -290,7 +291,7 @@ const NewServiceForm = ({ chef }) => {
         </Select>
       </FormControl>
       <Typography className={classes.ingredientSubTitle}>
-        Precisa levar ingredientes?
+        Precisa levar ingredientes ou útensilios?
       </Typography>
       {!ingredients && (
         <Button
@@ -311,15 +312,15 @@ const NewServiceForm = ({ chef }) => {
       {ingredients === true && (
         <TextField
           className={classes.ingredientsInput}
-          variant="outlined"
-          label="Lista de ingredientes"
+          label="Lista"
           name="ingredients"
           inputRef={register}
+          multiline
+          rows={3}
         />
       )}
       <TextField
         className={classes.input}
-        variant="outlined"
         label="Data"
         name="date"
         type="date"
