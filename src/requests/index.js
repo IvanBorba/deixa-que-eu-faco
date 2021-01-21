@@ -26,7 +26,7 @@ export const LoginRequisition = (data, history, setErro) => {
     .catch(() => setErro("login ou senha incorretos"));
 };
 
-export const RegisterPost = (data, chefRegister, options) => {
+export const RegisterPost = (data, chefRegister, options, history) => {
   const date = document.getElementById("birth_date");
   if (chefRegister) {
     data.expertise = options.expertise;
@@ -35,7 +35,9 @@ export const RegisterPost = (data, chefRegister, options) => {
   data.birth_date = date.value;
   data.isChef = chefRegister;
   console.log(data);
+
   api.post(`/register`, data).then((res) => console.log(res));
+
 };
 
 export const registerService = (data, setSuccess) => {

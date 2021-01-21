@@ -17,7 +17,6 @@ export const registerSchema = yup.object().shape({
     .required("Por favor, informe seu nome"),
   birth_date: yup
     .string("O formato da bio é inválido")
-    // .required("Precisamos da sua data de nascimento!"),
 });
 
 export const loginSchema = yup.object().shape({
