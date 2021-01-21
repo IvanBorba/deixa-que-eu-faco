@@ -15,9 +15,8 @@ export const registerSchema = yup.object().shape({
       "Informe nome e sobrenome contendo apenas letras"
     )
     .required("Por favor, informe seu nome"),
-  birth_date: yup
-    .string("O formato da bio é inválido")
-    // .required("Precisamos da sua data de nascimento!"),
+  birth_date: yup.string("O formato da bio é inválido"),
+  // .required("Precisamos da sua data de nascimento!"),
 });
 
 export const loginSchema = yup.object().shape({
@@ -39,4 +38,11 @@ export const newServiceSchema = yup.object().shape({
     .required("Por Favor, informe sua cidade"),
   ingredients: yup.string("Formato dos ingredientes inválido"),
   date: yup.string("Formato da data inválido"),
+});
+
+export const settingsSchema = yup.object().shape({
+  name: yup.string("O formato é inválido"),
+  email: yup.string("O formato é inválido").email("O formato é inválido"),
+  price: yup.number("O formato é inválido"),
+  bio: yup.string("O formato é inválido"),
 });

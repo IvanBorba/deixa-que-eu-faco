@@ -54,18 +54,21 @@ export const updateService = (data, serviceId) => {
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };
 
+export const updateProfile = (chefData, id) => {
+  api
+    .patch(`/users/${id}`, chefData, headers)
+    .then((res) => {
+      console.log(res);
+      // window.location.reload()
+    })
+    .catch((err) => console.log(err, "Erro na atualização do perfil"));
+};
+
 export const updateServiceRate = (data, serviceId, userData, chefId) => {
-  const updateProfile = (chefData, id) => {
-    api
-      .patch(`/users/${id}`, chefData, headers)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err, "Erro na atualização do perfil"));
-  };
   api
     .patch(`/services/${serviceId}`, data, headers)
     .then((res) => {
       updateProfile(userData, chefId);
-      window.location.reload();
     })
     .catch((err) => console.log(err, "Erro na atualização do produto"));
 };

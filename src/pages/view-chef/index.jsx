@@ -14,6 +14,7 @@ const ViewChef = ({ users }) => {
   const currentChef = users.find(({ id, isChef }) => {
     return id === Number(specific_id) && isChef;
   });
+
   return (
     <>
       <Header />
@@ -24,6 +25,11 @@ const ViewChef = ({ users }) => {
           </Link>
         </div> */}
         {!!currentChef && <ViewProfile currentChef={currentChef} />}
+        {!currentChef.price && (
+          <p style={{ marginLeft: "2vw" }}>
+            * Perfil incompleto, impossivel contratar
+          </p>
+        )}
         <BioContainer>
           <h1 className="title-bio">Sobre o Chef</h1>
           <div className="box-text">
@@ -40,6 +46,7 @@ const ViewChef = ({ users }) => {
           </Button>
           {token && (
             <ButtonProfile
+              disabled={Boolean(!currentChef.price)}
               variant="outlined"
               size="large"
               style={{ textTransform: "uppercase" }}
