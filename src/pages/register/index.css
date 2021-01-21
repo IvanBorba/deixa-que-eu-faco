@@ -217,6 +217,8 @@
         justify-content: space-between;
         width: 100%;
         z-index: 2;
+        background: transparent;
+
     }
     .theForm {
         background: rgba(245, 224, 204, 0.8);
@@ -329,4 +331,7 @@
 
 .MuiInputLabel-animated {
     padding-left: 10px !important;
+}
+.MuiInputBase-input {
+    padding-left: 5px !important;
 }
