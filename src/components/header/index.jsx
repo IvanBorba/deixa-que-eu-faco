@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down(281)]: { marginLeft: 0 },
   },
   title: {
+    cursor: "pointer",
     marginLeft: 0,
     flexGrow: 1,
     textTransform: "uppercase",
@@ -128,7 +129,12 @@ const Header = () => {
             style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
-            <Typography color="primary" variant="h5" className={classes.title}>
+            <Typography
+              color="primary"
+              variant="h5"
+              className={classes.title}
+              onClick={() => history.push("/")}
+            >
               Deixa que eu faço
             </Typography>
           )}

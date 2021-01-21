@@ -15,7 +15,7 @@ const updateProfile = (data, id) => {
     .catch((err) => console.log(err, "Erro na atualização do perfil"));
 };
 
-export const LoginRequisition = (data, users, history) => {
+export const LoginRequisition = (data, history) => {
   axios
     .post(`${baseUrl}/login`, data)
     .then(async (res) => {
