@@ -4,7 +4,7 @@ import { LoginRequisition } from "../../../requests";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles, withStyles} from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../../helper";
 
@@ -36,6 +36,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: '#9E5642',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#9E5642',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#9E5642',
+      },
+    },
+  },
+})(TextField);
+
 const LoginForm = () => {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm({
@@ -50,20 +72,18 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleLogin)} className={classes.form}>
-      <TextField
+      <CssTextField
         required
         label="Email"
-        variant="outlined"
         className={classes.input}
         name="email"
         inputRef={register}
         error={!!errors.email}
         margin="dense"
       />
-      <TextField
+      <CssTextField
         required
-        label="Password"
-        variant="outlined"
+        label="Senha"
         className={classes.input}
         name="password"
         type="password"

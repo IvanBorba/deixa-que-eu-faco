@@ -141,7 +141,7 @@
         width: 80px;
         height: 80px;
         position: relative;
-        top: -20px;
+        top: -10px;
         transition: 1s;
 
     }
@@ -201,4 +201,7 @@
         width: 70%;
         transition: 1s;
     }
+}
+.MuiInputLabel-animated {
+    padding-left: 10px !important;
 }
