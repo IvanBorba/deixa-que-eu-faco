@@ -147,7 +147,6 @@ const NewServiceForm = ({ chef }) => {
     data.address = `${data.street}, ${data.city} - ${regionalState}`;
     delete data.street;
     delete data.city;
-    console.log(regionalState);
     data.state = regionalState;
 
     data.clientId = actualUser.id;
@@ -183,7 +182,6 @@ const NewServiceForm = ({ chef }) => {
     delete data.ingredients;
 
     data.status = "waiting";
-    console.log(data);
     registerService(data, setSuccess);
     if (success) {
       setTimeout(() => {
@@ -200,14 +198,11 @@ const NewServiceForm = ({ chef }) => {
   const handleGuests = (e) => {
     e.preventDefault();
     setGuests(e.target.value);
-    console.log(guests);
   };
 
   const handleRegionalState = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setRegionalState(e.target.value);
-    console.log(regionalState);
   };
 
   return (

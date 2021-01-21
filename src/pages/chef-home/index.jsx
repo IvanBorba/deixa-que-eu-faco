@@ -18,8 +18,6 @@ const ChefHome = () => {
     dispatch(getChefServicesThunk());
   }, [dispatch]);
 
-  console.log("Services: ", services);
-
   return (
     <>
       <Header />
