@@ -32,6 +32,9 @@ export const Film = styled.div`
       align-items: center;
       color: #333;
     }
+    .no-avaliable {
+      font-size: x-small;
+    }
   }
 
   @media (min-width: 320px) {
