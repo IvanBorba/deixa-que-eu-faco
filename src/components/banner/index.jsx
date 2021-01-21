@@ -4,7 +4,6 @@ import { Main } from "./styled";
 const Banner = () => {
   const user = JSON.parse(localStorage.getItem("userData"));
   const expertise = user.expertise;
-  console.log("USER LOGED: ", expertise);
   return (
     <Main>
       {expertise === "Árabe" ? (

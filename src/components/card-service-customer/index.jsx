@@ -116,9 +116,6 @@ const ServiceCard = ({ service }) => {
       rate: [...chef.rate, rate],
     };
 
-    console.log(userData);
-    console.log(chef.id);
-
     updateServiceRate(serviceData, service.id, userData, chef.id);
   };
 

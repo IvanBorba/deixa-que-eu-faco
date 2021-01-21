@@ -34,8 +34,6 @@ export const RegisterPost = (data, chefRegister, options, history) => {
   }
   data.birth_date = date.value;
   data.isChef = chefRegister;
-  console.log(data);
-
   api.post(`/register`, data).then((res) => history.push("/login"));
 };
 
@@ -43,7 +41,7 @@ export const registerService = (data, setSuccess) => {
   api
     .post(`/services`, data, headers)
     .then((res) => setSuccess(true))
-    .catch((err) => console.log(err, "Erro no cadastro do produto"));
+    .catch((err) => console.error(err, "Erro no cadastro do produto"));
 };
 
 export const updateService = (data, serviceId) => {
@@ -52,7 +50,7 @@ export const updateService = (data, serviceId) => {
     .then((res) => {
       window.location.reload();
     })
-    .catch((err) => console.log(err, "Erro na atualização do produto"));
+    .catch((err) => console.error(err, "Erro na atualização do produto"));
 };
 
 export const updateProfile = (chefData, id) => {
@@ -61,7 +59,7 @@ export const updateProfile = (chefData, id) => {
     .then((res) => {
       window.location.reload();
     })
-    .catch((err) => console.log(err, "Erro na atualização do perfil"));
+    .catch((err) => console.error(err, "Erro na atualização do perfil"));
 };
 
 export const updateServiceRate = (data, serviceId, userData, chefId) => {
@@ -70,12 +68,12 @@ export const updateServiceRate = (data, serviceId, userData, chefId) => {
     .then((res) => {
       updateProfile(userData, chefId);
     })
-    .catch((err) => console.log(err, "Erro na atualização do produto"));
+    .catch((err) => console.error(err, "Erro na atualização do produto"));
 };
 
 export const deleteService = (serviceId) => {
   api
     .delete(`/services/${serviceId}`, headers)
     .then((res) => window.location.reload())
-    .catch((err) => console.log(err, "Erro na atualização do produto"));
+    .catch((err) => console.error(err, "Erro na atualização do produto"));
 };
