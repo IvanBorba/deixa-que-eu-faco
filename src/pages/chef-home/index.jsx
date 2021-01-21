@@ -16,7 +16,7 @@ const ChefHome = () => {
 
   useEffect(() => {
     dispatch(getChefServicesThunk());
-  }, []);
+  }, [dispatch]);
 
   console.log("Services: ", services);
 
@@ -34,7 +34,12 @@ const ChefHome = () => {
         <h2 className="saldo">
           Saldo: <span>R$100,00</span>
         </h2>
-        <BoxInfo list={services} setOption={setOption} option={option} />
+        <BoxInfo
+          list={services}
+          setOption={setOption}
+          option={option}
+          rate={user.rate}
+        />
         <Services list={services} option={option} />
         <Footer />
       </Main>

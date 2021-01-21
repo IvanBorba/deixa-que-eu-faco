@@ -16,10 +16,19 @@ export const Container = styled.div`
 
   .mission {
     text-align: center;
+    margin-bottom: 15px;
+    min-height: 160px;
 
     p {
       margin: 10px;
       font-weight: 200;
+    }
+
+    .button {
+      text-decoration: none;
+      color: #9e5642;
+      border: 1px solid #9e5642;
+      padding: 5px;
     }
   }
 
@@ -58,10 +67,12 @@ export const Container = styled.div`
         margin: 20% 0;
         font-size: 25px;
       }
+
+      .button {
+        padding: 10px;
+        font-size: 20px;
+        border: 3px solid;
+      }
     }
   }
-`;
-
-export const BoxMission = styled.div`
-  /* width: ; */
 `;

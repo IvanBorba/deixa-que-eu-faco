@@ -29,7 +29,6 @@ const Footer = () => {
         <div>
           <SocialLogo src={process.env.PUBLIC_URL + "/instagram.svg"} />
           <SocialLogo src={process.env.PUBLIC_URL + "/linkedin.svg"} />
-          <SocialLogo src={process.env.PUBLIC_URL + "/spotify.svg"} />
         </div>
         <ContactInfo>
           <p>(00) 0000-0000</p>

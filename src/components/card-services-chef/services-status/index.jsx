@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, BoxAlert } from "./styled";
+import { Box, BoxContent, BoxAlert } from "./styled";
 import CardServicesChef from "../card";
 
 const Services = ({ list, option }) => {
@@ -33,28 +33,38 @@ const Services = ({ list, option }) => {
 
   return (
     <Box>
-      {option === "finished"
-        ? servicesFinished.map((item, index) => {
-            return <CardServicesChef key={index} card={item} />;
-          })
-        : option === "accepted"
-        ? servicesAccepted.map((item, index) => {
-            return <CardServicesChef key={index} card={item} />;
-          })
-        : option === "waiting" &&
-          servicesWaiting.map((item, index) => {
-            return <CardServicesChef key={index} card={item} />;
-          })}
+      <h1>
+        Serviços{" "}
+        {option === "finished"
+          ? "Realizados"
+          : option === "accepted"
+          ? "Agendados"
+          : option === "waiting" && "Pendentes"}
+      </h1>
 
-      {nothingInfoWaiting(servicesWaiting) ? (
-        <BoxAlert>Nenhum serviço pendente</BoxAlert>
-      ) : nothingInfoAccepted(servicesAccepted) ? (
-        <BoxAlert>Nenhum serviço agendado</BoxAlert>
-      ) : (
-        nothingInfoFinished(servicesFinished) && (
-          <BoxAlert>Nenhum serviço finalizado</BoxAlert>
-        )
-      )}
+      <BoxContent>
+        {option === "finished"
+          ? servicesFinished.map((item, index) => {
+              return <CardServicesChef key={index} card={item} />;
+            })
+          : option === "accepted"
+          ? servicesAccepted.map((item, index) => {
+              return <CardServicesChef key={index} card={item} />;
+            })
+          : option === "waiting" &&
+            servicesWaiting.map((item, index) => {
+              return <CardServicesChef key={index} card={item} />;
+            })}
+        {nothingInfoWaiting(servicesWaiting) ? (
+          <BoxAlert>Nenhum serviço pendente</BoxAlert>
+        ) : nothingInfoAccepted(servicesAccepted) ? (
+          <BoxAlert>Nenhum serviço agendado</BoxAlert>
+        ) : (
+          nothingInfoFinished(servicesFinished) && (
+            <BoxAlert>Nenhum serviço finalizado</BoxAlert>
+          )
+        )}
+      </BoxContent>
     </Box>
   );
 };
