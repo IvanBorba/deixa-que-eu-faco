@@ -19,6 +19,7 @@ export const Container = styled.div`
 `;
 
 export const Ball = styled.div`
+  cursor: pointer;
   text-align: center;
   border-radius: 50%;
   width: 130px;
@@ -27,20 +28,22 @@ export const Ball = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #fff;
   ${({ secondary }) =>
     secondary &&
     css`
       background-color: #ce8612;
     `};
 
-  .links {
-    font-weight: 500;
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    :hover {
-      text-decoration: underline;
-    }
+  :hover {
+    background-color: #ce8612;
+    text-decoration: underline;
+    ${({ secondary }) =>
+      secondary &&
+      css`
+        text-decoration: underline;
+        background-color: #9e5642;
+      `};
   }
 
   @media (min-width: 320px) {

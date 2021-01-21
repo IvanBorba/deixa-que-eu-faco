@@ -14,6 +14,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../../helper";
 import { RegisterPost } from "../../../requests";
 import { useHistory } from "react-router-dom";
+import MaterialUIPickers from "../../dateInput";
 
 const PurpleSwitch = withStyles({
   switchBase: {
@@ -31,21 +32,21 @@ const PurpleSwitch = withStyles({
 
 const CssTextField = withStyles({
   root: {
-    "& label.Mui-focused": {
-      color: "#9E5642",
+    '& label.Mui-focused': {
+      color: '#9E5642',
     },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#9E5642",
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#9E5642',
     },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "#9E5642",
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
       },
-      "&:hover fieldset": {
-        borderColor: "#9E5642",
+      '&:hover fieldset': {
+        borderColor: 'yellow',
       },
-      "&.Mui-focused fieldset": {
-        borderColor: "#9E5642",
+      '&.Mui-focused fieldset': {
+        borderColor: '#9E5642',
       },
     },
   },
@@ -80,7 +81,6 @@ const ColorButton = withStyles((theme) => ({
 const RegisterForm = ({ chefRegister, setChefRegister }) => {
   const classes = useStyles();
   const history = useHistory();
-
   const [options, setOption] = useState({
     expertise: "",
     experience: "",
@@ -129,10 +129,9 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
       <CssTextField
         className={classes.margin}
         name="name"
-        label="NOME"
-        variant="outlined"
+        label="Nome"
         margin="dense"
-        style={{ background: "white", borderRadius: "5px" }}
+        style={{ background: "white"}}
         inputRef={register}
         error={!!errors.name}
         fullWidth
@@ -140,40 +139,29 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
       <CssTextField
         className={classes.margin}
         name="email"
-        label="E-MAIL"
-        variant="outlined"
+        label="Email"
         margin="dense"
-        style={{ background: "white", borderRadius: "5px" }}
+        style={{ background: "white"}}
         inputRef={register}
         error={!!errors.email}
         fullWidth
       />
-      <CssTextField
-        className={classes.margin}
-        type="date"
-        name="birth_date"
-        label=""
-        variant="outlined"
-        margin="dense"
-        style={{ background: "white", borderRadius: "5px" }}
-        inputRef={register}
-        error={!!errors.birth_date}
-        fullWidth
-      />
+
+      <MaterialUIPickers errors={!!errors.birth_date} inputRef={register}/>
       <CssTextField
         className={classes.margin}
         name="password"
-        label="SENHA"
-        variant="outlined"
+        label="Senha"
         type="password"
         margin="dense"
-        style={{ background: "white", borderRadius: "5px" }}
+        style={{ background: "white"}}
         inputRef={register}
         error={!!errors.password}
         fullWidth
       />
       <FormControl
-        variant="outlined"
+        variant="filled"
+
         className={!chefRegister ? "chefExpertiseFalse" : "chefExpertiseTrue"}
       >
         <InputLabel htmlFor="outlined-age-native-simple">
@@ -188,6 +176,8 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
             name: "expertise",
           }}
           disabled={!chefRegister}
+          margin="dense"
+          style={{background: "white"}}
         >
           <option aria-label="None" value="" />
           <option value={"Churrasco"}>Churrasco</option>
@@ -201,7 +191,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         </Select>
       </FormControl>
       <FormControl
-        variant="outlined"
+        variant="filled"
         className={!chefRegister ? "chefExperienceFalse" : "chefExperienceTrue"}
       >
         <InputLabel htmlFor="outlined-age-native-simple">
@@ -216,16 +206,18 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
             name: "experience",
           }}
           disabled={!chefRegister}
+          margin="dense"
+          style={{background: "white"}}
         >
           <option aria-label="None" value="" />
-          <option value={" 0 - 2 anos"}>0-3 anos</option>
+          <option value={" 0 - 2 anos"}>0-2 anos</option>
           <option value={"2 - 4 anos"}>2-4 anos</option>
           <option value={"4 - 6 anos"}>4-6 anos</option>
           <option value={"Mais de 8 anos"}>+8 anos</option>
         </Select>
       </FormControl>
       <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
-        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11 }}>
+        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11, margin: 0 }}>
           cadastrar
         </ColorButton>
         <FormControlLabel

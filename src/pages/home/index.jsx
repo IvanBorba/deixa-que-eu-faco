@@ -2,13 +2,14 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import Carousel from "../../components/carousel";
 import { Main, Container } from "./styled";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   return (
     <Main>
       <Header />
       <Carousel />
-      <h1 style={{ fontWeight: "200" }}>
+      <h1 style={{ fontSize: "34px", marginTop: "3vh", marginBottom: "3vh" }}>
         Aproveite mais seus momentos de lazer, deixe que nossos chef’s cuidem da
         cozinha
       </h1>
@@ -34,6 +35,9 @@ const HomePage = () => {
             culinárias e que possam aproveitar melhor seu tempo com a família e
             amigos
           </p>
+          <Link className="button" to="/chefs">
+            VER CHEFS
+          </Link>
         </div>
       </Container>
       <Footer />

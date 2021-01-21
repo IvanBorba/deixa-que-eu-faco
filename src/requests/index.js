@@ -11,11 +11,11 @@ const headers = {
 export const LoginRequisition = (data, users, history) => {
   axios
     .post(`${baseUrl}/login`, data)
-    .then((res) => {
-      const actualData = JSON.parse(res.config.data);
-      const actual = users.filter(actual => actual.email === actualData.email);
+    .then(async (res) => {
+      let actual = await axios.get(`${baseUrl}/users?email=${data.email}`);
       localStorage.setItem("authToken", res.data.accessToken);
-      localStorage.setItem("userData", JSON.stringify(actual[0]));
+      localStorage.setItem("userData", JSON.stringify(actual.data[0]));
+      console.log(actual.data);
       let historyUser = JSON.parse(localStorage.getItem("userData"));
       historyUser.isChef
         ? history.push("/home-chef")
@@ -26,17 +26,15 @@ export const LoginRequisition = (data, users, history) => {
 };
 
 export const RegisterPost = (data, chefRegister, options) => {
+  const date = document.getElementById("birth_date");
   if (chefRegister) {
     data.expertise = options.expertise;
     data.experience = options.experience;
-    data.isChef = chefRegister;
-  } else {
-    data.isChef = chefRegister;
   }
-  console.log(data)
-  axios
-    .post(`${baseUrl}/register`, data)
-    .then((res) => console.log(res));
+  data.birth_date = date.value;
+  data.isChef = chefRegister;
+  console.log(data);
+  axios.post(`${baseUrl}/register`, data).then((res) => console.log(res));
 };
 
 export const registerService = (data, setSuccess) => {

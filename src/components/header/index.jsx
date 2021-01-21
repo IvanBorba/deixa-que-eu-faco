@@ -107,6 +107,7 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
+    localStorage.removeItem("users");
     history.push("/");
     window.location.reload();
   };
@@ -130,6 +131,21 @@ const Header = () => {
             <Typography color="primary" variant="h5" className={classes.title}>
               Deixa que eu faço
             </Typography>
+          )}
+          {!user && (
+            <Button
+              color={colapsed ? "primary" : "secondary"}
+              className={classes.categories}
+              style={
+                colapsed
+                  ? { backgroundColor: "#D6B8B0" }
+                  : { backgroundColor: "#F5E0CC" }
+              }
+              onClick={handleColapse}
+            >
+              Categorias{" "}
+              {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+            </Button>
           )}
           {!user && (
             <Button color="secondary" component={Link} to="/register">
@@ -161,14 +177,24 @@ const Header = () => {
               {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
+          {user && isChef && actualWidth > 768 && (
+            <Button
+              color="primary"
+              component={Link}
+              to={"/settings"}
+              className={classes.loginButton}
+            >
+              Atualizar perfil
+            </Button>
+          )}
           {user && actualWidth > 768 && (
             <Button
               color="primary"
               component={Link}
-              to="/settings"
+              to={user.isChef ? "/home-chef" : "/home-customer"}
               className={classes.loginButton}
             >
-              Minha conta
+              Menu
             </Button>
           )}
           {user && actualWidth > 768 && (
@@ -211,10 +237,20 @@ const Header = () => {
                   />
                 </MenuItem>
                 <MenuItem
+                  onClick={() =>
+                    user.isChef
+                      ? history.push("/home-chef")
+                      : history.push("/home-customer")
+                  }
+                  style={{ color: "#9e5642" }}
+                >
+                  Menu
+                </MenuItem>
+                <MenuItem
                   onClick={() => history.push("/settings")}
                   style={{ color: "#9e5642" }}
                 >
-                  Minha conta
+                  Atualizar perfil
                 </MenuItem>
                 <MenuItem onClick={logout} style={{ color: "#9e5642" }}>
                   <p>Logoff</p>
@@ -223,7 +259,7 @@ const Header = () => {
             </>
           )}
         </Toolbar>
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories1.map((actual, index) => {
               return (
@@ -243,7 +279,7 @@ const Header = () => {
             })}
           </Toolbar>
         )}
-        {user && !colapsed && (
+        {!isChef && !colapsed && (
           <Toolbar className={classes.categoriesToolbar}>
             {categories2.map((actual, index) => {
               return (

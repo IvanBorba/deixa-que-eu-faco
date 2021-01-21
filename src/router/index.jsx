@@ -8,10 +8,9 @@ import ChefsList from "../pages/chefs-list";
 import FilteredChefList from "../pages/filtered-chefs-list";
 import ChefHome from "../pages/chef-home";
 import { getUsersThunk } from "../store/modules/users/thunk";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import HomePage from "../pages/home";
 import NewService from "../pages/new-service";
-import Header from "../components/header";
 import SettingsPage from "../pages/user-settings";
 import ActiveServices from "../pages/customer-active-services";
 
@@ -19,7 +18,7 @@ const Router = () => {
   let token = localStorage.getItem("authToken");
   let actualUser = JSON.parse(localStorage.getItem("userData"));
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
+  const users = JSON.parse(localStorage.getItem("users"));
 
   useEffect(() => {
     dispatch(getUsersThunk());
@@ -32,6 +31,9 @@ const Router = () => {
       </Route>
       <Route exact path="/view-chef/:specific_id">
         <ViewChef users={users} />
+      </Route>
+      <Route exact path="/chefs/:specific_expertise">
+        <FilteredChefList users={users} />
       </Route>
       {!token ? (
         <>
@@ -51,8 +53,7 @@ const Router = () => {
             <ChefHome />
           </Route>
           <Route exact path="/settings">
-              <Header />
-             <SettingsPage />
+            <SettingsPage />
           </Route>
         </>
       ) : (
@@ -70,8 +71,7 @@ const Router = () => {
             <NewService />
           </Route>
           <Route exact path="/settings">
-            <Header />
-              <SettingsPage />
+            <SettingsPage />
           </Route>
           <Route exact path="/chefs">
             <ChefsList users={users} />
