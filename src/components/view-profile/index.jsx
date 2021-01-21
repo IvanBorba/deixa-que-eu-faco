@@ -14,7 +14,7 @@ const ViewProfile = ({ currentChef }) => {
           <h1 className="name-chef">{currentChef.name}</h1>
           <p className="about-chef">{currentChef.experience} de experiência</p>
           <p className="about-chef">Especialidade: {currentChef.expertise}</p>
-          <div>
+          <div id="chef-rate">
             <Rating
               defaultValue={
                 currentChef.rate?.reduce((acc, current) => acc + current) / 4
@@ -22,8 +22,9 @@ const ViewProfile = ({ currentChef }) => {
               precision={0.5}
               readOnly
             />
-            {!currentChef.rate && <p>* Ainda não avaliado</p>}
+            <p>({currentChef.rate.length})</p>
           </div>
+          {!currentChef.rate && <p>* Ainda não avaliado</p>}
         </div>
       </Film>
     </Container>

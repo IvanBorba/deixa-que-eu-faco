@@ -14,10 +14,13 @@ const BestChefs = ({ chefs, showTopFive }) => {
     for (let i = 0; i < 3; i++) {
       let firsts = chefs[i];
       chefs.forEach((actual) => {
-        if (actual.rate) {
-          let reducedRate = actual.rate.reduce((acc, number) => acc + number);
+        const { rate } = actual;
+        if (rate) {
+          let reducedRate =
+            rate.reduce((acc, number) => acc + number) / rate.length;
           if (
-            reducedRate > firsts.rate.reduce((acc, number) => acc + number) &&
+            reducedRate >
+              firsts.rate.reduce((acc, number) => acc + number) / rate.length &&
             !list.includes(actual)
           ) {
             firsts = actual;
@@ -34,10 +37,13 @@ const BestChefs = ({ chefs, showTopFive }) => {
     for (let i = 0; i < 5; i++) {
       let firsts = chefs[i];
       chefs.forEach((actual) => {
-        if (actual.rate) {
-          let reducedRate = actual.rate.reduce((acc, number) => acc + number);
+        const { rate } = actual;
+        if (rate) {
+          let reducedRate =
+            rate.reduce((acc, number) => acc + number) / rate.length;
           if (
-            reducedRate > firsts.rate.reduce((acc, number) => acc + number) &&
+            reducedRate >
+              firsts.rate.reduce((acc, number) => acc + number) / rate.length &&
             !list.includes(actual)
           ) {
             firsts = actual;
