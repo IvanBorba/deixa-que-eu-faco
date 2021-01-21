@@ -32,7 +32,7 @@ export const Container = styled.div`
 `;
 
 export const BioContainer = styled.div`
-  min-height: 50vh;
+  min-height: 45vh;
   width: 95vw;
   margin: 15px auto;
 
