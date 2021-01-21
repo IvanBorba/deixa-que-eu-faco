@@ -27,6 +27,11 @@ export const Film = styled.div`
       margin: 5px 0;
       font-size: 14px;
     }
+    #chef-rate {
+      display: flex;
+      align-items: center;
+      color: #333;
+    }
   }
 
   @media (min-width: 320px) {
