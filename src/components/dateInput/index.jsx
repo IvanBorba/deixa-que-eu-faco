@@ -6,19 +6,6 @@ import {
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-// <CssTextField
-//   className={classes.margin}
-//   type="date"
-//   name="birth_date"
-//   label=""
-//   variant="outlined"
-//   margin="dense"
-//   style={{ background: "white", borderRadius: "5px" }}
-//   inputRef={register}
-//   error={!!errors.birth_date}
-//   fullWidth
-// />
-
 export default function MaterialUIPickers({ register, errors }) {
     const [selectedDate, setSelectedDate] = React.useState(null);
 
