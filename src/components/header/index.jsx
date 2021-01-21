@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useState } from "react";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "2vw",
     marginRight: "2vw",
     [theme.breakpoints.down(281)]: { marginLeft: 0 },
+    [theme.breakpoints.down(400)]: { fontSize: "10px" },
+  },
+  registerButton: {
+    [theme.breakpoints.down(400)]: { fontSize: "10px" },
+    marginLeft: "2vw",
   },
   title: {
     cursor: "pointer",
@@ -72,8 +77,8 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     width: "25%",
     [theme.breakpoints.down(450)]: { width: "33%" },
-    [theme.breakpoints.down(400)]: { width: "40%" },
-    [theme.breakpoints.down(330)]: { width: "55%", fontSize: "11px" },
+    [theme.breakpoints.down(400)]: { width: "40%", fontSize: "10px" },
+    [theme.breakpoints.down(330)]: { width: "55%", fontSize: "8px" },
   },
   mobileMenu: {
     [theme.breakpoints.up(500)]: { maxWidth: "20vw" },
@@ -94,6 +99,7 @@ const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [colapsed, setColapsed] = useState(true);
   const history = useHistory();
+  const location = useLocation();
   const categories1 = ["Churrasco", "Japonesa", "Chinesa", "Vegetariana"];
   const categories2 = ["Árabe", "Saudável", "Vegana", "Doces"];
 
@@ -108,7 +114,6 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
-    localStorage.removeItem("users");
     history.push("/");
     window.location.reload();
   };
@@ -154,8 +159,13 @@ const Header = () => {
             </Button>
           )}
           {!user && (
-            <Button color="secondary" component={Link} to="/register">
-              Cadastre-se
+            <Button
+              color="secondary"
+              component={Link}
+              to="/register"
+              className={classes.registerButton}
+            >
+              Cadastro
             </Button>
           )}
           {!user && (
@@ -183,16 +193,19 @@ const Header = () => {
               {colapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
             </Button>
           )}
-          {user && isChef && actualWidth > 768 && (
-            <Button
-              color="primary"
-              component={Link}
-              to={"/settings"}
-              className={classes.loginButton}
-            >
-              Atualizar perfil
-            </Button>
-          )}
+          {user &&
+            isChef &&
+            actualWidth > 768 &&
+            location.pathname !== "/settings" && (
+              <Button
+                color="primary"
+                component={Link}
+                to={"/settings"}
+                className={classes.loginButton}
+              >
+                Atualizar perfil
+              </Button>
+            )}
           {user && actualWidth > 768 && (
             <Button
               color="primary"

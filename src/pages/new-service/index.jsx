@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#9E5642",
     fontWeight: "200",
     alignSelf: "center",
+    marginBottom: "2vh",
   },
 }));
 

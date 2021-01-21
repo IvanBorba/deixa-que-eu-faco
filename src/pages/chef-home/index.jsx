@@ -25,9 +25,9 @@ const ChefHome = () => {
       <Header />
       <Banner />
       <Main>
-        {!user.bio && (
+        {!user.price && (
           <p style={{ color: "red", marginLeft: "2vw", fontSize: "small" }}>
-            * Complete seu perfil para ter mais visibilidade
+            * Complete seu perfil para poder ser contratado
           </p>
         )}
         <h1 className="user">Olá Chef {user.name}!</h1>
