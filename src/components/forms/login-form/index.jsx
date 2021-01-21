@@ -4,7 +4,7 @@ import { LoginRequisition } from "../../../requests";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import {makeStyles, withStyles} from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../../helper";
 
@@ -38,21 +38,21 @@ const useStyles = makeStyles((theme) => ({
 
 const CssTextField = withStyles({
   root: {
-    '& label.Mui-focused': {
-      color: '#9E5642',
+    "& label.Mui-focused": {
+      color: "#9E5642",
     },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#9E5642',
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#9E5642",
     },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'red',
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
       },
-      '&:hover fieldset': {
-        borderColor: 'yellow',
+      "&:hover fieldset": {
+        borderColor: "yellow",
       },
-      '&.Mui-focused fieldset': {
-        borderColor: '#9E5642',
+      "&.Mui-focused fieldset": {
+        borderColor: "#9E5642",
       },
     },
   },
@@ -63,11 +63,11 @@ const LoginForm = () => {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(loginSchema),
   });
-  const users = useSelector((state) => state.users);
+
   const history = useHistory();
 
   const handleLogin = (data) => {
-    LoginRequisition(data, users, history);
+    LoginRequisition(data, history);
   };
 
   return (

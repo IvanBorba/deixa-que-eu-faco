@@ -22,7 +22,7 @@ const ViewProfile = ({ currentChef }) => {
               precision={0.5}
               readOnly
             />
-            <p>({currentChef.rate.length})</p>
+            <p>({!currentChef.rate ? "0" : currentChef.rate.length})</p>
           </div>
           {!currentChef.rate && <p>* Ainda não avaliado</p>}
         </div>

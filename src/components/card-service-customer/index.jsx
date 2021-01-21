@@ -8,7 +8,7 @@ import {
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
-import { updateProfile, updateService } from "../../requests";
+import { updateServiceRate } from "../../requests";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,10 +18,28 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     margin: "0 auto",
     width: "30vw",
-    height: "20vh",
+    height: "28vh",
     border: "5px solid #9e5642;",
     backgroundColor: "#f5e0cc",
-    marginBottom: "2vh",
+    marginBottom: "4vh",
+    [theme.breakpoints.down(1411)]: {
+      width: "33vw",
+    },
+    [theme.breakpoints.down(1100)]: {
+      width: "40vw",
+      height: "38vh",
+    },
+    [theme.breakpoints.down(769)]: {
+      width: "50vw",
+      height: "41vh",
+    },
+    [theme.breakpoints.down(456)]: {
+      width: "60vw",
+      height: "47vh",
+    },
+    [theme.breakpoints.down(363)]: {
+      height: "50vh",
+    },
   },
   chefName: {
     color: "#9e5642",
@@ -52,22 +70,28 @@ const useStyles = makeStyles((theme) => ({
   },
   rateInput: {
     marginTop: "1vh",
+    marginLeft: "1vh",
     maxHeight: "5vh",
     width: "5vw",
   },
   rateButton: {
     border: "1px solid #9e5642",
     textTransform: "uppercase",
-    marginLeft: "16vw",
-    marginTop: "2.1vh",
+    marginLeft: "3.5vw",
+    marginTop: "1vh",
     padding: 0,
-    height: "3vh",
-    width: "10vw",
-
-    "& :hover": {
-      color: "#ffffff",
-      backgroundColor: "#9e5642",
+    height: "5vh",
+    width: "20vw",
+    [theme.breakpoints.down(769)]: {
+      marginLeft: "15vw",
+      width: "32vw",
+      height: "8vh",
     },
+  },
+  date: {
+    marginLeft: "1vw",
+    textTransform: "uppercase",
+    fontSize: "20px",
   },
 }));
 
@@ -92,7 +116,10 @@ const ServiceCard = ({ service }) => {
       rate: [...chef.rate, rate],
     };
 
-    updateService(serviceData, service.id, userData, chef.id);
+    console.log(userData);
+    console.log(chef.id);
+
+    updateServiceRate(serviceData, service.id, userData, chef.id);
   };
 
   return (
@@ -118,7 +145,7 @@ const ServiceCard = ({ service }) => {
             ? "Finalizado"
             : "Aguardando avaliação"}
         </p>
-        {status === "finished" && !service.rate && (
+        {status === "finished" && !service.rate ? (
           <form
             style={{ display: "flex", margin: "0 auto" }}
             onSubmit={handleServiceUpdate}
@@ -160,6 +187,8 @@ const ServiceCard = ({ service }) => {
               Enviar avaliação
             </Button>
           </form>
+        ) : (
+          <p className={classes.date}>Data: {service.date}</p>
         )}
       </Paper>
     </div>

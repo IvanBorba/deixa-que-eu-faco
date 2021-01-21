@@ -8,23 +8,14 @@ const headers = {
   },
 };
 
-const updateProfile = (data, id) => {
-  axios
-    .patch(`${baseUrl}/users/${id}`, data)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err, "Erro na atualização do perfil"));
-};
-
 export const LoginRequisition = (data, history) => {
   axios
     .post(`${baseUrl}/login`, data)
     .then(async (res) => {
-      let actual = await axios.get(`${baseUrl}/users?email=${data.email}`);
       localStorage.setItem("authToken", res.data.accessToken);
+      let actual = await axios.get(`${baseUrl}/users?email=${data.email}`);
       localStorage.setItem("userData", JSON.stringify(actual.data[0]));
-      console.log(actual.data);
-      let historyUser = JSON.parse(localStorage.getItem("userData"));
-      historyUser.isChef
+      actual.data[0].isChef
         ? history.push("/home-chef")
         : history.push("/home-customer");
       window.location.reload();
@@ -51,11 +42,25 @@ export const registerService = (data, setSuccess) => {
     .catch((err) => console.log(err, "Erro no cadastro do produto"));
 };
 
-export const updateService = (data, serviceId, userData, chefId) => {
+export const updateService = (data, serviceId) => {
   axios
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
     .then((res) => {
-      console.log(res);
+      window.location.reload();
+    })
+    .catch((err) => console.log(err, "Erro na atualização do produto"));
+};
+
+export const updateServiceRate = (data, serviceId, userData, chefId) => {
+  const updateProfile = (chefData, id) => {
+    axios
+      .patch(`${baseUrl}/users/${id}`, chefData, headers)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err, "Erro na atualização do perfil"));
+  };
+  axios
+    .patch(`${baseUrl}/services/${serviceId}`, data, headers)
+    .then((res) => {
       updateProfile(userData, chefId);
       window.location.reload();
     })
