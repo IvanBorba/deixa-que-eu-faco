@@ -37,7 +37,6 @@ export const RegisterPost = (data, chefRegister, options, history) => {
   console.log(data);
 
   api.post(`/register`, data).then((res) => console.log(res));
-
 };
 
 export const registerService = (data, setSuccess) => {
@@ -60,8 +59,7 @@ export const updateProfile = (chefData, id) => {
   api
     .patch(`/users/${id}`, chefData, headers)
     .then((res) => {
-      console.log(res);
-      // window.location.reload()
+      window.location.reload();
     })
     .catch((err) => console.log(err, "Erro na atualização do perfil"));
 };
