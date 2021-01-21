@@ -18,14 +18,14 @@ const RegisterPage = () => {
         <div className="Film">
           <div className="topButtons">
             <Button
-              style={{ color: "#7c4636" }}
+              style={{ color: "#9E5642" }}
               onClick={() => history.push("/")}
             >
               {" "}
               <ArrowBackIcon /> Voltar
             </Button>
             <Button
-              style={{ color: "#7c4636" }}
+              style={{ color: "#9E5642" }}
               onClick={() => history.push("/login")}
             >
               Login &nbsp;
