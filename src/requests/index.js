@@ -11,7 +11,7 @@ const headers = {
   },
 };
 
-export const LoginRequisition = (data, history) => {
+export const LoginRequisition = (data, history, setErro) => {
   api
     .post(`/login`, data)
     .then(async (res) => {
@@ -23,7 +23,7 @@ export const LoginRequisition = (data, history) => {
         : history.push("/home-customer");
       window.location.reload();
     })
-    .catch(() => console.log("login ou senha incorretos"));
+    .catch(() => setErro("login ou senha incorretos"));
 };
 
 export const RegisterPost = (data, chefRegister, options) => {

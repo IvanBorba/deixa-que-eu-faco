@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { LoginRequisition } from "../../../requests";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -60,14 +59,19 @@ const CssTextField = withStyles({
 
 const LoginForm = () => {
   const classes = useStyles();
+  const [erro, setErro] = useState(false);
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(loginSchema),
   });
 
   const history = useHistory();
 
+  const error = {
+    messageError: erro,
+  };
+
   const handleLogin = (data) => {
-    LoginRequisition(data, history);
+    LoginRequisition(data, history, setErro);
   };
 
   return (
@@ -94,6 +98,9 @@ const LoginForm = () => {
       <p style={{ fontSize: "x-small", color: "red", alignSelf: "center" }}>
         {errors.email?.message || errors.password?.message}
       </p>
+      <div style={{ textAlign: "center", color: "#ad3e3e" }}>
+        {error.messageError && <p>{error.messageError}</p>}
+      </div>
       <button type="submit" style={{ textTransform: "uppercase" }}>
         Entrar
       </button>

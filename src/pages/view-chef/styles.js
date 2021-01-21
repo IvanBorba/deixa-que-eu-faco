@@ -25,6 +25,10 @@ export const Container = styled.div`
       width: 90vw;
     }
   }
+
+  @media (min-width: 1440px) {
+    min-height: 710px;
+  }
 `;
 
 export const BioContainer = styled.div`
