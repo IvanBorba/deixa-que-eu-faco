@@ -1,5 +1,5 @@
 import ViewProfile from "../../components/view-profile";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Container, BioContainer, ButtonProfile } from "./styles";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
@@ -9,6 +9,8 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 const ViewChef = ({ users }) => {
   const history = useHistory();
   const { specific_id } = useParams();
+  const token = localStorage.getItem("authToken");
+
   const currentChef = users.find(({ id, isChef }) => {
     return id === Number(specific_id) && isChef;
   });
@@ -36,14 +38,16 @@ const ViewChef = ({ users }) => {
           >
             <ArrowBackIcon color="primary" /> Voltar
           </Button>
-          <ButtonProfile
-            variant="outlined"
-            size="large"
-            style={{ textTransform: "uppercase" }}
-            onClick={() => history.push(`/new-service/${currentChef.id}`)}
-          >
-            Contratar
-          </ButtonProfile>
+          {token && (
+            <ButtonProfile
+              variant="outlined"
+              size="large"
+              style={{ textTransform: "uppercase" }}
+              onClick={() => history.push(`/new-service/${currentChef.id}`)}
+            >
+              Contratar
+            </ButtonProfile>
+          )}
         </div>
       </Container>
       <Footer />
