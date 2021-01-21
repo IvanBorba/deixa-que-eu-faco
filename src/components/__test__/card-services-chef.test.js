@@ -11,6 +11,7 @@ describe("when everything is ok", () => {
     };
     render(<CardServicesChef card={cardMock} />);
     const fromScreen = screen.getByText("Detalhes:");
-    expect(fromScreen).toBeInTheDocument;
+    expect(fromScreen).toBeInTheDocument();
   });
 });
+

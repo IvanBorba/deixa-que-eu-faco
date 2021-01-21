@@ -107,13 +107,13 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
   }, [chefRegister]);
 
   const registerRequisition = (data) => {
-    RegisterPost(data, chefRegister, options);
-    history.push("/login");
+    RegisterPost(data, chefRegister, options, history);
   };
 
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(registerSchema),
   });
+
 
   return (
     <form
@@ -147,7 +147,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         fullWidth
       />
 
-      <MaterialUIPickers errors={!!errors.birth_date} inputRef={register}/>
+      <MaterialUIPickers errors={!!errors.birth_date} inputRef={register} />
       <CssTextField
         className={classes.margin}
         name="password"
@@ -217,7 +217,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         </Select>
       </FormControl>
       <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
-        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11, margin: 0 }}>
+        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11, margin: 0 }} data-testid="cadastrar">
           cadastrar
         </ColorButton>
         <FormControlLabel
@@ -227,6 +227,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
               checked={chefRegister}
               onChange={() => setChefRegister(!chefRegister)}
               name="checkedA"
+              data-testid="switch"
             />
           }
           label={!chefRegister ? "Sou chefe" : "Sou cliente"}

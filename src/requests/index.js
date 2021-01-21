@@ -23,7 +23,7 @@ export const LoginRequisition = (data, history) => {
     .catch(() => console.log("login ou senha incorretos"));
 };
 
-export const RegisterPost = (data, chefRegister, options) => {
+export const RegisterPost = (data, chefRegister, options, history) => {
   const date = document.getElementById("birth_date");
   if (chefRegister) {
     data.expertise = options.expertise;
@@ -32,7 +32,12 @@ export const RegisterPost = (data, chefRegister, options) => {
   data.birth_date = date.value;
   data.isChef = chefRegister;
   console.log(data);
-  axios.post(`${baseUrl}/register`, data).then((res) => console.log(res));
+  axios.post(`${baseUrl}/register`, data).then((res) => {
+      console.log(res)
+      localStorage.setItem("registerOk", "isOk");
+      console.log(localStorage.getItem("registerOk"))
+      history.push("/login")
+  });
 };
 
 export const registerService = (data, setSuccess) => {
