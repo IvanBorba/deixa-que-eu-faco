@@ -32,21 +32,21 @@ const PurpleSwitch = withStyles({
 
 const CssTextField = withStyles({
   root: {
-    '& label.Mui-focused': {
-      color: '#9E5642',
+    "& label.Mui-focused": {
+      color: "#9E5642",
     },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: '#9E5642',
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#9E5642",
     },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: 'red',
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "red",
       },
-      '&:hover fieldset': {
-        borderColor: 'yellow',
+      "&:hover fieldset": {
+        borderColor: "yellow",
       },
-      '&.Mui-focused fieldset': {
-        borderColor: '#9E5642',
+      "&.Mui-focused fieldset": {
+        borderColor: "#9E5642",
       },
     },
   },
@@ -114,7 +114,6 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
     resolver: yupResolver(registerSchema),
   });
 
-
   return (
     <form
       onSubmit={handleSubmit(registerRequisition)}
@@ -131,7 +130,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         name="name"
         label="Nome"
         margin="dense"
-        style={{ background: "white"}}
+        style={{ background: "white" }}
         inputRef={register}
         error={!!errors.name}
         fullWidth
@@ -141,7 +140,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         name="email"
         label="Email"
         margin="dense"
-        style={{ background: "white"}}
+        style={{ background: "white" }}
         inputRef={register}
         error={!!errors.email}
         fullWidth
@@ -154,14 +153,13 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         label="Senha"
         type="password"
         margin="dense"
-        style={{ background: "white"}}
+        style={{ background: "white" }}
         inputRef={register}
         error={!!errors.password}
         fullWidth
       />
       <FormControl
         variant="filled"
-
         className={!chefRegister ? "chefExpertiseFalse" : "chefExpertiseTrue"}
       >
         <InputLabel htmlFor="outlined-age-native-simple">
@@ -177,7 +175,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
           }}
           disabled={!chefRegister}
           margin="dense"
-          style={{background: "white"}}
+          style={{ background: "white" }}
         >
           <option aria-label="None" value="" />
           <option value={"Churrasco"}>Churrasco</option>
@@ -207,17 +205,21 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
           }}
           disabled={!chefRegister}
           margin="dense"
-          style={{background: "white"}}
+          style={{ background: "white" }}
         >
           <option aria-label="None" value="" />
-          <option value={" 0 - 2 anos"}>0-2 anos</option>
+          <option value={"0 - 2 anos"}>0-2 anos</option>
           <option value={"2 - 4 anos"}>2-4 anos</option>
           <option value={"4 - 6 anos"}>4-6 anos</option>
           <option value={"Mais de 8 anos"}>+8 anos</option>
         </Select>
       </FormControl>
       <div className={!chefRegister ? "buttonsChefFalse" : "buttonsChefTrue"}>
-        <ColorButton type="submit" style={{ fontWeight: 700, fontSize: 11, margin: 0 }} data-testid="cadastrar">
+        <ColorButton
+          type="submit"
+          style={{ fontWeight: 700, fontSize: 11, margin: 0 }}
+          data-testid="cadastrar"
+        >
           cadastrar
         </ColorButton>
         <FormControlLabel

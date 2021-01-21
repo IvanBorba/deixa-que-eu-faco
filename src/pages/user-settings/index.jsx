@@ -2,8 +2,6 @@ import Footer from "../../components/footer";
 import {
   SettingsAvatar,
   SettingsDatas,
-  LoginSettings,
-  SaveConfigs,
 } from "../../components/forms/settings-form";
 import Header from "../../components/header";
 import "./index.css";
@@ -24,12 +22,6 @@ const SettingsPage = () => {
         </div>
         <div>
           <SettingsDatas />
-        </div>
-        <div>
-          <LoginSettings />
-        </div>
-        <div>
-          <SaveConfigs />
         </div>
       </div>
       <Footer />

@@ -35,8 +35,12 @@ const HomePage = () => {
             culinárias e que possam aproveitar melhor seu tempo com a família e
             amigos
           </p>
-          <Link className="button" to="/chefs">
-            VER CHEFS
+          <Link
+            className="button"
+            to="/chefs"
+            style={{ textTransform: "uppercase" }}
+          >
+            Ver chefs
           </Link>
         </div>
       </Container>

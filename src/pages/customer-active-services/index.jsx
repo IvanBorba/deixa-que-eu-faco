@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       width: "65vw",
     },
   },
+  cardsContainer: {
+    marginBottom: "5vh",
+  },
 }));
 
 const ActiveServices = () => {
@@ -107,7 +110,10 @@ const ActiveServices = () => {
     return null;
   });
 
+  console.log(servicesWaitingAccept);
   console.log(servicesWaitingDate);
+  console.log(servicesWaitingRate);
+  console.log(finishedServices);
 
   useEffect(() => {
     dispatch(getCostumerServicesThunk());
@@ -137,7 +143,7 @@ const ActiveServices = () => {
             Finalizados
           </Button>
         </div>
-        <div>
+        <div className={classes.cardsContainer}>
           {waiting && (
             <>
               {servicesWaitingAccept && (
@@ -146,8 +152,8 @@ const ActiveServices = () => {
               {servicesWaitingAccept.map((actual) => {
                 return <ServiceCard service={actual} />;
               })}
-              {!servicesWaitingAccept && (
-                <h2 className={classes.title}>Nenhum contrato pendente </h2>
+              {servicesWaitingAccept.length < 1 && (
+                <h2 className={classes.title}>Nenhum contrato pendente</h2>
               )}
             </>
           )}
@@ -159,7 +165,7 @@ const ActiveServices = () => {
               {servicesWaitingDate.map((actual) => {
                 return <ServiceCard service={actual} />;
               })}
-              {servicesWaitingDate && (
+              {servicesWaitingDate.length < 1 && (
                 <h2 className={classes.title}>
                   Nenhum contrato aguardando data
                 </h2>
@@ -168,15 +174,15 @@ const ActiveServices = () => {
           )}
           {waitingRate && (
             <>
-              {servicesWaitingDate && (
+              {servicesWaitingRate && (
                 <h2 className={classes.title}>Aguardando avaliação: </h2>
               )}
               {servicesWaitingRate.map((actual) => {
                 return <ServiceCard service={actual} />;
               })}
-              {!servicesWaitingDate && (
+              {servicesWaitingRate.length < 1 && (
                 <h2 className={classes.title}>
-                  Nenhum contrato aguardando avaliação
+                  Nenhum contrato aguardando avaliação{" "}
                 </h2>
               )}
             </>
@@ -189,8 +195,8 @@ const ActiveServices = () => {
               {finishedServices.map((actual) => {
                 return <ServiceCard service={actual} />;
               })}
-              {!finishedServices && (
-                <h2 className={classes.title}>Nenhum contrato finalizado </h2>
+              {finishedServices.length < 1 && (
+                <h2 className={classes.title}>Nenhum contrato finalizado</h2>
               )}
             </>
           )}
