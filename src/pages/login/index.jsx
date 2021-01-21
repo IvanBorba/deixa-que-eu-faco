@@ -36,7 +36,7 @@ const Login = () => {
               </BoxContent>
             </Box>
             <Footer>
-              Deixa que eu faço
+              DEIXA QUE EU FAÇO
               <p> &#169; Todos os direitos reservados</p>
             </Footer>
           </Film>

@@ -108,21 +108,23 @@ export const Options = styled.div`
   background: rgba(255, 255, 255, 0.5);
 
   .button {
-    color: #7c4636;
+    color: #9E5642;
     text-transform: uppercase;
   }
 `;
 
 export const Footer = styled.footer`
   text-align: center;
-  color: #7c4636;
+  color: #9E5642;
   font-weight: 700;
-  transform: translateY(-10px);
-  text-transform: uppercase;
+  transform: translateY(-30px);
+
+  @media (max-width: 1024px) {
+    color: #f7e6d6;
+  }
 
   p {
-    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
     margin: 5px 0;
   }
