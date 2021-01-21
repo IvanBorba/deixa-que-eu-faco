@@ -107,8 +107,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
   }, [chefRegister]);
 
   const registerRequisition = (data) => {
-    RegisterPost(data, chefRegister, options);
-    history.push("/login");
+    RegisterPost(data, chefRegister, options, history);
   };
 
   const { register, handleSubmit, errors } = useForm({
@@ -219,6 +218,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
         <ColorButton
           type="submit"
           style={{ fontWeight: 700, fontSize: 11, margin: 0 }}
+          data-testid="cadastrar"
         >
           cadastrar
         </ColorButton>
@@ -229,6 +229,7 @@ const RegisterForm = ({ chefRegister, setChefRegister }) => {
               checked={chefRegister}
               onChange={() => setChefRegister(!chefRegister)}
               name="checkedA"
+              data-testid="switch"
             />
           }
           label={!chefRegister ? "Sou chefe" : "Sou cliente"}

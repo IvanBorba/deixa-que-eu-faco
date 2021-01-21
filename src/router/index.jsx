@@ -43,7 +43,7 @@ const Router = () => {
             <HomePage />
           </Route>
           <Route path="/register">
-            <RegisterPage />
+            <RegisterPage defaultView={false}/>
           </Route>
           <Route path="/login">
             <Login />

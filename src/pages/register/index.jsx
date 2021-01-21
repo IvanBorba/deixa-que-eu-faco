@@ -7,8 +7,8 @@ import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import PeopleIcon from "@material-ui/icons/People";
 
-const RegisterPage = () => {
-  const [chefRegister, setChefRegister] = useState(false);
+const RegisterPage = ({ defaultView }) => {
+  const [chefRegister, setChefRegister] = useState(defaultView);
 
   const history = useHistory();
   return (

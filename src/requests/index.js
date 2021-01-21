@@ -11,7 +11,7 @@ const headers = {
   },
 };
 
-export const LoginRequisition = (data, history) => {
+export const LoginRequisition = (data, history, setErro) => {
   api
     .post(`/login`, data)
     .then(async (res) => {
@@ -23,10 +23,10 @@ export const LoginRequisition = (data, history) => {
         : history.push("/home-customer");
       window.location.reload();
     })
-    .catch(() => console.log("login ou senha incorretos"));
+    .catch(() => setErro("login ou senha incorretos"));
 };
 
-export const RegisterPost = (data, chefRegister, options) => {
+export const RegisterPost = (data, chefRegister, options, history) => {
   const date = document.getElementById("birth_date");
   if (chefRegister) {
     data.expertise = options.expertise;
@@ -35,7 +35,9 @@ export const RegisterPost = (data, chefRegister, options) => {
   data.birth_date = date.value;
   data.isChef = chefRegister;
   console.log(data);
+
   api.post(`/register`, data).then((res) => console.log(res));
+
 };
 
 export const registerService = (data, setSuccess) => {
