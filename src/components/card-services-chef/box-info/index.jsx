@@ -1,11 +1,23 @@
 import React from "react";
 import { Main, Card } from "./styled";
 
-const BoxInfo = ({ list, setOption }) => {
+const BoxInfo = ({ list, setOption, rate }) => {
   const servicesFinished = list.filter((item) => item.status === "finished");
   const handleFinished = () => {
     setOption("finished");
     console.log("SERVICES FINISHED: ", servicesFinished);
+  };
+
+  const myRate = () => {
+    const finalRate = (
+      rate.reduce((acc, value) => acc + value) /
+      (rate.length * 2)
+    ).toString();
+    if (finalRate.length > 1) {
+      return finalRate.slice(0, 3);
+    } else {
+      return `${finalRate}.0`;
+    }
   };
 
   const servicesWaiting = list.filter((item) => item.status === "waiting");
@@ -22,7 +34,7 @@ const BoxInfo = ({ list, setOption }) => {
   return (
     <Main>
       <Card>
-        <p>AVALIAÇÕES: 4.5 / 5.0</p>
+        <p>MINHA NOTA: {!rate ? "0.0" : myRate()} / 5.0</p>
         <p>SERVIÇOS REALIZADOS: {servicesFinished.length}</p>
         <button onClick={handleFinished}>visualizar</button>
       </Card>

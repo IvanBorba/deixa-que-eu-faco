@@ -33,13 +33,13 @@ export const LoginRequisition = (data, history) => {
 };
 
 export const RegisterPost = (data, chefRegister, options) => {
+  const date = document.getElementById("birth_date");
   if (chefRegister) {
     data.expertise = options.expertise;
     data.experience = options.experience;
-    data.isChef = chefRegister;
-  } else {
-    data.isChef = chefRegister;
   }
+  data.birth_date = date.value;
+  data.isChef = chefRegister;
   console.log(data);
   axios.post(`${baseUrl}/register`, data).then((res) => console.log(res));
 };
@@ -56,7 +56,7 @@ export const updateService = (data, serviceId, userData, chefId) => {
     .patch(`${baseUrl}/services/${serviceId}`, data, headers)
     .then((res) => {
       console.log(res);
-      // updateProfile(userData, chefId);
+      updateProfile(userData, chefId);
       window.location.reload();
     })
     .catch((err) => console.log(err, "Erro na atualização do produto"));
