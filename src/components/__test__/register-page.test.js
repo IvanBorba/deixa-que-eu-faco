@@ -7,5 +7,5 @@ describe("When everything is ok", () => {
         let fromScreen = screen.getByText("CADASTRE-SE COMO CLIENTE")
         expect(fromScreen).toBeInTheDocument();
     })
-    
+
 })
