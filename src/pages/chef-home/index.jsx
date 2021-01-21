@@ -16,7 +16,7 @@ const ChefHome = () => {
 
   useEffect(() => {
     dispatch(getChefServicesThunk());
-  }, []);
+  }, [dispatch]);
 
   console.log("Services: ", services);
 

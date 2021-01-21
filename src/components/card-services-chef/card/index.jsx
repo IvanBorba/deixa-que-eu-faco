@@ -65,26 +65,28 @@ const CardServicesChef = ({ card }) => {
             </footer>
           </Container>
         ) : (
-          <Container className="main">
+          <Container>
             <p className="details">
               <b>Pessoas:</b> {card.guests}
             </p>
             <p className="details">
               <b>Preço:</b> {card.price}
             </p>
-            <p className="footer">{card.address}.</p>
-            {card.status === "waiting" ? (
-              <div className="waiting">
-                <button onClick={handleRemove}>RECUSAR</button>
-                <button onClick={handleDate}>ACEITAR</button>
-              </div>
-            ) : (
-              card.status === "accepted" && (
-                <div className="buttons">
-                  <button onClick={handleFinished}>FINALIZAR</button>
+            <div className="main">
+              <p className="footer">{card.address}.</p>
+              {card.status === "waiting" ? (
+                <div className="waiting">
+                  <button onClick={handleRemove}>RECUSAR</button>
+                  <button onClick={handleDate}>ACEITAR</button>
                 </div>
-              )
-            )}
+              ) : (
+                card.status === "accepted" && (
+                  <div className="buttons">
+                    <button onClick={handleFinished}>FINALIZAR</button>
+                  </div>
+                )
+              )}
+            </div>
           </Container>
         )}
       </Card>
