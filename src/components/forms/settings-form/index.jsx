@@ -262,6 +262,8 @@ export const SettingsDatas = () => {
               inputRef={register}
               name="price"
               type="number"
+              inputProps={{ max: 100 }}
+              max="100"
               label="R$"
               fullWidth
               style={{ marginTop: 20 }}
