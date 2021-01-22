@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "2vw",
   },
   title: {
-    cursor: "pointer",
     marginLeft: 0,
     flexGrow: 1,
     textTransform: "uppercase",
@@ -130,7 +129,6 @@ const Header = () => {
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="Logo Principal"
             className={classes.logo}
-            style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
             <Typography
