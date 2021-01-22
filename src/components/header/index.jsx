@@ -130,7 +130,6 @@ const Header = () => {
             src={process.env.PUBLIC_URL + "/logo.png"}
             alt="Logo Principal"
             className={classes.logo}
-            onClick={() => history.push("/")}
             style={{ cursor: "pointer" }}
           />
           {actualWidth > 768 && (
@@ -138,7 +137,6 @@ const Header = () => {
               color="primary"
               variant="h5"
               className={classes.title}
-              onClick={() => history.push("/")}
             >
               Deixa que eu faço
             </Typography>
