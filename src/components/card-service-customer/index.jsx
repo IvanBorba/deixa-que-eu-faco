@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     margin: "0 auto",
     width: "30vw",
-    height: "33vh",
+    height: "31vh",
     border: "5px solid #9e5642;",
     backgroundColor: "#f5e0cc",
     marginBottom: "4vh",
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   serviceValue: {
     color: "green",
     fontWeight: "300",
-    marginLeft: "22vw",
+    marginLeft: "1vw",
     marginTop: "1vh",
   },
   status: {
