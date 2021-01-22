@@ -5,29 +5,18 @@ import { updateService, deleteService } from "../../../requests";
 
 const CardServicesChef = ({ card }) => {
   const handleRemove = () => {
-    // fazer requisição DELETE para deletar serviço da API
-    console.log("Serviço removido");
-    console.log("Card: ", card);
     deleteService(card.id);
   };
 
   const handleDate = () => {
-    // alterar status da API para accepted
-    console.log("Serviço agendado");
-    console.log("Card: ", card);
     const accepted = { status: "accepted" };
     updateService(accepted, card.id);
   };
 
   const handleFinished = () => {
-    // alterar status da API para finished
-    console.log("Serviço finalizado");
-    console.log("Card: ", card);
     const accepted = { status: "finished" };
     updateService(accepted, card.id);
   };
-
-  console.log("CARD: ", card);
 
   return (
     <>

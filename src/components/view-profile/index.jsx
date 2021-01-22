@@ -23,7 +23,9 @@ const ViewProfile = ({ currentChef }) => {
             <Rating defaultValue={currentChefRate} precision={0.5} readOnly />
             <p>({!currentChef.rate ? "0" : currentChef.rate.length})</p>
           </div>
-          {!currentChef.rate && <p>* Ainda não avaliado</p>}
+          {!currentChef.rate && (
+            <p className="no-avaliable">* Ainda não avaliado</p>
+          )}
         </div>
       </Film>
     </Container>

@@ -19,11 +19,6 @@ const ViewChef = ({ users }) => {
     <>
       <Header />
       <Container>
-        {/* <div id="back">
-          <Link className="links" to="/chefs">
-            VOLTAR
-          </Link>
-        </div> */}
         {!!currentChef && <ViewProfile currentChef={currentChef} />}
         {!currentChef.price && (
           <p style={{ marginLeft: "2vw" }}>

@@ -110,11 +110,6 @@ const ActiveServices = () => {
     return null;
   });
 
-  console.log(servicesWaitingAccept);
-  console.log(servicesWaitingDate);
-  console.log(servicesWaitingRate);
-  console.log(finishedServices);
-
   useEffect(() => {
     dispatch(getCostumerServicesThunk());
   }, [dispatch]);

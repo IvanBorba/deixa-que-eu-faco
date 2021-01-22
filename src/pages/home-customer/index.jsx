@@ -12,7 +12,6 @@ const HomeCustomer = ({ bests }) => {
   const handleTopFive = () => {
     setShowTopFive(!showTopFive);
   };
-  console.log(bests);
   return (
     <>
       <Header />

@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     margin: "0 auto",
     width: "30vw",
-    height: "28vh",
+    height: "31vh",
     border: "5px solid #9e5642;",
     backgroundColor: "#f5e0cc",
     marginBottom: "4vh",
@@ -116,9 +116,6 @@ const ServiceCard = ({ service }) => {
       rate: [...chef.rate, rate],
     };
 
-    console.log(userData);
-    console.log(chef.id);
-
     updateServiceRate(serviceData, service.id, userData, chef.id);
   };
 
@@ -141,6 +138,8 @@ const ServiceCard = ({ service }) => {
           Status:{" "}
           {status === "waiting"
             ? "Aguardando chef"
+            : status === "accepted"
+            ? "Aguardando chefe finalizar serviço"
             : status === "finished" && service.rate
             ? "Finalizado"
             : "Aguardando avaliação"}

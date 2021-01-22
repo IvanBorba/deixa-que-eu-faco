@@ -5,7 +5,6 @@ const BoxInfo = ({ list, setOption, rate }) => {
   const servicesFinished = list.filter((item) => item.status === "finished");
   const handleFinished = () => {
     setOption("finished");
-    console.log("SERVICES FINISHED: ", servicesFinished);
   };
 
   const myRate = () => {
@@ -23,13 +22,11 @@ const BoxInfo = ({ list, setOption, rate }) => {
   const servicesWaiting = list.filter((item) => item.status === "waiting");
   const handleWaiting = () => {
     setOption("waiting");
-    console.log("SERVICES WAITING: ", servicesWaiting);
   };
 
   const servicesAccepted = list.filter((item) => item.status === "accepted");
   const handleAccepted = () => {
     setOption("accepted");
-    console.log("SERVICES ACCEPTED: ", servicesAccepted);
   };
   return (
     <Main>
