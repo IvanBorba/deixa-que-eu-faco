@@ -37,11 +37,11 @@ const Router = () => {
       <Route exact path="/chefs/:specific_expertise">
         <FilteredChefList users={users} />
       </Route>
+      <Route exact path="/">
+            <HomePage />
+      </Route>
       {!token ? (
         <>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
           <Route path="/register">
             <RegisterPage defaultView={false}/>
           </Route>
@@ -66,9 +66,6 @@ const Router = () => {
         </>
       ) : (
         <>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
           <Route exact path="/home-customer">
             <HomeCustomer bests={users} />
           </Route>
